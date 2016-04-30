@@ -3,20 +3,20 @@
 % Structure Specification File
 % Version 2.5 (04/29/2016)
 %
-% This file was modified from a template 
+% This file was modified from a template
 % which was downloaded from:
 % http://www.LaTeXTemplates.com
 %
 % Original Authors:
-% Vel 
+% Vel
 % (vel@latextemplates.com)
-% Christopher Eliot 
+% Christopher Eliot
 % (christopher.eliot@hofstra.edu)
-% Anthony Dardis 
+% Anthony Dardis
 % (anthony.dardis@hofstra.edu)
 %
 % License:
-% CC BY-NC-SA 3.0 
+% CC BY-NC-SA 3.0
 % (http://creativecommons.org/licenses/by-nc-sa/3.0/)
 %
 % Current Version Author:
@@ -29,96 +29,222 @@
 %----------------------------------------------------------------------------------------
 %	REQUIRED PACKAGES
 %----------------------------------------------------------------------------------------
-\usepackage[columnsep=1cm, left=0.5in, right=0.5in, margin=0.25in,bottom=.05in,top=.15in, bindingoffset=0.2in]{geometry}
-\setlength{\voffset}{-0.75in}
-\setlength{\headsep}{0pt}
+\usepackage[columnsep=1cm, left=0.25in, right=0.25in, margin=0.25in,bottom=.05in,top=.15in, bindingoffset=0.2in]{geometry}
 
 
 \usepackage{hyperref}
 \usepackage{url}
+%----------------------------------------------------------------------------
+% Fun with Todonotes!
+%
+% These packages are required for todonotes
+\usepackage{ifthen}
+\usepackage{keyval}
+\usepackage{xcolor}
+\usepackage{tikz}    % tikz loads graphicx automagically
+\usepackage{calc}
+%
+% Now call todonotes after all that shit
+% If you didn't call all that shit
+% todonotes will just do it in the background
+%
+\usepackage[colorinlistoftodos]{todonotes}
+%
+% Fun Now!
+%
+% \todo{This is a marginal todo note}
+% \todo[fancyline]{This is a marginal note with a curvy line.}
+% \todo[noline]{A margin todo with no connecting line.}
+%
+% Missing figure todonotes
+% \missingfigure{This inserts a big dummy figure to remind you to put a figure in}
+% \missingfigure[figwidth=6cm]{Testing a long text string}
+% \missingfigure[figheight=6cm]{Testing a long text string}
 
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
+% \listoftodos [No arguments, just prints out a list of all the todos in the document]
+% \todototoc [No arguments, makes an entry in the table of contents for the list of todos section, MUST CALL BEFORE LISTOFTODOS COMMAND]
+%
+% You can use different font sizes
+%
+% \todo[size=\Large]{A margin note with the Large font size.}
+% \todo[size=\tiny]{A margin note with tiny font.}
+% \todo[size=\tiny, inline]{A inline todo with tiny font.}
+%
+% You can make inline notes
+% \todo[inline]{An inline todo note.}
+% You can insert the notes as inline notes inside the figure environments.}
+% \caption{A Caption!}
+% \todo[inline]{Fix this stupid caption}
+% \end{figure}
+%
+% You can make a caption for a Huge todonote
+%\todo[caption={Short note}]{A very long and tedious note that cannot be on one line in the list of todos.}
+%
+% You can change the border, background, and text color
+% Example using all available colors except the defaults
+% \todo[linecolor=green!70!white, backgroundcolor=blue!20!white,bordercolor=red]{Anything but default colors}
+% \todo[color=green!40]{And a green note}
+%
+% color changing options are:
+% color : color of note
+% backgroundcolor
+% linecolor
+% bordercolor
+% You can define notes for specific tasks, priority, etc...
+% Here are some custom tasks I have defined:
+%
+% Reminder to get an answer to a question
+\newcommand{\answerquestion}[1]{\todo[backgroundcolor=green!40, linecolor=green!50, bordercolor=blue!40, ]{#1}}
+% This is a really fucking important todonote
+\newcommand{\fuckingimportant}[1]{\todo[size=\Huge, backgroundcolor=red!50, linecolor=black, bordercolor=black, author=IMPORTANT]{#1}}
+%
+% Insert reference
+\newcommand{\insertref}[1]{\todo[backgroundcolor=blue!40, linecolor=black!40, bordercolor=black!40]{#1}}
+% Insert list of papers cited by author
+\newcommand{\insertcited}[1]{\todo[color=blue!20, noline]{#1}}
+%
+%
+% You can make a caption for a Huge todonote
+%\todo[caption={Short note}]{A very long and tedious note that cannot be on one line in the list of todos.}
+% \todo[prepend, caption={Short note with prepend}]{A very long and tedious note that cannot be on one line in the list of todos.}.
+% \todo[noprepend, caption={Short note with noprepend}]{A very long and tedious note that cannot be on one line in the list of todos.}
+% You can assign and sign todonotes
+% \todo[author=Xavier]{Testing author option.}
+%----------------------------------------------------------------------------
+
+\setlength{\voffset}{-0.75in}
+\setlength{\headsep}{0pt}
 \usepackage{fullpage}
+
+
 \usepackage{hyperref}
-\usepackage{float}
-\usepackage{stmaryrd}
-
-
-\usepackage{amsrefs}
-\bibliographystyle{amsalpha}
-\usepackage{gloss}
+\usepackage{url}
+%----------------------------------------------------------------------------
 
 \usepackage[english]{babel} % Use english by default
 
-\usepackage{todonotes}
-\usepackage{concepts}
 
-\usepackage{enumerate}
-
+%----------------------------------------------------------------------------
+% AMS Stuff
+%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+%
 % AMS Theorem Package Custom Definitions
-
+%
 \theoremstyle{definition}
 \newtheorem*{defn}{Definition. \\}
 \newtheorem{que}{Question: \\}
-%\newtheorem{ansfd}{Answer Found:}
 
 \theoremstyle{theorem}
 \newtheorem*{thm}{Theorem}{}
 
 \theoremstyle{remark}
 \newtheorem{rem}{Remark: \\}
-\newtheorem*nt}{Note: \\}
+\newtheorem*{nt}{Note: \\}
 \newtheorem{ans}{Answer: \\}
 
 
+%----------------------------------------------------------------------------
+% Figure Stuff
+%
+\usepackage{float}
+% Favorite Usage
+% PUT THE DAMN FIGURE HERE NO MATTER WHAT THE COMPILER THINKS
+% \begin{figure}[H]
+%
+%----------------------------------------------------------------------------
+% Back Matter Stuff
+%
+\usepackage{amsrefs}
+\bibliographystyle{amsalpha}
+%
+% Some very special packages (that sometimes just refuse to work no matter what the fuck you do)
+%
+\usepackage{gloss}
+\usepackage{concepts}
+
+%----------------------------------------------------------------------------
+% Formatting and Misc
+%
+\usepackage{verbatim}
+
+\usepackage{stmaryrd}    % For contradiction Symbol: \lightning
+
+%
+%----------------------------------------------------------------------------
+% Lists
+%
+\usepackage{enumerate}
+
 % Ways to number lists
 
-%\renewcommand{\labelenumi}{\Roman{enumi}}
-%\renewcommand{\labelitemii}{$\circ$}}
-%\renewcommand{\labelitemiii}{$\bigstar$}
-%\renewcommand{\labelitemiv}{$\centerdot$}
-%\renewcommand{\labelitemi}{$\bullet$}
-%\renewcommand{\labelitemii}{$\cdot$}
-%\renewcommand{\labelitemiii}{$\diamond$}
-%\renewcommand{\labelitemiv}{$\ast$}
-%\renewcommand{\labelitemiv}{$\ast$}
-%\alph	Lowercase letter (a, b, c, ...)
-%\Alph	Uppercase letter (A, B, C, ...)
-%\arabic	Arabic number (1, 2, 3, ...)
-%\roman	Lowercase Roman numeral (i, ii, iii, ...)
-%\Roman	Uppercase Roman numeral (I, II, III, ...)
-
+% \begin{enumerate}[(a)]
+% Or any of these ways
+% [a]
+% [a.]
+% [(A)]
+% [A.]
+% [(i)]
+% [(I)]
+% [i.]
+% [(i.)]
 % change separation between items in lists
 % DOES NOT SEEM TO WANT TO WORK
 %\begin{itemize}\itemsep2pt
+%----------------------------------------------------------------------------
 
-\usepackage{verbatim}
-%----------------------------------------------------------------------------------------
-%	CUSTOM COMMANDS
-%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------
+%
+% Template Revision Number
+%
+\newcommand{\revisionnumber}[1]{\renewcommand{\revisionnumber}{#1}}
+%----------------------------------------------------------------------------
+% DOCUMENT STUFF
+%----------------------------------------------------------------------------
+%
 % Question Information
-
+%
+%
 % Answer Information
+%
 \newcommand{\answerfound}[1]{\renewcommand{\answerfound}{#1}}
 \newcommand{\dateanswerfound}[1]{\renewcommand{\dateanswerfound}{#1}}
 \newcommand{\answerauthor}[1]{\renewcommand{\answerauthor}{#1}}
-% Template Revision Number
-\newcommand{\revisionnumber}[1]{\renewcommand{\revisionnumber}{#1}}
-
+%
 % Article Information
-\newcommand{\articletitle}[1]{\renewcommand{\articletitle}{#1}} % Define a command for storing the article title
-\newcommand{\articlecitation}[1]{\renewcommand{\articlecitation}{#1}} % Define a command for storing the article citation
-\newcommand{\ckey}[1]{\renewcommand{\ckey}{#1}} % Plain format cite key
-\newcommand{\doctitle}{\articlecitation\ --- ``\articletitle''} % Define a command to store the article information as it will appear in the title and header
-
-\newcommand{\datenotesstarted}[1]{\renewcommand{\datenotesstarted}{#1}} % Define a command to store the date when notes were first made
-\newcommand{\docdate}[1]{\renewcommand{\docdate}{#1}} % Define a command to store the date line in the title
-\newcommand{\docauthor}[1]{\renewcommand{\docauthor}{#1}} % Define a command for storing the article notes author
-\newcommand{\amsclass}[1]{\renewcommand{\amsclass}{#1}} % AMS Classification
-\newcommand{\amsreview}[1]{\renewcommand{\amsreview}{#1}} % AMS Review
-
+%
+%% Article Title
+\newcommand{\articletitle}[1]{\renewcommand{\articletitle}{#1}}
+%% Article Citation Key
+\newcommand{\articlecitation}[1]{\renewcommand{\articlecitation}{#1}}
+%
+%% DocumentTitle Format (Not Used)
+\newcommand{\doctitle}{\articlecitation\ --- ``\articletitle''}
+%
+%% Date You Started Analysis
+\newcommand{\datenotesstarted}[1]{\renewcommand{\datenotesstarted}{#1}}
+%% Store the date
+\newcommand{\docdate}[1]{\renewcommand{\docdate}{#1}}
+%
+%% Store Author of Article
+\newcommand{\docauthor}[1]{\renewcommand{\docauthor}{#1}}
+%
+% Store AMS Info
+%
+%% AMS Class
+\newcommand{\amsclass}[1]{\renewcommand{\amsclass}{#1}}
+%% AMS Review
+\newcommand{\amsreview}[1]{\renewcommand{\amsreview}{#1}}
+%%% NOTE ADD:
+%\url{the web address of the review}
+%
+%% Keywords
+\newcommand{\keywords}[1]{\renewcommand{\keywords}{#1}}
+%
+%
 % Header and Footer
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -130,7 +256,7 @@
 \renewcommand{\footrulewidth}{1pt}
 
 \fancyhf{}
-\lhead{\textbf{\ckey}}
+\lhead{\textbf{\articlecitation}}
 \chead{\textbf{Math Article Notes}}
 \rhead{\textbf{\amsclass}}
 \cfoot{\articletitle}}
