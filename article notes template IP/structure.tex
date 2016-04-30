@@ -1,18 +1,28 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Article Notes
+% Math Article Notes
 % Structure Specification File
-% Version 1.0 (1/10/15)
+% Version 2.5 (04/29/2016)
 %
-% This file has been downloaded from:
+% This file was modified from a template 
+% which was downloaded from:
 % http://www.LaTeXTemplates.com
 %
-% Authors:
-% Vel (vel@latextemplates.com)
-% Christopher Eliot (christopher.eliot@hofstra.edu)
-% Anthony Dardis (anthony.dardis@hofstra.edu)
+% Original Authors:
+% Vel 
+% (vel@latextemplates.com)
+% Christopher Eliot 
+% (christopher.eliot@hofstra.edu)
+% Anthony Dardis 
+% (anthony.dardis@hofstra.edu)
 %
 % License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% CC BY-NC-SA 3.0 
+% (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Current Version Author:
+% Kris
+% (kshort@iastate.edu)
+% (https://www.github.com/krismshort)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -24,13 +34,6 @@
 \setlength{\headsep}{0pt}
 
 
-%\usepackage[columnsep=1cm, left=1in, right=1in, top=.25in, bottom=.5in]{geometry} % Margins
-
-%\usepackage[T1]{fontenc} % For international characters
-%\usepackage{XCharter} % XCharter as the main font
-
-%\usepackage{natbib} % Use natbib to manage the reference
-%\bibliographystyle{apalike} % Citation style
 \usepackage{hyperref}
 \usepackage{url}
 
@@ -45,19 +48,33 @@
 
 \usepackage{amsrefs}
 \bibliographystyle{amsalpha}
+\usepackage{gloss}
+
 \usepackage[english]{babel} % Use english by default
 
+\usepackage{todonotes}
+\usepackage{concepts}
+
 \usepackage{enumerate}
+
+% AMS Theorem Package Custom Definitions
+
 \theoremstyle{definition}
 \newtheorem*{defn}{Definition. \\}
+\newtheorem{que}{Question: \\}
+%\newtheorem{ansfd}{Answer Found:}
+
 \theoremstyle{theorem}
 \newtheorem*{thm}{Theorem}{}
+
 \theoremstyle{remark}
 \newtheorem{rem}{Remark: \\}
-\newtheorem* 
-  
-  
-    {nt}{Note: \\}
+\newtheorem*nt}{Note: \\}
+\newtheorem{ans}{Answer: \\}
+
+
+% Ways to number lists
+
 %\renewcommand{\labelenumi}{\Roman{enumi}}
 %\renewcommand{\labelitemii}{$\circ$}}
 %\renewcommand{\labelitemiii}{$\bigstar$}
@@ -73,40 +90,55 @@
 %\roman	Lowercase Roman numeral (i, ii, iii, ...)
 %\Roman	Uppercase Roman numeral (I, II, III, ...)
 
-% change separation between items
+% change separation between items in lists
+% DOES NOT SEEM TO WANT TO WORK
 %\begin{itemize}\itemsep2pt
 
 \usepackage{verbatim}
 %----------------------------------------------------------------------------------------
 %	CUSTOM COMMANDS
 %----------------------------------------------------------------------------------------
+% Question Information
 
-
-
+% Answer Information
+\newcommand{\answerfound}[1]{\renewcommand{\answerfound}{#1}}
+\newcommand{\dateanswerfound}[1]{\renewcommand{\dateanswerfound}{#1}}
+\newcommand{\answerauthor}[1]{\renewcommand{\answerauthor}{#1}}
+% Template Revision Number
 \newcommand{\revisionnumber}[1]{\renewcommand{\revisionnumber}{#1}}
+
+% Article Information
 \newcommand{\articletitle}[1]{\renewcommand{\articletitle}{#1}} % Define a command for storing the article title
 \newcommand{\articlecitation}[1]{\renewcommand{\articlecitation}{#1}} % Define a command for storing the article citation
+\newcommand{\ckey}[1]{\renewcommand{\ckey}{#1}} % Plain format cite key
 \newcommand{\doctitle}{\articlecitation\ --- ``\articletitle''} % Define a command to store the article information as it will appear in the title and header
 
 \newcommand{\datenotesstarted}[1]{\renewcommand{\datenotesstarted}{#1}} % Define a command to store the date when notes were first made
 \newcommand{\docdate}[1]{\renewcommand{\docdate}{#1}} % Define a command to store the date line in the title
-
 \newcommand{\docauthor}[1]{\renewcommand{\docauthor}{#1}} % Define a command for storing the article notes author
+\newcommand{\amsclass}[1]{\renewcommand{\amsclass}{#1}} % AMS Classification
+\newcommand{\amsreview}[1]{\renewcommand{\amsreview}{#1}} % AMS Review
 
-% 'Fancy' Headers
+% Header and Footer
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \usepackage{lastpage}
+
 \setlength{\headheight}{25.2pt}
 \setlength{\headsep}{0.4in}
 \renewcommand{\headrulewidth}{1pt} 
 \renewcommand{\footrulewidth}{1pt}
-\pagestyle{fancy}
+
 \fancyhf{}
-\lhead{\textbf{Article Notes}}
-\rhead{\textbf{\articletitle}}
+\lhead{\textbf{\ckey}}
+\chead{\textbf{Math Article Notes}}
+\rhead{\textbf{\amsclass}}
+\cfoot{\articletitle}}
 \rfoot{Page \thepage/\pageref{LastPage}}
 \lfoot{\datenotesstarted}
+
+
+% Unused in this format
 % Define a command for the structure of the document title
 %\newcommand{\printtitle}{
 %\begin{center}
@@ -121,8 +153,8 @@
 %----------------------------------------------------------------------------------------
 %	STRUCTURE MODIFICATIONS
 %----------------------------------------------------------------------------------------
-
-\setlength{\parskip}{2pt} % Slightly increase spacing between paragraphs
+\usepackage[parfill]{parskip}
+%\setlength{\parskip}{2pt} % Slightly increase spacing between paragraphs
 
 % Uncomment to center section titles
 %\usepackage{sectsty}
