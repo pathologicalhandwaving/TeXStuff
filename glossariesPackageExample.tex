@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[acronym, toc]{glossaries}
+
+\makeglossaries
+
+\input{Bibliocosas/glossary.tex}
+
+\begin{document}
+
+\tableofcontents
+
+\section{First Section}
+
+The \Gls{latex} typesetting markup language is specially suitable for documents that include \gls{maths}. \Glspl{formula} are rendered properly an easily once one gets used to the commands.
+
+
+\clearpage
+
+\section{Second Section}
+
+\vspace{5mm}
+
+Given a set of numbers, there are elementary methods to compute its \acrlong{gcd}, which is abbreviated \acrshort{gcd}. This process is similar to that used for the \acrfull{lcm}.
+
+
+\clearpage
+
+\printglossary
+
+\clearpage
+
+\printglossary[type=\acronymtype]
+
+\end{document}

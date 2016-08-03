@@ -1,0 +1,112 @@
+\input cheatmac
+\usepackage[czech]{babel}
+\begin{document}
+\begin{multicols}{3}
+
+\title{Probabilistic algorithms}
+
+\fsection{Basic algorithms}
+
+{\sc Mincut:} Contract $n-2$ edges (keep parallel, delete loops),
+return the rest as a cut.
+
+\thm{$P[$resulting cut minimal$] ≥ {2 \over n(n-1)}$.}
+
+\prf{Suppose min. cut has $k$ edges. $||G|| ≥ {nk \over 2}$.\hfil\break
+$P[E_1 ≡$ first choice misses min. cut$] ≥ 1 - {k \over nk/2} = 1 - {2 \over n}$.\hfil\break
+$P[E_i |$ missed all until now $] ≥ 1 - { 2 \over n-1}$.\hfil\break
+$P[$we missed all $] ≥ ∏_{i=1}^{n-2}( 1- {2 \over n+1-i}) = {2 \over n(n-1)}$.
+Repeat $n^2 \ln n$ times for $1 \over n^2$ probability of missing.
+}
+
+{\sc FastSelect:} $R ≡ $ sample $⌈n^{3/4}⌉$ elements, sort. \hfil\break
+Pick $d ≡ R[⌋n^{3/4}/2 - \sqrt{n}⌊]$, $u ≡ R[⌈ n^{3/4}/2 + \sqrt{n}⌉]$.
+\begin{itemize}
+\item $|R[1..d]| > n/2$,
+\item $|R[u..]| > n/2$,
+\item $|R[d..u]| ≥ 4n^{3/4}$.
+\end{itemize}
+Sort $R[d..u]$, return median.
+
+\obs{$P[(a)] ≤ 1/4 n^{-1/4}$.}
+
+\prf{ $X_i ≡ $ chosen element is $≤$ median. $P[X_i = 1] = 1/2 + {1 \over 2n}$.
+$Var[∑_{i=1}^{n^{3/4}}] = n^{3/4} (1/2 + {1 \over 2n}) (1/2 - {1 \over 2n}) = 1/4 n^{3/4} - {n^{3/4} \over 4n^2} < 1/4 n^{3/4}$.
+
+Chebyshev: $P[∑ X_i < 1/2 n^{3/4} - \sqrt{n}] ≤ P[|∑ X_i - E[∑ X_i]| > \sqrt(n} ≤ {Var[∑ X_i] \over n}] = 1/4 n^{-1/4}$.
+% }
+
+\obs{ $P[(c)] ≤ 1/2 n^{-1/4}$.}
+
+\prf{ Either at least $2n^{3/4}$ elements are above (or below) median. Apply binomial distro again + Chebyshev.}
+
+{\sc Hypercube Routing:} 
+
+\thm{Markov} $X$ nezáporná, $a > 0$:
+$P[X > \alpha E[X]] < {1 \over \alpha}.$
+
+\thm{Čebyšev}
+$P[|X-E[X]| \ge \lambda\sigma] \le {1 \over \lambda^2}.$
+
+\prf{}
+$\sigma^2 = \var[X] = E[(X - E[X])^2] \ge \lambda^2 \sigma^2 P[|X-E[X]| \ge \lambda\sigma. $
+
+\thm{Černov} Nechť $S_n$ je součtová náhodná proměnná pro $n$ mincí s hodnotami ${+1,-1}$. Pak:
+$P[S_n > a] < e^{-a^2 / 2n}.$
+
+\prf{} Vytvoříme náhodnou proměnnou $Y = e^{uX}$.
+
+$E[Y] = \prod_{i=1}^n E[e^{uX_i}] = {e^u + e^{-u} \over 2}^n \le e^{nu^2/2}$. Použitím Markova pak
+$P[X \ge t] = P[Y \ge e^{ut}] \le E[Y] / e^{ut} \le e^{nu^2/2 - ut}$. Zvol $u =
+t/n$.
+
+
+\fsection{Random walks}
+In the general setting, we're throwing a $d(v)$ sided dice.
+
+\dfn{} $G$ leads to a transition matrix $P$; $p_{uv} = 1/d(u)$ if $uv \in E$, zero otherwise.
+
+\dfn{} $h_{uv}$ is hitting time of a pair $(u,v)$. Cover time $C(G) \equiv$ hitting all edges.
+
+\thm{} Stationary distribution of a r.w. on $G$ is $\pi_{u} = d(u)/2|E|$. 
+
+\thm{} $uv \in E \then h_{uv} + h_{vu} \le 2|E|$. Equality if $uv$ bridge.
+
+\thm{} $C(G) \le  2m(n-1) < 2n^3$. 
+
+\prf{} Pick a spanning tree, count hitting times along it.
+
+\dfn{} $R_uv \equiv$ resistance along $uv$ if we replace all edges with $1\Omega$ resistors.
+
+\thm{} $h_uv + h_vu = 2|E|R_{uv}$.
+
+\prf{} Put $d(z)$ current into each vertex, collect $2m$ at $v$.
+$\Phi_{zv} \equiv$ voltage between $z$ and $v$. Voltage is voltage, so:
+$\forall z \ne v:  \sum_{w|zw \in E}(\Phi_{zv} - \Phi_{wv}) = d(z)$. From this:
+$\Phi_{zv} = 1 + \sum {\Phi_{zw} \over d(z)}$, which is the same equation as
+for $h_uv$.
+
+Now reverse the flow of the current, you get $h_vu$. Sum the two currents and
+use $U=IR$ and done.
+
+{\bf 2-SAT:} choose a random assignment, then pick an unsatisfied clause and
+change a random variable within. Probability of moving forward $\ge 1/2 \then
+n^2$ expected time until we hit the goal.
+
+{\bf 3-SAT:} in NP, so probabilistic polynomial algorithm unlikely. $2^n$: try all.
+Better: choose a random assignment, try a short random walk, reset.
+
+\obs{ $P[$ hit the goal in $3k$ steps $| k$ steps away $ ] \ge
+{n \choose 2k}$ ...}
+
+\dfn{ {\tt RL} $\equiv$ class of languages recognizable in space $\O(\log n)$ and polyn. time,
+one-sided error.}
+
+\thm{ $USTCON \in {\tt RL}$.}
+
+\prf{ $4n^3$ steps + Markov + $c(G)$ bound.}
+
+\thm[Reingold]{ $USTCON \in {\tt L}$. }
+
+\end{multicols}
+\end{document}

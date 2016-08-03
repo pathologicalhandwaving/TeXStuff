@@ -1,0 +1,108 @@
+\begin{thm}{Cardinality of Set of Injections}
+
+Let $S$ and $T$ be sets.
+
+The number of injections from $S$ to $T$, \\
+where $|S| = k, |T|=n$ is often denoted $P_{nk}$, and is:
+$P_{n}^{k} =$   \begin{cases}
+                    \frac{n!}{(n-k)!} : k \leq n \\
+                    0 : k > n
+                \end{cases}
+\end{thm}
+
+
+\begin{pf}
+Let $k>n$.
+
+By the \textbf{Pigeonhole Principle}, there can be no injection from $S$ to $T$ when $|S| > |T|$. 
+
+Once $|T|$ elements of $S$ have been used up, there is no element of $T$ left for the remaining elements of $S$ to be mapped to such that they all still map to different elements of $T$. 
+
+
+Let $k=0$.
+
+The only injection from $\emptyset \rightarrow T$ is $\emptyset \times T$ which is $\emptyset$.
+
+So if $k=0$ there is $1 = \frac{n!}{n!}$ injection.
+
+
+Let $0 < k \leq n$.
+
+As in the proof of \textbf{Cardinality of Set of All Mappings}, we can assume that $S = \mathbb{N}_{k}$ and $T = \mathbb{N}_{n}$. 
+
+For each $k \in [1 \ldots n]$, let $\mathbb{H}(i,n)$ be the set of all injections from $\mathbb{N}_{i}$ to $\mathbb{N}_{n}$.
+\end{pf}
+
+\begin{pf}{Proof by Induction}
+
+Let:
+
+\[\mathbb{S} = \bigg\{ k \in [1 \ldots n] : |\mathbb{H}(i,n)| = \frac{n!}{(n-i)!} \bigg \} \]
+
+\textbf{Base Case: $k=1$}
+
+From \textbf{Cardinality of Set of All Mappings}, there are $n^{1} = n$ different mappings from $S$ to $T$. 
+
+From \textbf{Mapping from Singleton is Injection}, each one of these $n$ mappings is an injection. 
+
+Therefore, 
+
+\[ |\mathbb{H}(1,n)| = n = \frac{n!}{(n-1)!} \]
+
+So it follows that: 
+
+\[ 1 \in \mathbb{S} \]
+
+serves as a basis for induction. 
+
+\textbf{Induction Hypothesis} 
+
+Suppose that:
+
+\[ |\mathbb{H}(i,n)| = \frac{n!}{(n-i)!} \]
+
+Is the induction hypothesis. 
+
+To show: 
+
+\[ |\mathbb{H}(i+1,n)| = \frac{n!}{(n-(i+1))!} \]
+
+
+\textbf{Inductive Step}
+
+Let $i \in \mathbb{S} : i < n$.
+
+Let $\rho : \mathbb{H}(i+1, n) \rightarrow \mathbb{H}(i,n)$ be the mapping defined by:
+
+$\forall f \in \mathbb{H}(i+1,n) : \rho(f) =$ the \textbf{restriction} of $f$ to $\mathbb{n}_{i}$.
+
+Given that $g \in \mathbb{H}(i,n)$ and $a \in \mathbb{N}_{n} - g(\mathbb{N}_{i})$, let $g_{a} : \mathbb{N}_{i+1} \rightarrow \mathbb{N}_{n}$ be the mapping defined as:
+
+$g_{a}(x) =$ \begin{cases}
+                g(x) : x \in \mathbb{N}_{i} \\
+                a : x = i
+            \end{cases}
+
+Now $g$ is an injection as $g \in \mathbb{H}(i,n)$, and as $g_{a}(a) \notin g(\mathbb{N}_{i})$ it follows that $g_{a}$ is also an injection. 
+
+Hence, $g_{a} \in \mathbb{H}(i+1,n)$.
+
+It follows from the definition of $\rho$ that:
+
+\[\rho^{-1}(\{g\}) = \{g_{a} : a \in \mathbb{N}_{n} - g(\mathbb{N}_{k})\} \]
+
+Since $g$ is an injection, $g(\mathbb{N}_{i}$ has $i-k$ elements by \textbf{Cardinality of Complement}.
+
+As $G: a \rightarrow g_{a}$ is clearly a bijection from $\mathbb{N}_{n} - g(\mathbb{N}_{i})$ onto $\rho^{-1}(\{g\})$, that set has $n-i$ elements.
+
+Clearly, 
+\[ \rho^{-1}(\{g\}): g \in \mathbb{H}(i,n)\} \]
+is a partition of $\mathbb{H}(i+1,n) = (n-i) \frac{n!}{(n-i)!} = \frac{n!}{((n-i)-1)!}$ as $i \in \mathbb{S}$.
+
+But $(n-i) -1 = n - (i+1)$.
+
+So $i+1 \in \mathbb{S}$.
+
+By induction, $\mathbb{S} = [1 \ldots n]$ and in particular $k \in mathbb{S}$.
+
+$\blacksquare$

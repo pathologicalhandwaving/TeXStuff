@@ -1,0 +1,82 @@
+\documentclass[10pt]{article}
+
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[parfill]{parskip}
+
+\begin{document}
+
+\section*{Diffie-Hellman and P-groups}
+\hrule
+
+\bigskip
+So a group of prime power order is called a $p$-group.
+
+$P$-groups are useful because they are cyclic groups, what this means is that:
+
+If $G$ is a cyclic group and $g \in G$ is a generator for $G$ 
+then $G = \langle g \rangle = \{ g^{n} : n \in \mathbb{Z} \}$.
+
+That is if $G = \{ g^[0}, g^{1}, g^{2}, g^{3}, g^{4}, g^{5} \}$ 
+is a group of order 6 
+then we have that $g^{0} = g^{6}$, so $G$ is cyclic.
+
+This is the same thing as saying that this group of order 6 is isomorphic to the set 
+$\{0,1,2,3,4,5\}$ when we use addition $mod(6)$.
+
+So in this example we could do this:
+\[1+2 \equiv 3(mod 6) \]
+and this is the same as writting $ g^{1} \cdot g^{2} = g^{3}$;
+
+and $2 + 5 \equiv 1(mod 6)$ is the same as writing $g^{2} \cdot g^{5} = g^{7} = g^{1}$.
+
+So we can use the isomorphism $\chi$
+and define it as $\chi(g^{i}) = i$.
+
+\textbf{It is possible to have infinite cyclic groups but Diffie-Hellman isn't concerned with those.}
+
+So the Diffie-Hellman assumption considers a multiplicative cyclic group $G$ with order $q$ and a generator $g$.
+
+Then the assumption says that if we are given $g^{a}$ and $g^{b}$,
+
+where $a$ and $b$ are independently chosen from a random distribution of integers $mod(q)$,
+
+then the exponential product $g^{ab}$ \emph{looks like} any other random element in $G$.
+
+
+\subsection*{So using the discrete log assumption we have:}
+
+\bigskip
+
+\begin{itemize}
+	\item A tuple $(g^a, g^b, g^{ab})$ such that $a,b \in \mathbb{Z}_q$ are randomly and independently chosen from $\mathbb{Z}_q$.
+	\item and another tuple $(g^a, g^b, g^c)$ where $a,b,c \in \mathbb{Z}_q$ are again randomly and etc...
+\end{itemize}
+
+These are called \textbf{DDH tuples}.
+
+So basically if you \emph{could} efficiently compute a discrete log from your group $G$ then DDH wouldn't hold in $G$. This is the key condition.
+
+So this means that if you have $(g^a, g^b, z)$ 
+you could decide if $z=g^{ab}$ by taking the discrete $log_{g}(g^a)$ 
+and compare it to $(g^{b})^{a}$.
+
+So DDH is considered a \emph{stronger} assumption than the discrete log assumption 
+since you can find groups where finding DDH tuples is easy 
+but by assumption the discrete log assumption is still hard. 
+
+So since we require the group satisfy the DDH assumption 
+
+this is harder than just the assumption that the discrete log is hard to compute in the group.
+
+\subsection*{DDH is assumed to hold in the following groups:}
+
+\begin{itemize}
+	\item The subgroup of $kth$ residues mod a prime, such that $(p-1)/k$ is also a large prime. \emph{Schnorr group}
+	\item A prime order elliptic curve over $E$ in the field $GF(p)$ where $p$ is a prime, provided $E$ has a large embedding degree.
+	\item A Jacobian of a hyper-elliptic curve over the field $GF(p)$ with a prime number of reduced divisors where $p$ is a prime, and the Jacobian has a large embedding degree.
+\end{itemize}
+
+\section*{DDH DOES NOT HOLD IN:} 
+\[G = \mathbb{Z}^{*}_{p} : p \in \mathbb{P}\]
+
+\end{document}

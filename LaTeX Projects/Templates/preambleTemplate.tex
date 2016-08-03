@@ -1,0 +1,133 @@
+\documentclass[10pt]{article}
+
+%% BASIC PACKAGES
+\usepackage[letterpaper,margin=1.5in]{geometry}
+\usepackage{marginnote}
+\usepackage[colorlinks=false,pdfborder={0 0 0}]{hyperref}
+\usepackage{url}
+\usepackage{setspace} 	% Control spacing in TOC
+\usepackage{float}
+\usepackage{flaffter} 	% Only show floats after their first reference
+\usepackage{graphicx}
+\graphicspath{ {Graphics/} }
+\DeclareGraphicsExtensions{.pdf,.png}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{parselines}
+
+%% REFERENCE PACKAGES
+\usepackage{concepts}
+\usepackage{gloss}
+\makegloss
+\usepackage{cleverref}
+\usepackage[refpages]{gloss}
+\usepackage{varioref}
+\usepackage{appendix}
+
+%% EDITORIAL COMMANDS
+\usepackage[colorinlistoftodos,prependcaption,shadow]{todonotes}
+
+%% MATH PACKAGES
+\usepackage{amsmaths}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+%%% COMMANDS
+\newcommand{\bb}[1]{\mathbb{#1}}					% USAGE: \bb{Z}
+\newcommand{\pgref}[2]{\vref{found on page #2}}
+\newcommand{\marg}{\marginnote{}[3cm]}
+\newcommand{\fix}[3]{\todo[inline,color=red!40,backgroundcolor=yellow!40,bordercolor=red!40]{#3}}
+\newcommand{\inref}{\todo[size=\large,linecolor=blue!40,color=blue!40,backgroundcolor=green!20,bordercolor=blue!40][4]{\textbf{INSERT REFERENCE: } #4}
+\newcommand{\mfig}[5]{\missingfigure{\textbf{Figure Description: } #5}}
+\newcommand{\due}[6]{\todo[due={#6}]{\textbf{Due: } #6}}
+\newcommand{\own}{\todo[owner=Kristi]{#1}}
+\newcommand{\rewrite}{\todo[color=yellow!40, backgroundcolor=green!20, bordercolor=green!40, linecolor=green!40]{\textbf{REWRITE}}}
+\newcommand{\done}[7]{\todo[done,color=green!40]{\textbf{COMPLETED: } #7}}
+\newcommand{\lookup}[8]{\todo[color=blue!40,backgroundcolor=blue!20!white,bordercolor=blue!40,inline]{\textbf{Look Up:} #8}}
+\newcommand{\aglo}[9]{\todo[inline,color=green!30,backgroundcolor=blue!20!white,bordercolor=green!30]{\textbf{ADD Glossary Entry: } #9}}
+
+\newcommand{\nglo}[10][11][12]{@gd{#11,
+								word = {#12},
+								definition = {#13}
+							  	 }
+							 }
+\newcommand{\ge}[14]{\gloss[nocite]{*}{#14}}
+
+%% USAGE
+% \addcontentsline{toc}{section}{Unnumbered Section}
+% \section*{}
+
+
+
+%%% ENVIRONMENTS
+\newenvironment{list}
+	{\begin{enumerate} \itemsep{0pt}
+		\item #
+	 \end{enumerate}
+	}
+
+\newenvironment{pic}
+	{\begin{pic}
+	 \begin{figure}[h]
+	 \begin{center}
+		\includegraphics[scale=.5]{name}
+	 \end{center}
+	 \caption{\scriptsize{}}
+	 \label{fig:}
+	 \end{figure}
+	 }
+
+
+%%% HEADER & FOOTER
+\fancyhf{}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{Page \thepage \hspace{1pt} / \pageref{LastPage}
+%% -----------------------------------------------------------------
+\begin{document}
+
+%% TITLE PAGE
+\thispagestyle{empty}
+\maketitle
+
+\newpage
+
+\thispagestyle{empty}
+
+%% TOC
+\begin{spacing}{1}
+\tableofcontents
+\listoffigures
+\listoftables
+\listoftodos
+\end{spacing}
+
+\newpage
+
+\pagestyle{fancy}
+
+\pagenumbering{arabic}
+
+\newpage
+
+\pagestyle{empty}
+\appendix
+\appendixpage
+\addappheadtotoc
+
+\newpage
+
+\pagestyle{empty}
+
+\printgloss{glossary}
+
+\newpage
+\pagestyle{empty}
+\thebibliography{bibliography}
+
+\end{document}

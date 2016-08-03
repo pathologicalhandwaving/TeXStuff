@@ -1,0 +1,198 @@
+
+% --------------------------
+% DANIEL'S ULTIMATE NOTES
+% --------------------------
+
+\documentclass[a4paper, 10pt]{article}
+
+% User variables
+% --------------------------
+\newcommand{\class}{Class}
+
+% Cheatsheet version
+% --------------------------
+\newif\ifcheat
+\cheatfalse
+% Uncomment the following line if you want a cheatsheet
+% \cheattrue
+
+% Packages
+% --------------------------
+\usepackage{amsfonts,enumerate}
+\usepackage[fleqn]{amsmath}
+\usepackage{mdframed}
+\usepackage{afterpage} % for "\afterpage"
+\usepackage{xcolor}
+\usepackage{enumitem} % for more control over description
+\usepackage{multicol}
+
+% Create the Document Sizes
+% --------------------------
+\newcommand{\smallSize}{2in}
+\newcommand{\defaultSize}{2.5in}
+\newcommand{\bigSize}{3in}
+\newcommand{\giantSize}{4in}
+
+% Colors
+% --------------------------
+\colorlet{noteColor}{white!90!brown}
+\colorlet{questionColor}{white!90!blue}
+\colorlet{answerColor}{white!90!green}
+\colorlet{codeColor}{black!5!white!90!brown}
+\colorlet{codeFontColor}{black!85!white}
+
+% Properties
+% --------------------------
+\pagenumbering{gobble} % remove page numbering
+\setlength\parindent{0pt} % remove paragraph indent
+\setlist[description,itemize,enumerate]{leftmargin=0.4in,labelindent=0.1in,itemsep=0pt} % custom lists
+% if we create a cheatsheet
+\ifcheat
+\usepackage[includehead, headsep=0.15in, margin=0.2in]{geometry}
+\else
+\usepackage[paperwidth=4in, paperheight=\defaultSize, includehead, headsep=0.15in, margin=0.2in]{geometry}
+\fi
+
+% Header
+% --------------------------
+\usepackage{fancyhdr}
+%\renewcommand{\headrulewidth}{0pt}  : Remove header line
+\pagestyle{fancy}
+\lhead{\small\class}
+
+% Font
+% --------------------------
+%\usepackage{gtamachelveticaneue}
+%\renewcommand*\familydefault{\sfdefault}
+%\usepackage[T1]{fontenc}
+
+% Category
+% --------------------------
+\newcommand{\currentCategory}{category}
+\newcommand{\setCategory}[1]{\renewcommand{\currentCategory}{#1}}
+
+% Notes
+% --------------------------
+% system note : requires 4 arguments, not for user
+% 1 = Title,
+% 2 = Content,
+% 3 = Page height
+% 4 = Page color
+\newcommand{\systemNote}[4]{
+	\pdfpageheight=#3
+	\pagecolor{#4}\afterpage{\nopagecolor}
+	\rhead{\small \currentCategory}
+	\subsection*{#1}
+	#2
+	\clearpage
+}
+
+% In case we want a cheatsheet
+\ifcheat
+\renewcommand{\systemNote}[4]{
+	\vspace{3pt} \hrule
+	\vspace{3pt}
+	{\bf #1} : #2
+}
+\renewcommand{\setCategory}[1]{
+	\vspace{3pt} \hrule
+	\vspace{3pt} {\normalsize \bf #1}}
+\fi
+
+% User notes : note,bnote,gnote, question, answer, banswer, ganswer
+\newcommand{\snote}[2]{\systemNote{#1}{#2}{\smallSize}{noteColor}}
+\newcommand{\note}[2]{\systemNote{#1}{#2}{\defaultSize}{noteColor}}
+\newcommand{\bnote}[2]{\systemNote{#1}{#2}{\bigSize}{noteColor}}
+\newcommand{\gnote}[2]{\systemNote{#1}{#2}{\giantSize}{noteColor}}
+% User questions
+\newcommand{\squestion}[2]{\systemNote{#1}{#2}{\smallSize}{questionColor}}
+\newcommand{\question}[2]{\systemNote{#1}{#2}{\defaultSize}{questionColor}}
+\newcommand{\bquestion}[2]{\systemNote{#1}{#2}{\bigSize}{questionColor}}
+\newcommand{\gquestion}[2]{\systemNote{#1}{#2}{\giantSize}{questionColor}}
+% User answers
+\newcommand{\sanswer}[2]{\systemNote{#1}{#2}{\smallSize}{answerColor}}
+\newcommand{\answer}[2]{\systemNote{#1}{#2}{\defaultSize}{answerColor}}
+\newcommand{\banswer}[2]{\systemNote{#1}{#2}{\bigSize}{answerColor}}
+\newcommand{\ganswer}[2]{\systemNote{#1}{#2}{\giantSize}{answerColor}}
+
+% Additional Stuff
+% --------------------------
+\newcommand{\code}[1]{\begin{mdframed}
+	[backgroundcolor=codeColor, fontcolor=codeFontColor]{\tt #1}
+\end{mdframed}\vspace{5pt}}
+\newcommand{\imp}[1]{\begin{mdframed}
+	[backgroundcolor=codeColor, fontcolor=codeFontColor]#1
+\end{mdframed}\vspace{5pt}}
+\newcommand{\cindent}{\hspace*{15pt}}
+\renewcommand{\bold}[1]{{\bf#1}}
+\newcommand{\ital}[1]{{\it#1}}
+\newcommand{\incode}[1]{{\tt\colorbox{codeColor}{\color{codeFontColor}#1}}}
+
+
+% BEGIN Document
+% --------------------------
+\begin{document}
+
+% Examples
+% --------------------------
+
+\ifcheat
+\begin{multicols}{3}
+\footnotesize
+\fi
+
+% Set category
+\setCategory{Category}
+
+% A simple default note
+\note{Title}{Note}
+
+% An example using formulas
+\note{Example with formulas}{
+	These notes are really great for mathematical formulas:\\
+	$$ \Omega = \sum_{i=0}^{n}\Phi\cdot(\pi-\frac{e}{42}) $$
+}
+
+% An example using code
+\note{Example with code}{
+	But they are also great to write code:\\
+	\code{ \# Cool python code\\
+		if time > 12:\\
+		\cindent print "Good afternoon"\\
+		else:\\
+		\cindent print "Good morning"
+    }
+}
+
+\snote{Example with Inline code}{
+	And for \incode{inline code} it works just \incode{print "as well"}
+}
+
+% An example using lists
+\note{Example with lists}{
+	But how do lists look? Awesome of course!
+	\begin{itemize}
+		\item Buy Milk
+		\item Drink Milk
+	\end{itemize}
+}
+
+% Set new category
+\setCategory{New category}
+
+% Examples displaying size
+\snote{Too much space?}{Small Note}
+\bnote{Need more space?}{Big Note}
+\gnote{Need even more space?}{Giant Note}
+\question{Title}{Question}
+\bquestion{Title}{Big Question}
+\gquestion{Title}{Giant Question}
+\answer{Title}{Answer}
+\banswer{Title}{Big Answer}
+\ganswer{Title}{Giant Answer}
+
+\ifcheat
+\end{multicols}
+\fi
+
+\end{document}

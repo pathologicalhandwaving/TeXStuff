@@ -1,0 +1,128 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}  % this adds some math 
+\usepackage{fullpage}
+\usepackage{tikz}            % if you delete this, you will have trouble with the included picture. You can delete the picture.
+\usepackage{chessboard}
+\usepackage{hyperref}
+
+% If you have a problem, please let me know sooner than later
+
+\newcommand\name{Chuck Norris} %%%%%%%%%%%%%%  WRITE YOUR NAME HERE
+
+
+
+\newcounter{excounter}
+\setcounter{excounter}{1}
+\newcommand\question[2]{\vskip 1em  \noindent\textbf{\arabic{excounter}\addtocounter{excounter}{1}:} \emph{#1} \noindent#2}
+
+
+% You can also erase this if you do not have package hancyhdr
+% Fancy footnote......... 
+\usepackage{fancyhdr}  %% If it does not work with your latex installation, you may just delete this...
+\pagestyle{fancy}
+\usepackage{lastpage}
+\rfoot{\name, page \thepage/\pageref{LastPage}}
+\cfoot{}
+\rhead{}
+\lhead{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+%%% Note that you do not have to use this template. You can use your own writeup or make any adjustment to this one you like.
+%%% This is provided only for your convenience. 
+
+
+\begin{document}
+
+
+{\bf MATH314  \hspace{1cm} HW 1\hfill \name}
+\vskip 1em
+
+% left column
+\begin{minipage}[t]{0.75\textwidth}
+Due \textbf{Jan 21} before class, \textbf{answer without justification will receive 0 points}.
+The typing the HW in \LaTeX{} is optional. 
+\end{minipage}
+% right box for score column
+\begin{minipage}[t]{0.25\textwidth}
+\hfill \begin{tabular}{|r|}
+\hline
+\hskip 3em Score \hskip 3em \\
+\hline \\ \\
+\hskip 3em /60 \\
+\hline
+\end{tabular}
+\end{minipage}
+
+
+
+
+
+\question{1.32}{
+Let $S$ and $A$ be two finite nonempty sets of integers. Define a digraph $D$ with $V(D) = A$, where $(x, y)$ is an arc of $D$ if $x \neq y$ and $y - x \in S$.
+\begin{itemize}
+\item[(a)] Draw the digraph $D$ for $A = \{0, 1, 2, 3, 4\}$ and $S =\{-2, 1, 2, 4\}$.
+\item[(b)] What can be said about $D$ if $A$ and $S$ consist only of odd integers?
+\item[(d)] If $|A| = |S| = 5$, how large can the size of $D$ be?
+\end{itemize}
+}
+
+\question{}{
+Let $e$ be an edge appearing an odd number of times in a closed walk $W$. Prove that $W$ contains the edges of a cycle through $e$.
+ (No drawing)
+}
+
+\textbf{Solution:}
+
+
+\question{}{
+Prove that a graph $G$ is bipartite if and only if every subgraph $H$ of $G$ has an independent set consisting of at least half of $V(H)$.
+ (No drawing)
+}
+
+\textbf{Solution:}
+
+
+\question{}{
+Prove that the vertices of any graph can be partitioned into two groups such that for each vertex, at least half of its neighbors ended up in the other group.
+ (No drawing)
+}
+
+\textbf{Solution:}
+
+\question{2.8}{
+Let $G$ be a graph of order $n$. If $\deg(u) + \deg(v) + \deg(w) \geq n - 1$ for every three pairwise nonadjacent vertices $u, v$ and $w$ of $G$, must $G$ be connected?
+}
+
+\textbf{Solution:}
+
+
+\question{2.20}{
+Show that if $G$ is a connected graph that is not regular, then $G$ contains adjacent vertices $u$ and $v$ such that $\deg(u) \neq \deg(v)$.
+ (No drawing)
+}
+
+\textbf{Solution:}
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

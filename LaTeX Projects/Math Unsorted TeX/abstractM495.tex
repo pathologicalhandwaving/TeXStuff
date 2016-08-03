@@ -1,0 +1,55 @@
+\documentclass[10pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+% Document Information
+\author{K. M. Short}
+\title{Abstract: Biography of Saunders Mac Lane}
+\date{\today}
+
+% Basic Packages
+\usepackage{fullpage}
+\usepackage{hyperref}
+\usepackage[parfill]{parskip}
+\usepackage{stmaryrd}
+
+% A "fancy" package
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{lastpage}
+\setlength{\headheight}{25.2pt}
+\setlength{\headsep}{0.4in}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textbf{Math495X: Mathematics History}}
+\lhead{K. M. Short}
+\rfoot{Page \thepage/\pageref{LastPage}}
+
+\begin{document}
+\begin{center}
+\Large{\textbf{Biography Abstract: Saunders Mac Lane}} 
+\end{center}
+\vspace{0.25in}
+\normalsize
+There are many mathematicians most people refer to as \textit{'characters'} Erd\"{o}s, Feynman, von Neumann, and many others; but my favorite is Saunders Mac Lane. In the preface of his autobiography \cite{autobiography} David Eisenbud gives a better description than I could hope to:
+
+\begin{center}
+\textit{`Nearly everything about Saunders in action was colorful, starting with the red-and-green plaid sports coat (the Mac Lane tartan, of course) and red pants that he would wear for important occasions.'}
+\end{center} 
+
+Mac Lane was born August 4, 1909 Norwich near Taftville Connecticut and died San Francisco April 14, 2005. His father was a minister and on the day he was born due to a suggestion of the nurse he was named \textit{Leslie Saunders MacLane}. His mother very much did not like the name, about a month later\footnote{I imagine after hearing how much his father had quite enough after a month.} \textit{`his father put a hand on the head of his son, looked up to God, and said \textbf{"Leslie forget"}.}'\cite{knight} Which ended the name Leslie conclusively\footnote{as well as comically}. 
+
+Mac Lane served in many positions. He was elected to the National Academy of Sciences, and later served as vice-president and was awarded the National Medal of Science (back when it was the highest award a mathematician could get). He also served as president of the American Mathematical Society as well as the Mathematics Association of America. 
+
+Saunders Mac Lane and Samuel Eilenberg introduced categories to the mathematical community around 1941 to 1945. They created \emph{categories} so that they could define \emph{functors}, and they defined \textit{functors} so that they could study \textit{natural transformations} \cite{categories}. Category theory has been somewhat controversial since (at least practically) some mathematicians view it as a replacement for set theory as a foundation of mathematics \cite{taylor}. Notably, Paul Taylor of the University of Cambridge has stated in practice one does not often need the concept of a complete infinity (collections) given by set theory and states that set theory does not make these collections into objects (he cites Lawvere's axioms) it simply axiomatizes the intuitions used when handling collections. Specifically, Taylor states that ZFC can be formulated using methods and objects given by category theory. 
+
+While I do not know enough about either subject to give an opinion on the subject it is my understanding that if some perspective does not allow the user enough intuition to solve a problem then switching to different perspective may. With this in mind I view category theory not as something which I wish to argue is a replacement for set theory but an alternate perspective which in certain cases has simplified many proofs. 
+
+In my paper I will attempt to explain the concept of \emph{naturality} and the idea of a \emph{universal property}. I will use these two concepts to show that since there are only two kinds of universal properties once you know which property an object is classified under, you then know which methods of proof are available to you. I will then show that category theory can provide much simpler, easier proofs which classically are very laborious with one in depth example \footnote{Probably tensors but I reserve the right to change my mind.}, as well as citing a few others. 
+\bigskip
+\bibliography{abstractm495}
+\bibliographystyle{alpha}
+\nocite{*}
+
+\end{document}

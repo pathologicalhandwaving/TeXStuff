@@ -1,0 +1,91 @@
+\subsection{Monotone Sequences}
+
+\begin{defn} \\
+We say the sequence $\{a_{n} \}$ is: \\
+\textbf{increasing} if $a_{n} \leq a_{n+1}$ for all $n$; \\
+\textbf{strictly increasing} if $a_{n} < a_{n+1}$ for all $n$; \\
+\textbf{decreasing} if $a_{n} \geq a_{n+1}$ for all $n$; \\
+\textbf{strictly decreasing} if $a_{n} > a_{n+1}$ for all $n.
+\end{defn}
+
+\smallskip
+
+\begin{rem}
+In the above definition the phrase \textit{`for all $n$'} means \textit{`for all values of } \mathit{$n$} \textit{ for which } \mathit{$a_{n}$} \textit{ is defined'}.
+\end{rem}
+
+\smallskip
+
+\begin{rem}
+The following are the same: \\
+increasing = non-decreasing \\
+strictly increasing = increasing \\
+\end{rem}
+
+\bigskip
+
+\begin{defn}{Bounded Above} \\
+A sequence $\{ a_{n} \}$ is said to be \textbf{bounded above} if there is a number $B$ such that $a_{n} \leq B$ for all $n$. \\
+Any such $B$ is called an \textbf{upper bound} for the sequence.
+\end{defn}
+
+\medskip
+
+\begin{thm}
+A positive increasing sequence $\{ a_{n} \}$ which is bounded above has a limit.
+\end{defn}
+
+\medskip
+
+\begin{exmp}{The Number $e$} \\
+The sequence $a_{n} = \bigg ( 1 + \frac{1}{2^{n}} \bigg)^{2^{n}}$ has the limit $e$. \\
+This is true since we can show that $\{a_{n} \}$ is an increasing sequence which is bounded above.
+\end{exmp}
+
+\bigskip
+
+\begin{defn}{Binomial Theorem} \\
+\[ \bigg( 1+ \frac{1}{k} \bigg)^{k} = 1 + k \frac{1}{k} + \ldots + \frac{k(k-1) \ldots (k-i+1)}{i!} \bigg( \frac{1}{k} \bigg)^{i} \ldots + \frac{k!}{k!} \bigg( \frac{1}{k} \bigg)^{k} \]
+\end{defn}
+
+\medskip
+
+\begin{defn}{Bounded Below} \\
+A sequence $\{ a_{n} \}$ is said to be \textbf{bounded below} if there is a number $C$ such that $a_{n} \leq C$ for all $n$. 
+\end{defn}
+
+\smallskip
+
+\begin{thm}
+A positive decreasing sequence has a limit.
+\end{thm}
+
+\medskip 
+
+\begin{defn}{Bounded} \\
+A sequence $\{ a_{n} \}$ is \textbf{bounded} if it is bounded above and bounded below; i.e. there are constants $B$ and $C$ such that 
+\[C \leq a_{n} \leq B \text{ for all } n \]
+\end{defn}
+
+\begin{nt}
+A increasing sequence is always bounded below by its first term. That is, for an increasing sequence it makes no difference whether we say it is bounded or bounded above. Similarly, a decreasing sequence is bounded below is to say it is bounded. 
+\end{nt}
+
+\bigskip
+
+\begin{defn}{Monotone} \\
+A sequence is \textbf{monotone} if it is increasing for all $n$, or decreasing for all $n$. 
+\end{defn}
+
+\bigskip
+
+\begin{prot}{Completeness Propert} \\
+A bounded monotone sequence has a limit.
+\end{prot}
+
+\begin{nt}
+The word \emph{completeness} which names the property above is an important choice of wording and implies that the real line has no holes; i.e. that it is complete.
+\end{nt}
+
+
+

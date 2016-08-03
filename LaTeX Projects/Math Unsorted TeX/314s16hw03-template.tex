@@ -1,0 +1,119 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}  % this adds some math 
+\usepackage{fullpage}
+\usepackage{tikz}            % if you delete this, you will have trouble with the included picture. You can delete the picture.
+\usepackage{chessboard}
+\usepackage{hyperref}
+
+% If you have a problem, please let me know sooner than later
+
+\newcommand\name{Chuck Norris} %%%%%%%%%%%%%%  WRITE YOUR NAME HERE
+
+
+
+\newcounter{excounter}
+\setcounter{excounter}{1}
+\newcommand\question[2]{\vskip 1em  \noindent\textbf{\arabic{excounter}\addtocounter{excounter}{1}:} \emph{#1} \noindent#2}
+
+
+% You can also erase this if you do not have package hancyhdr
+% Fancy footnote......... 
+\usepackage{fancyhdr}  %% If it does not work with your latex installation, you may just delete this...
+\pagestyle{fancy}
+\usepackage{lastpage}
+\rfoot{\name, page \thepage/\pageref{LastPage}}
+\cfoot{}
+\rhead{}
+\lhead{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+
+%%% Note that you do not have to use this template. You can use your own writeup or make any adjustment to this one you like.
+%%% This is provided only for your convenience. 
+
+
+\begin{document}
+
+
+{\bf MATH314  \hspace{1cm} HW 2\hfill \name}
+\vskip 1em
+
+% left column
+\begin{minipage}[t]{0.75\textwidth}
+Due \textbf{Feb 4} before class, \textbf{answer without justification will receive 0 points}.
+The typing the HW in \LaTeX{} is optional. 
+\end{minipage}
+% right box for score column
+\begin{minipage}[t]{0.25\textwidth}
+\hfill \begin{tabular}{|r|}
+\hline
+\hskip 3em Score \hskip 3em \\
+\hline \\ \\
+\hskip 3em /60 \\
+\hline
+\end{tabular}
+\end{minipage}
+
+
+
+
+\question{3.2}{
+Give an example of three graphs of the same order, same size and same degree sequence such that no two of these graphs are isomorphic.
+}
+
+\textbf{Solution:}
+
+\question{3.10}{
+Does there exist a disconnected self-complementary graph?
+}
+
+\textbf{Solution:}
+
+\question{3.12}{
+Let $G$ and $H$ be two self-complementary graphs with disjoint vertex sets, where $H$ has even order $n$. Let $F$ be the graph obtained from $G\cup H$ by joining each vertex of $G$ to every vertex of degree less than $n/2$ in $H$. Show that $F$ is self-complementary.
+(No drawing)
+}
+
+\textbf{Solution:}
+
+\question{3.16}{
+How many (non-isomorphic) graphs have the degree sequence s: 6, 6, 6, 6, 6, 6, 6, 6, 6?
+}
+
+\textbf{Solution:}
+
+\question{}{
+Count the number of automorphisms (that is isomorphism to itself) of the Petersen graph.
+}
+
+\textbf{Solution:}
+
+\question{}{
+Let $A$ be the adjacency matrix of a graph $G$, where $G$ is a triangle-free graph (that is, no $K_3$ as a subgraph). 
+What are entries of the diagonal  of $A^3$?  (No drawing)
+}
+
+\textbf{Solution:}
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

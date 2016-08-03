@@ -1,0 +1,255 @@
+% Copyright (C) 2008, 2009, 2010, 2011, 2012, 2013, 2014 
+% Bert Burgemeister
+%
+% Permission is granted to copy, distribute and/or modify this
+% document under the terms of the GNU Free Documentation License,
+% Version 1.2; with no Invariant Sections, no Front-Cover Texts and
+% no Back-Cover Texts. For details see file COPYING.
+%
+
+\newcommand{\maintitle}{Common\ Lisp\ Quick\ Reference}
+\newcommand{\AUTHOR}{Bert\ Burgemeister}
+%
+%%%%%%%%%%%%%%%%%%
+% pdf info
+\newcommand{\SUBJECT}{Common\ Lisp}
+\newcommand{\KEYWORDS}{{clqr cheatsheet lisp reference booklet}}
+%
+%%%%%%%%%%%%%%%%%%
+% To be reset in paper-*.tex if there is plenty of room
+\newcommand{\clearpagebeforeindex}{}
+%
+%
+\documentclass[8pt,pagesize,twoside,footinclude=false,headinclude=false]{scrartcl}
+%
+%
+%%%%%%%%%%%%%%%%%%
+% outsourced page dimensions
+\input{paper-current}
+%\setlength{\paperwidth}{10.5cm}
+%\setlength{\paperheight}{29.7cm}
+%%\areaset[3mm]{9cm}{28.3cm}
+%\typearea[2mm]{20}
+%\renewcommand{\clearpagebeforeindex}{\clearpage}
+%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%
+% outsourced hypertext colors
+\input{color-current}
+%\newcommand{\linkcolor}{Fuchsia}
+%\newcommand{\urlcolor}{MidnightBlue}
+%\newcommand{\bookmarks}{true}
+%\newcommand{\pdfpagelayout}{TwoColumnLeft}
+%%%%%%%%%%%%%%%%%%
+%
+\input{clqr.packages}
+% should remain last usepackage:
+\usepackage%
+    [breaklinks,linktocpage,colorlinks,%
+      bookmarksnumbered,bookmarks=\bookmarks,%
+      linkcolor=\linkcolor,urlcolor=\urlcolor,%
+      pdfpagelayout=\pdfpagelayout,%
+      pdftitle=\maintitle,pdfauthor=\AUTHOR,%
+      pdfsubject=\SUBJECT,pdfkeywords=\KEYWORDS]%
+    {hyperref}
+%
+\makeindex
+\titleformat{\section}{\sffamily\mdseries\slshape}
+            {\huge\thesection}{.7em}{\huge}[{\titlerule[0.25pt]}]
+            
+\titleformat{\subsection}{\sffamily\mdseries\slshape}
+            {\Large\thesubsection}{.7em}{\Large}[{\titlerule[0.25pt]}]
+
+% Kill toc header as we want it to span columns
+\deftocheading{toc}{}
+
+\titlecontents{section}%
+              [1.5em]%
+              {\vspace{.5em plus 1em minus .2em}\sffamily\bfseries\upshape\filright}%
+              {\contentslabel{1.5em}}%
+              {\hspace*{3em}}%
+              {\hfill\contentspage\vspace{.1em}}%
+
+\titlecontents{subsection}%
+              [4em]%
+              {\sffamily\mdseries\upshape\filright}%
+              {\contentslabel{2.5em}}%
+              {\hspace*{5.5em}}%
+              {\hspace{.5ex plus .5ex minus .3ex}\titlerule*[1em]{.}\contentspage}%
+
+\input{clqr.macros}
+%
+\begin{document}
+
+\newlength{\titlepagewidth}
+\setlength{\titlepagewidth}{8cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Front Cover
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
+  \renewcommand{\rmdefault}{ptm} %% Always times fonts on title
+  \advance\oddsidemargin by 1.5mm
+  \vspace*{15mm}
+  \begin{center}
+    \begin{minipage}{\titlepagewidth}
+      \begin{center}
+        \rmfamily\mdseries\itshape\fontsize{20}{0}\selectfont
+        Quick Reference\index{CLQR}\\
+      \end{center}
+    \end{minipage}
+    \vfill
+    \begin{minipage}{\titlepagewidth}
+      \begin{center}
+        \rmfamily\mdseries\itshape%
+        \fontsize{300}{0}\selectfont{\color{frontcovergray}cl\/}\\
+      \end{center}
+    \end{minipage}
+    \vfill
+    \begin{minipage}{\titlepagewidth}
+      \rmfamily\mdseries\itshape\fontsize{36}{0}\selectfont
+      \hfill Common\/\\[2mm]
+      \rmfamily\mdseries\upshape\fontsize{157}{0}\selectfont
+      \rule[3mm]{\textwidth}{1.5mm}\\
+      lisp\\[-10mm]
+      \rule[15mm]{5.5cm}{1.5mm}\hfill\rule[15mm]{1.77cm}{1.5mm}
+    \end{minipage}\\
+    \begin{minipage}{\titlepagewidth}
+      \rmfamily\mdseries\upshape\fontsize{14}{0}\selectfont
+      \AUTHOR
+      \vspace*{4mm}
+    \end{minipage}
+  \end{center}
+
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TOC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{\contentsname}
+\vspace{-3ex}
+{%
+  \setlength{\columnsep}{1.5em}%
+  \begin{multicols}{2}
+    \tableofcontents
+  \end{multicols}%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vfill
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  CONTENT STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{clqr-typographic-conventions}
+\clearpage
+\input{clqr-numbers}
+\input{clqr-characters}
+\input{clqr-strings}
+\input{clqr-conses}
+\input{clqr-arrays}
+\input{clqr-sequences}
+\input{clqr-hash-tables}
+\input{clqr-structures}
+\input{clqr-control-structure}
+\input{clqr-clos}
+\input{clqr-conditions-and-errors}
+\input{clqr-types-and-classes}
+\input{clqr-input-output}
+\input{clqr-packages-and-symbols}
+\input{clqr-compiler}
+\input{clqr-external-environment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\clearpagebeforeindex % \clearpage dependent on paper size
+%
+\renewcommand{\indexpagestyle}{lispref}
+\renewenvironment{theindex}%
+                 {\begin{list}{}%
+                     {\setlength{\itemindent}{-1em}\setlength{\leftmargin}{1em}}%
+                     \parskip0pt plus .1pt \itemsep0pt%
+                     \raggedright\looseness=-1%
+                 }%
+                 {\end{list}}
+\begin{multicols}{4}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  [\section*{Index}\vspace{-5ex}]
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Stock \printindex won't do as we want more than two columns.
+  \tiny\sffamily\input{clqr.ind}
+\end{multicols}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Make (total) page count a multiple of four.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\pagestyle{empty}
+\newcount\currentpage 
+\currentpage=\value{page} 
+\divide\currentpage by 4  
+\multiply\currentpage by 4  
+\advance\currentpage by -\value{page}
+%
+\ifnum\the\currentpage=-3 
+\rule{0pt}{0pt}\clearpage
+\else\ifnum\the\currentpage=-2
+\rule{0pt}{0pt}\clearpage\rule{0pt}{0pt}\clearpage 
+\else\ifnum\the\currentpage=-1
+\rule{0pt}{0pt}\clearpage\rule{0pt}{0pt}\clearpage\rule{0pt}{0pt}\clearpage 
+\fi\fi\fi
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Back Cover
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
+  \advance\evensidemargin by -1.5mm
+  \begin{center}
+    \renewcommand{\rmdefault}{ptm} %% Always times fonts on title
+    \vspace*{20pt}
+    \vfill
+    \begin{minipage}{\titlepagewidth}
+      \begin{center}
+        \rmfamily\mdseries\itshape\fontsize{300}{0}\selectfont
+        \reflectbox{{\color{backcovergray}cl\/}}\\
+      \end{center}
+    \end{minipage}
+    \vfill
+    \vspace*{40.5mm}% Adjust here if text below changes
+    \begin{minipage}{\titlepagewidth}
+      \hrule
+      \vspace{1.5mm}
+      \rmfamily\small
+      \makebox[\textwidth][l]{\maintitle\
+        \hfill
+        Revision \input{REVISION}
+        [\input{DATE}\hspace{-.65ex}]}
+      \makebox[\textwidth][l]{Copyright \copyright\ 2008 - 2014
+        \AUTHOR\hfill}
+      \makebox[\textwidth][l]{\LaTeX\ source:
+        \href{http://clqr.boundp.org}{http://clqr.boundp.org}
+        \hfill
+        \raisebox{-1mm}[0mm][0mm]{\includegraphics[origin=c,height=5mm,keepaspectratio,angle=-40]{housefly.eps}}
+      }\\[1mm] 
+      Permission is granted to copy, distribute and/or modify this
+      document under the terms of the GNU Free Documentation License,
+      Version 1.2; with no Invariant Sections, no Front-Cover Texts and
+      no Back-Cover Texts.\hfill
+      \href{http://www.gnu.org/licenses/fdl.html}{http://www.gnu.org/licenses/fdl.html}\\
+      \vspace{-1mm}
+      \hrule
+    \end{minipage}
+  \end{center}
+\end{titlepage}
+
+\end{document}
+% -*-latex-*-
+
+% LocalWords:  ptm lightgray cl lispref theindex pt
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

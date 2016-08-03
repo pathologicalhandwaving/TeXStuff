@@ -1,0 +1,111 @@
+\documentclass[10pt]{article}
+
+% Document Information
+%\author{K. M. Short}
+%\title{}
+%\date{\today}
+
+% Basic Packages
+\usepackage{fullpage}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage[parfill]{parskip}
+\usepackage{verbatim}
+\usepackage{todonotes}
+
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+
+% A "fancy" package
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{lastpage}
+\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
+\setlength{\headheight}{25.2pt}
+\setlength{\headsep}{0.4in}
+\pagestyle{fancy}
+\fancyhf{}
+\chead{$\lightning$}
+\cfoot{$\nexists \Game$}
+\rhead{\textbf{The Man in the Plaid Coat}}
+\lhead{\textbf{Saunders Mac Lane}}
+\rfoot{page \thepage/\pageref{LastPage}}
+
+
+% Envs made up in theorem, definition, and remark style (most not usually used)
+\theoremstyle{plain}
+\newtheorem*{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{prop}{Proposition}
+\newtheorem*{con}{Conjecture}
+\newtheorem{crit}{Criterion}
+\newtheorem{ass}{Assertion}
+
+\theoremstyle{definition}
+\newtheorem*{defn}{Definition}
+\newtheorem{exmp}{Example}
+\newtheorem{xca}[exmp]{Exercise}
+\newtheorem{cond}{Condition}
+\newtheorem{prob}{Problem}
+\newtheorem*{sol}{Solution}
+\newtheorem*{asl}{Alternate Solution}
+\newtheorem{algo}{Algorithm}
+\newtheorem{que}{Question}
+\newtheorem{ans}{Answer}
+\newtheorem{axi}{Axiom}
+\newtheorem{prot}{Property}
+\newtheorem{asu}{Assumption}
+\newtheorem{hyp}{Hypothesis}
+
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newtheorem*{nt}{Note}
+\newtheorem*{nota}{Notation}
+\newtheorem{cla}{Claim}
+\newtheorem{summ}{Summary}
+\newtheorem{case}{Case}
+\newtheorem{cln}{Conclusion}
+\usepackage{xcolor} % Required to specify font color
+\newcommand*{\plogo}{\fbox{$\mathcal{KMS}$}} % Generic publisher logo
+\usepackage{afterpage}
+\usepackage{float}
+\usepackage{notes2bib}
+\newlength\longest
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+%    \afterpage{\blankpage}
+
+\renewcommand{\labelitemi}{$\circ$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\pagestyle{empty} % Removes page numbers
+\include{titlepage}
+\titleAT % This command includes the title page
+\pagebreak
+\include{preface}
+\afterpage{\blankpage}
+
+\pagestyle{fancy}
+\include{introduction}
+\include{names}
+\include{trouble}
+\include{early}
+\include{gottingen}
+
+% Part 2 Category Theory
+\include{why}
+\include{ml}
+
+\bibliographystyle{abstract}
+\bibliography{bibliography}
+\include{backmatter}
+\end{document}

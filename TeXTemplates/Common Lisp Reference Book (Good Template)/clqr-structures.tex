@@ -1,0 +1,102 @@
+% Copyright (C) 2008, 2009, 2010, 2012, 2014 Bert Burgemeister
+%
+% Permission is granted to copy, distribute and/or modify this
+% document under the terms of the GNU Free Documentation License,
+% Version 1.2; with no Invariant Sections, no Front-Cover Texts and
+% no Back-Cover Texts. For details see file COPYING.
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Structures}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{LIST}{1cm}
+  
+  \IT{(\MC*{DEFSTRUCT}
+    \xorGOO{\VAR{foo}\\
+      (\VAR{foo\hspace{.5ex}}
+      \orGOO{%
+        \xorGOO{%
+          \kwd{:conc-name}\\
+          (\kwd{:conc-name } \Op{\NEV{\VAR{slot-prefix}}\DF{\VAR{foo}\LIT{-}}})}{.}\\
+        \xorGOO{%
+          \kwd{:constructor}\\
+          (\kwd{:constructor }
+          \OP{\NEV{\VAR{maker}}\DF{\LIT{MAKE-}\VAR{foo}}\text{ }
+            \Op{({\OPn{\NEV{\VAR{ord-$\lambda$}}}})}})}{\}^{\!\!*}}\\
+        \xorGOO{%
+          \kwd{:copier}\\
+          (\kwd{:copier }
+          \Op{\NEV{\VAR{copier}}\DF{\LIT{COPY-}\VAR{foo}}})}{.}\\
+        (\kwd{:include\hspace{.5ex}} \NEV{\VAR{struct}}% disabled to save space %\text{ }
+        \xorGOO{%
+          \NEV{\VAR{slot}}\\
+          (\NEV{\VAR{slot}}\text{\hspace{.5ex}} \Op{\VAR{init}% disabled to save space %\text{ }
+            \orGOO{
+              \kwd{:type\hspace{.5ex}} \NEV{\VAR{sl-type}}\\
+              \kwd{:read-only } \NEV{\VAR{b}}}{\}}})\\
+        }{\}^{\!\!*}})\\
+        \xorGOO{
+          (\kwd{:type } \xorGOO{\kwd{list}\\
+            \kwd{vector}\\
+            (\kwd{vector }\NEV{\VAR{type}})}{\}})\text{ }
+          \orGOO{%
+            \kwd{:named}\\
+            (\kwd{:initial-offset } \NEV{\VAR{n}})\\
+          }{.}\\
+          \xorGOO{
+            (\kwd{:print-object } \Op{\NEV{\VAR{o-printer}}})\\
+            (\kwd{:print-function } \Op{\NEV{\VAR{f-printer}}})
+          }{.}
+        }{.}\\
+        \xorGOO{%
+          \kwd{:predicate}\\
+          (\kwd{:predicate } \Op{\NEV{\VAR{p-name}}\DF{\VAR{foo}\LIT{-P}}})}{.}
+      }{\}}%
+      )%
+    }{\}}
+    \Op{\NEV{\VAR{doc}}}
+    \xorGOO{
+      \VAR{slot}\\
+      (\VAR{slot } \Op{\VAR{init}\text{ }
+        \orGOO{
+          \kwd{:type } \NEV{\VAR{slot-type}}\\
+          \kwd{:read-only } \NEV{\VAR{bool}}
+        }{\}}})
+    }{\}^{\!\!*}}%
+    )}
+  {
+    Define structure \retval{\VAR{foo}} together with functions
+    \LIT{MAKE-}\VAR{foo}, \LIT{COPY-}\VAR{foo} and
+    \VAR{foo}\LIT{-P}; and \kwd{setf}able accessors
+    \VAR{foo}\LIT{-}\VAR{slot}. Instances are of class \VAR{foo} or, if 
+    \kwd{defstruct} option \kwd{:type} is given, of the specified type.
+    They can be
+    created by (\LIT{MAKE-}\VAR{foo} \Goos{\kwd{:}\VAR{slot}
+      \VAR{value}}) or, if \VAR{ord-$\lambda$} (see
+    page \pageref{section:Functions}) is given, by (\VAR{maker}
+    \OPn{\VAR{arg}} \Goos{\kwd{:}\VAR{key} \VAR{value}}). In the latter
+    case, \VAR{arg}s and \kwd{:}\VAR{key}s correspond to the positional
+    and keyword parameters defined in \VAR{ord-$\lambda$} whose
+    \VAR{var}s in turn correspond to \VAR{slot}s.
+    \kwd{:print-object}/\kwd{:print-function} generate a
+    \GFU{print-object} method for an instance \VAR{bar} of \VAR{foo}
+    calling (\VAR{o-printer} \VAR{bar} \VAR{stream}) or (\VAR{f-printer}
+    \VAR{bar} \VAR{stream} \VAR{print-level}), respectively.
+    If \kwd{:type} without \kwd{:named} is given, no \VAR{foo}\LIT{-P}
+    is created.
+}
+
+  \IT{(\FU*{COPY-STRUCTURE} \VAR{structure})}
+  {
+    Return \retval{copy of \VAR{structure}} with shared slot values.
+  }
+
+\end{LIST}
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "clqr"
+%%% End: 
