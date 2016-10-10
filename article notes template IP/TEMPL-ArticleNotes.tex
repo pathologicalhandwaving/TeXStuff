@@ -1,0 +1,71 @@
+\documentclass[10pt]{article}
+
+\usepackage{multicol}
+\setlength{\columnseprule}{0.5pt}\def\columnseprulecolor{\color{black}}
+\usepackage{fullpage}
+\usepackage[parfill]{parskip}
+\usepackage{framed}
+
+\usepackage[colorinlistoftodos]{todonotes}
+\newcommand{\addref}[1]{\todo[color=red,backgroundcolor=red!50,linecolor=red,size=\tiny]{\textbf{Add Reference:} #1}}
+\newcommand{\term}[1]{\todo[color=blue,backgroundcolor=blue!50,linecolor=blue,size=\tiny]{\textbf{Concept:} #1}}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\usepackage{enumerate}
+
+\usepackage{verbatim}
+\usepackage{url}
+\usepackage{hyperref}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{lastpage}
+\setlength{\headsep}{25.2pt}
+\setlength{\headsep}{0.4in}
+\lhead{\textbf{CiteKey:} \texttt{Voelkel2015}}
+\chead{\textbf{\textsc{Article Notes}}}
+\rhead{Date: \today}
+\lfoot{\textsc{K. M. Short}}
+\rfoot{Page \thepage/\pageref{LastPage}}
+
+\usepackage{color}
+\newcommand{\ccon}[1]{\textcolor{blue}{\textbf{Concept:} #1} \newline}
+
+\newcommand{\imp}[1]{\textcolor{red}{\textbf{Important:} #1} \newline}
+
+
+\begin{document}
+
+\section*{Article Information}
+
+	\begin{framed}
+		\begin{verbatim}
+		@article{,
+			title = {},
+			author = {},
+			month = {},
+			year = {},
+			institution = {},
+			localurl = {file:///},
+		}
+		\end{verbatim}
+	\end{framed}
+
+
+\begin{multicols}{2}
+
+\section*{Notes}
+
+
+%% BIBLIOGRAPHY
+\bibliographystyle{alpha}
+\nocite{*}
+\bibliography{}
+
+\end{multicols}
+
+
+\end{document}
