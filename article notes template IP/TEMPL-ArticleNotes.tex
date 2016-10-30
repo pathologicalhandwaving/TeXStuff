@@ -1,5 +1,9 @@
 \documentclass[10pt]{article}
 
+\setlength{\voffset}{-0.75in}
+\setlength{\headsep}{0pt}
+
+%-----------------------------
 \usepackage{multicol}
 \setlength{\columnseprule}{0.5pt}\def\columnseprulecolor{\color{black}}
 \usepackage{fullpage}
@@ -36,10 +40,44 @@
 
 \newcommand{\imp}[1]{\textcolor{red}{\textbf{Important:} #1} \newline}
 
+%% Article Information
+%
+%% Article Title
+\newcommand{\atitle}[1]{\renewcommand{\atitle}{#1}}
+%% Article Citation Key
+\newcommand{\acitation}[1]{\renewcommand{\acitation}{#1}}
+%
+%% DocumentTitle Format (Not Used)
+\newcommand{\doctitle}{\acitation\ --- ``\atitle''}
+%
+%% Date You Started Analysis
+\newcommand{\datenotesstarted}[1]{\renewcommand{\datenotesstarted}{#1}}
+%% Store the date
+\newcommand{\docdate}[1]{\renewcommand{\docdate}{#1}}
+%
+%% Store Author of Article
+\newcommand{\docauthor}[1]{\renewcommand{\docauthor}{#1}}
+%
+% Store AMS Info
+%
+%% AMS Class
+\newcommand{\amsclass}[1]{\renewcommand{\amsclass}{#1}}
+%% AMS Review
+\newcommand{\amsreview}[1]{\renewcommand{\amsreview}{#1}}
+%%% NOTE ADD:
+%\url{the web address of the review}
+%
+%% Keywords
+\newcommand{\keywords}[1]{\renewcommand{\keywords}{#1}}
+
+
+
 
 \begin{document}
 
 \section*{Article Information}
+\atitle{}
+\acitation{}
 
 	\begin{framed}
 		\begin{verbatim}
