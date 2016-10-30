@@ -1,0 +1,96 @@
+%% AUTOBOT PACKAGE
+%% Copyright K. M. Short 2016 
+
+
+%% AutoBot Package
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{autobot}
+%\LoadClass[10pt]{article}
+
+\RequirePackage{titlesec}
+
+%% SPACING
+%\setstretch{\singlespacing}
+%\RequirePackage[parfill]{parskip}
+\setlength{\parindent}{0em}	
+\clubpenalty = 10000				
+% prevent single lines at the beginning of a paragraph 
+\widowpenalty = 10000				
+% prevent single lines at the end of a paragraph
+\displaywidowpenalty = 10000
+
+\RequirePackage{import}
+
+
+%% MATH
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage{tikz}
+
+%% GRAPHICS
+\RequirePackage{graphicx}
+\graphicspath{{imgs/}{../imgs/}}
+\RequirePackage{xcolor}
+\RequirePackage{float}
+\RequirePackage{caption}
+\RequirePackage{stmaryrd}
+%\RequirePackage{minted}
+
+%% Pages
+\RequirePackage{boxedminipage}
+\RequirePackage{fullpage}
+\RequirePackage{multicol}
+
+\RequirePackage{enumerate}
+
+
+\RequirePackage{gloss}
+%\import{gloss.bib}
+%\makegloss
+
+\RequirePackage{tocloft}
+\RequirePackage[toc,page]{appendix}
+\RequirePackage{showkeys}
+\cftsetindents{figure}{0em}{3em}
+\cftsetindents{table}{0em}{3em}
+%\RequirePackage{gitinfo2}
+
+%% INDEX
+\RequirePackage{imakeidx}
+%\iorgtheindex\theindex
+%\let\orgendtheindex\endtheindex
+%\def\theindex{%
+%\def\twocolumn{\begin{multicols}{2}}%
+%	\def\onecolumn{}%
+%	\clearpage
+%	\orgtheindex
+%}
+%\def\endtheindex{%
+%	\end{multicols}%
+%	\orgendtheindex
+%}
+%\makeindex
+%% END IND
+
+
+%% HEADERS
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\RequirePackage{lastpage}
+
+\setlength{\headheight}{25.2pt}
+\setlength{\headsep}{0.4in}
+
+\fancyhead{}
+\fancyhead[RC,LC]{\title}
+\fancyhead[RO,LE]{\version}
+\fancyfoot{}
+\fancyfoot[LE,RO]{Page \thepage/\pageref{LastPage}}
+\fancyfoot[CO,RE]{K. M. Short}
+
+% Header End
+
+%% HYPERREF
+\RequirePackage{hyperref}
+\RequirePackage{url}
