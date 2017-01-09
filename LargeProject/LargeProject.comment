@@ -1,0 +1,22 @@
+Large Project Template
+
+Contents:
+	- abstract.tex
+	- main.tex
+	- body.tex
+	- frontmatter.tex
+	- backmatter.tex
+	- glossary.tex
+	- appendicies.tex
+	- outline.tex
+	- titlepage.tex
+	- references.bib
+
+Style Files:
+	- preamble.sty
+	- frontmatter.sty
+	- endmatter.sty
+	- mathmacros.sty
+	- cryptomacros.sty
+	- version.sty
+	- metadata.sty
