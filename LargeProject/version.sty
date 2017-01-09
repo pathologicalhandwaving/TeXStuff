@@ -4,13 +4,13 @@
 %%%%%%%$$$$$$$$
 % First Method
 
-\newcommand{\versionfilename}{\jobname.vers}
-\newwrite\versionfile
-\AtBeginDocument{%
-	\immediate\openin\versionfile=\versionfilename
-	\read\versionfile to \versioninfo
-\immediate\closein\versionfile%
-}
+%\newcommand{\versionfilename}{\jobname.vers}
+%\newwrite\versionfile
+%\AtBeginDocument{%
+%	\immediate\openin\versionfile=\versionfilename
+%	\read\versionfile to \versioninfo
+%\immediate\closein\versionfile%
+%}
 
 % Usage of First Method:
 % Version: \versioninfo
@@ -20,19 +20,19 @@
 %%%%%%%%%%%%%%%
 % Second Method
 
-%\newcounter{versionNumber}
-%\makeatletter
+\newcounter{versionNumber}
+\makeatletter
 
-%\AtEndDocument{%
-	%\immediate\write\@auxout{%
-		%\string\setcounter{versionNumber}{\number\value{versionNumber}}%
-	%}%
-%}
+\AtEndDocument{%
+	\immediate\write\@auxout{%
+		\string\setcounter{versionNumber}{\number\value{versionNumber}}%
+	}%
+}
 
-%\makeatother
-%\AtBeginDocument{%
-	%\stepcounter{versionNumber}
-%}
+\makeatother
+\AtBeginDocument{%
+	\stepcounter{versionNumber}
+}
 
 % Usage of Second Method:
 % Version: \theversionNumber
