@@ -1,0 +1,113 @@
+\documentclass[10pt]{article}
+%\usepackage[landscape,showframe]{geometry}
+%\usepackage{pdflscape}
+
+
+\setlength{\voffset}{-0.75in}
+\setlength{\headsep}{0pt}
+
+%-----------------------------
+\usepackage{multicol}
+\setlength{\columnseprule}{0.25pt}\def\columnseprulecolor{\color{black}}
+
+\usepackage{fullpage}
+\usepackage[parfill]{parskip}
+\usepackage{framed}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\usepackage{enumerate}
+\usepackage{verbatim}
+
+
+\usepackage[colorinlistoftodos]{todonotes}
+\newcommand{\addref}[1]{\todo[color=red,backgroundcolor=red!50,linecolor=red,size=\tiny]{\textbf{Add Reference:} #1}}
+\newcommand{\term}[1]{\todo[color=blue,backgroundcolor=blue!50,linecolor=blue,size=\tiny]{\textbf{Concept:} #1}}
+
+
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{lastpage}
+\setlength{\headsep}{25.2pt}
+\setlength{\headsep}{0.4in}
+\lhead{\textbf{CiteKey:} \texttt{}}
+\chead{\textbf{\textsc{Article Notes}}}
+\rhead{\textbf{Date:} \textit{\today}}
+\lfoot{\textit{K. M. Short}}
+\rfoot{Page \thepage/\pageref{LastPage}}
+
+
+
+%% Article Information
+%
+%% Article Title
+\newcommand{\atitle}[1]{\renewcommand{\atitle}{#1}}
+%% Article Citation Key
+\newcommand{\acitation}[1]{\renewcommand{\acitation}{#1}}
+%
+%% DocumentTitle Format (Not Used)
+\newcommand{\doctitle}{\acitation\ --- ``\atitle''}
+%
+%% Date You Started Analysis
+\newcommand{\datenotesstarted}[1]{\renewcommand{\datenotesstarted}{#1}}
+%% Store the date
+\newcommand{\docdate}[1]{\renewcommand{\docdate}{#1}}
+%
+%% Store Author of Article
+\newcommand{\docauthor}[1]{\renewcommand{\docauthor}{#1}}
+%
+% Store AMS Info
+%
+%% AMS Class
+\newcommand{\amsclass}[1]{\renewcommand{\amsclass}{#1}}
+%% AMS Review
+\newcommand{\amsreview}[1]{\renewcommand{\amsreview}{#1}}
+%%% NOTE ADD:
+%\url{the web address of the review}
+%
+%% Keywords
+\newcommand{\keywords}[1]{\renewcommand{\keywords}{#1}}
+
+
+\usepackage{url}
+\usepackage{hyperref}
+
+
+\begin{document}
+
+\section*{Article Information}
+\atitle{}
+\acitation{}
+
+	\begin{framed}
+		\begin{verbatim}
+		@article{,
+			title = {},
+			author = {},
+			month = {},
+			year = {},
+			institution = {},
+			localurl = {file:///},
+		}
+		\end{verbatim}
+	\end{framed}
+
+
+\begin{multicols}{2}
+
+\section*{Notes}
+
+
+%% BIBLIOGRAPHY
+\bibliographystyle{alpha}
+\nocite{*}
+\bibliography{}
+
+\end{multicols}
+
+
+\end{document}
