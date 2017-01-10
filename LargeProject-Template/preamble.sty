@@ -1,0 +1,56 @@
+\ProvidesPackage{preamble}
+
+\RequirePackage{enumitem}
+\setlist{nosep}
+
+\RequirePackage{hyphenat}
+
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage{tikz}
+\RequirePackage{stmaryrd}
+
+
+%%% CUSTOM Packages
+\usepackage{frontmatter}
+\usepackage{cryptomacros}
+\usepackage{mathmacros}
+\usepackage{version}
+
+\RequirePackage{graphicx}
+\graphicspath{Images/{../Images.}}
+
+\RequirePackage{xcolor}
+\RequirePackage{fullpage}
+\RequirePackage[parskip]{parfill}
+\RequirePackage{framed}
+
+
+%%% HEADER
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{lastpage}
+\setlength{\headheight}{25.2pt}
+\setlength{\headsep}{0.4in}
+\fancyhead{}
+\chead{\title}
+\lhead{\author}
+\rhead{\date}
+\fancyfoot{}
+\rfoot{Page \thepage/\pageref{LastPage}}
+\lfoot{\versioninfo}
+
+%%% ENDHEADER
+
+
+\usepackage{metadata} 	% Combined glossary and index
+
+\usepackage{endmatter}
+
+
+
+
+
+

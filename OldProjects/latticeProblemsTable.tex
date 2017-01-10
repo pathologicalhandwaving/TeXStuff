@@ -1,0 +1,82 @@
+% Lattice Problems Table 2 
+
+
+\documentclass{article}
+\usepackage[table]{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{tabularx}
+\usepackage{enumitem}
+
+\setlist{nolistsep}
+\definecolor{green}{HTML}{66FF66}
+\definecolor{myGreen}{HTML}{009900}
+
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+\begin{center}
+\begin{tabularx}{\textwidth}[t]{XX}
+\arrayrulecolor{darkgray}\hline
+\textbf{\textcolor{myGray}{Lattice Problem Descriptions}} & \\
+\hline
+Shortest Vector Problem (SVP) &
+\begin{minipage}[t]{\linewidth}%
+\begin{itemize}
+\item[Standard Definition] Given a lattice with an arbitrary basis, find the shortest vector in the lattice.
+\end{itemize}
+\end{minipage}\\
+
+\arrayrulecolor{black}\hline
+
+Variants of SVP:  &
+\begin{minipage}[t]{\linewidth}%
+\begin{itemize}
+\item[$\alpha{SVP}$] (Approximate SVP) Given a lattice with an \\ arbitrary basis, find a vector in the lattice with length no more than an approximation factor $\alpha$, multiplied by the length of the shortest non-zero vector. \\
+\item[$GapSVP_{(\beta)}$] Differentiate between cases of SVP where the solution is one or just greater than $\beta$, where $\beta$ is a function of n the number of vectors in the lattice. GapSVP decides if $\Lambda(L)$ is less than or equal to one, or if $\Lambda(L)$ is strictly greater than $\beta$. In all other cases the algorithm gives an error. \\ 
+\item[$GapSVP_{(\zeta, \gamma})$] Given a basis $B$ and a number $d$ as input. We are guaranteed that all vectors under Gram-Schmidt orthogonalization have a length of at least one. So the relations $\Lambda(L(B))$ will be less than $\zeta$, also $1 \leq d \leq d \lew \zeta(n)/\gamma(n)$, \\ where $n$ is the dimension. Then the solution to $GapSVP_{(\zeta, \gamma)}$ is accepted if $\Lambda(L(B)) \geq \gamma(n).d$. For large enough values of $\zeta$, ($\zeta(n)) > 2^{n/2}$, $GapSVP_{(\zeta, \gamma)}$ is equivalent to $GapSVP_{(\gamma)}$
+\item[SPIP]
+\item[SG-Principal-SVP]
+\end{itemize}
+\end{minipage}\\
+
+\hline
+
+Target 1.C Halve, between 1990 and 2015, the proportion of people who suffer from hunger &
+\begin{minipage}[t]{\linewidth}%
+\begin{itemize}
+\item[1.8] Prevalence of underweight children under five years of age
+\item[1.9] Proportion of population below minimum level of dietary energy consumption
+\end{itemize}
+\end{minipage}\\
+
+\arrayrulecolor{green}\hline
+\textbf{\textcolor{myGreen}{Goal 2 Achieve universal primary education}} \\
+\hline
+
+Target 2.A Ensure that by 2015 children everywhere, boy and girls alike, will be able to complete a full course of primary schooling. &
+\begin{minipage}[t]{\linewidth}%
+\begin{itemize}
+\item[2.1] Net enrollment ratio in primary education
+\item[2.2] Proportion of pupils starting grade 1 who reach last grade of primary education
+\item[2.3] Literacy rate of 15- to 24-year-olds, women and men
+\end{itemize}
+\end{minipage}\\
+
+\hline
+\multicolumn{2}{l}{%
+\textbf{\textcolor{myGreen}{Goal 3 Promote gender equality and empower women}}} \\
+\hline
+
+Target 3.A Eliminate gender disparity in primary and secondary education, preferably by 2005, and in all levels of education no later than 2015 &
+\begin{minipage}[t]{\linewidth}%
+\begin{itemize}
+\item[3.1] Ratios of girls to boys in primary, secondary and tertiary education
+\item[3.2] Share of women in wage employment in the non-agricultural sector.
+\end{itemize}
+\end{minipage}
+\end{tabularx}
+\end{center}
+
+\end{document}

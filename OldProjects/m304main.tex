@@ -1,0 +1,1651 @@
+\documentclass[10pt,a4paper,titlepage,twoside,draft]{article}
+
+\usepackage[frenchlinks]{hyperref}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[parfill]{parskip}
+
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage[thinlines]{easytable}
+%\newcommand\ML[1]{\llap{#1\quad}}
+
+\usepackage[USenglish,UKenglish,british,american]{babel}
+
+\usepackage{xcolor} 
+
+\usepackage{xstring}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+
+
+\usepackage{verbatim}
+
+\usepackage{float}
+\floatstyle{boxed}
+\restylefloat{figure}
+\usepackage[font={small,sf},labelfont=bf,format=hang]{caption}
+
+\usepackage[colorinlistoftodos]{todonotes}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}{Proposition}
+\newtheorem{con}{Conjecture}
+\newtheorem{crit}{Criterion}
+\newtheorem{ass}{Assertion}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{exmp}{Example}
+\newtheorem{xca}[exmp]{Exercise}
+\newtheorem{cond}{Condition}
+\newtheorem{scon}{Sufficient Condition}
+\newtheorem{ncon}{Necessary Condition}
+\newtheorem{nscon}{Necessary and Sufficient Condition}
+\newtheorem*{prob}{Problem}
+\newtheorem*{sol}{Solution}
+\newtheorem*{asl}{Alternate Solution}
+\newtheorem{algo}{Algorithm}
+\newtheorem{que}{Question}
+\newtheorem{ans}{Answer}
+\newtheorem{axi}{Axiom}
+\newtheorem{prot}{Property}
+\newtheorem{asu}{Assumption}
+\newtheorem{hyp}{Hypothesis}
+
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newtheorem{nt}{Note}
+\newtheorem{nota}{Notation}
+\newtheorem{cla}{Claim}
+\newtheorem{summ}{Summary}
+\newtheorem{ack}{Acknowledgement}
+\newtheorem{case}{Case}
+\newtheorem{cln}{Conclusion}
+
+
+
+
+
+\begin{document}
+
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{center}
+\hrulefill \\[0.02in]
+\Large \textbf{Laboratory Notebook: 008} \\[0.05in]
+\large \textbf{Math304: Combinatorics} \\[0.05in]
+\normalsize \textsc{Professor Bernard Lidiky}\\[0.05in]
+\small \textsc{Fall 2015} \\[0.05in]
+\hrulefill \\
+\vspace{05.0in}
+
+\normalsize{\textsc{K. M. Short} } \\[0.02in]
+\hrulefill \\[0.05in]
+\normalsize \textsc{Department of Mathematics}\\[0.05in]
+\normalsize \textsc{Iowa State University of Science and Technology}\\ [0.05in]
+\small \textsc{Ames, Iowa -- 50011} \\[0.05in]
+\end{center}
+
+\end{titlepage}
+
+
+
+\pagebreak
+
+\tableofcontents
+
+\pagebreak
+
+\listoffigures
+
+\pagebreak
+
+\listoftables
+
+\pagebreak
+
+\hrule
+\section{Notes}
+\hrule
+\vfill
+\pagebreak
+
+
+\subsection{Sequences}
+
+\begin{defn}{Infinite Sequence}
+An infinite sequence is an infinite list of numbers written in a definite order so that there is a first, second, third, and so on.
+\end{defn}
+
+\smallskip
+
+\begin{nota}
+\[ a_{0}, a_{1}, a_{2}, \ldots, a_{n}, \ldots \]
+\end{nota}
+
+\smallskip
+
+\begin{defn}{n-th term of a sequence} \\
+We call $a_{n}$ the \textbf{n-th} term of the sequence.
+\end{defn}
+
+\medskip
+
+\begin{defn}{Finite Sequence} 
+A finite sequence is a finite list of numbers written in a definite order.
+\end{defn}
+
+\smallskip
+
+\begin{nota}
+\[ a_{0}, a_{1}, a_{2}, a_{3}, \ldots, a_{n-1}, a_{n} \]
+\end{nota}
+
+\subsection{Monotone Sequences}
+
+\begin{defn} 
+We say the sequence $\{a_{n} \}$ is: \\
+\textbf{increasing} if $a_{n} \leq a_{n+1}$ for all $n$; \\
+\textbf{strictly increasing} if $a_{n} < a_{n+1}$ for all $n$; \\
+\textbf{decreasing} if $a_{n} \geq a_{n+1}$ for all $n$; \\
+\textbf{strictly decreasing} if $a_{n} > a_{n+1}$ for all $n$.
+\end{defn}
+
+\medskip
+
+\begin{rem}
+In the above definition the phrase \textit{`for all $n$'} means \textit{`for all values of $n$ for which $a_{n}$ is defined'}.
+\end{rem}
+
+\medskip
+
+\begin{rem}
+The following are the same:
+
+increasing = non-decreasing
+
+strictly increasing = increasing 
+\end{rem}
+
+\bigskip
+
+\begin{defn}{Bounded Above} \\
+A sequence $\{ a_{n} \}$ is said to be \textbf{bounded above} if there is a number $B$ such that $a_{n} \leq B$ for all $n$. \\
+Any such $B$ is called an \textbf{upper bound} for the sequence.
+\end{defn}
+
+\medskip
+
+\begin{thm}
+A positive increasing sequence $\{ a_{n} \}$ which is bounded above has a limit.
+\end{thm}
+
+\medskip
+
+\begin{exmp}{The Number $e$} \\
+The sequence $a_{n} = \bigg ( 1 + \frac{1}{2^{n}} \bigg)^{2^{n}}$ has the limit $e$. \\
+This is true since we can show that $\{a_{n} \}$ is an increasing sequence which is bounded above.
+\end{exmp}
+
+\bigskip
+
+\begin{defn}{Binomial Theorem} \\
+\[ \bigg( 1+ \frac{1}{k} \bigg)^{k} = 1 + k \frac{1}{k} + \ldots + \frac{k(k-1) \ldots (k-i+1)}{i!} \bigg( \frac{1}{k} \bigg)^{i} \ldots + \frac{k!}{k!} \bigg( \frac{1}{k} \bigg)^{k} \]
+\end{defn}
+
+\medskip
+
+\begin{defn}{Bounded Below} \\
+A sequence $\{ a_{n} \}$ is said to be \textbf{bounded below} if there is a number $C$ such that $a_{n} \leq C$ for all $n$. 
+\end{defn}
+
+\smallskip
+
+\begin{thm}
+A positive decreasing sequence has a limit.
+\end{thm}
+
+\medskip 
+
+\begin{defn}{Bounded} \\
+A sequence $\{ a_{n} \}$ is \textbf{bounded} if it is bounded above and bounded below; i.e. there are constants $B$ and $C$ such that 
+\[C \leq a_{n} \leq B \text{ for all } n \]
+\end{defn}
+
+\begin{nt}
+A increasing sequence is always bounded below by its first term. 
+That is, for an increasing sequence it makes no difference whether we say it is bounded or bounded above. 
+Similarly, a decreasing sequence is bounded below is to say it is bounded. 
+\end{nt}
+
+\bigskip
+
+\begin{defn}{Monotone} \\
+A sequence is \textbf{monotone} if it is increasing for all $n$, or decreasing for all $n$. 
+\end{defn}
+
+\bigskip
+
+\begin{prot}{Completeness Property} \\
+A bounded monotone sequence has a limit.
+\end{prot}
+
+\begin{nt}
+The word \emph{completeness} which names the property above is an important choice of wording and implies that the real line has no holes; 
+i.e. that it is complete.
+\end{nt}
+
+
+\subsection{Objects and Boxes}
+
+\begin{defn}{Function} \\
+Putting $n$ distinct objects into $k$ distinct boxes defines a function.
+
+There are $k^{n}$ ways to make a functional arrangement.
+\end{defn}
+
+\bigskip
+
+\textbf{($n$ identical objects and $k$ distinct boxes)} \\
+
+\begin{defn}{Weak Composition} \\
+A sequence $\{a_{1},a_{2},\ldots,a_{k}\}$ of integers which satisfies both the inequality $a_{i} \geq 0, \forall i$ \textbf{and} the sum, $a_{1} + a_{2} + \cdots + a_{k} = n$ is called a \emph{weak composition of $n$}.
+\end{defn}
+
+\medskip
+
+\begin{nota}
+For all $n,k \in \mathbb{Z}^{+}$ the number of weak compositions of $n$ into $k$ distinct parts is given by: 
+\[ \binom{n+k-1}{k-1} \]
+\end{nota}
+
+\medskip
+
+\begin{defn}{Strong Composition} \\
+A sequence $\{b_{1},b_{2},\ldots,b_{k}\}$ of integers which satisfies both the inequality $b_{i} \geq 1, \forall i$ \textbf{and} the sum, $b_{1} + b_{2} + \cdots + b_{k} = n$ is called a \emph{strong composition of $n$}.
+\end{defn}
+
+\medskip
+
+\begin{nota}
+For all $n,k \in \mathbb{Z}^{+}$ the number of strong compositions of $n$ into $k$ distinct parts is given by:
+\[ \binom{n-1}{k-1} \]
+\end{nota}
+
+\bigskip
+
+\textbf{($n$ distinct objects and $k$ identical boxes)} \\
+
+\medskip
+
+\begin{defn}{Set Partition} \\
+A set partition of a set $S = \{a_{1}, a_{2}, \ldots, a_{n} \}$ with $n$ elements into $k$ non-empty subsets is called a \emph{partition of the set}.
+\end{defn}
+
+\medskip
+
+\begin{nota}
+The number of ways to partition a set $S$ of $n$ elements into $k$ nonempty subsets is denoted $S(n,k)$. 
+\end{nota}
+
+\medskip
+
+\begin{defn}{Stirling Numbers of the Second Kind} \\
+Stirling Numbers of the second kind denoted $S(n,k)$, count the number of ways to partition a set of $n$ labeled objects into $k$ nonempty subsets. 
+\end{defn}
+
+\medskip
+
+
+Equivalently, they count the number of different equivalence relations with exactly $k$ equivalence classes that can be defined on an $n$ element set. 
+Specifically, there is a bijection between the set of equivalence relations and the set of partitions of a given set. 
+
+
+\medskip
+
+\begin{nota}
+Specific (2nd kind) Stirling Numbers: \\
+\[ S(0,0) = 0 \]
+\[S(n,k) = 0 \text{ if } n < k \]
+\end{nota}
+
+\medskip
+
+\textbf{If Empty-sets are Permitted} \\
+
+\medskip
+
+If any box of a set partition is allowed to be empty then there are:
+\[ \sum_{i=1}^{k} S(n,i) \]
+different ways to put $n$ distinct objects into $k$ identical boxes. 
+
+\medskip
+
+\textbf{Important Identity} \\
+\[ S(n,k) = S(n-1, k-1) + k \times S(n-1,k) \]
+
+\smallskip
+
+\textbf{Closed Form Formula for $S(n,n-1)$} \\
+\[ S(n, n-1) = \binom{n}{2} \]
+
+\smallskip
+
+\textbf{Closed Form Formula for $S(n,2)$} \\
+\[ S(n,2) = 2^{n-1} -1 \]
+
+\bigskip
+
+\textbf{($n$ Identical Objects and $k$ Identical Boxes)} \\
+
+\medskip
+
+\begin{defn}{Integer Partition} \\
+
+\end{defn}
+
+\medskip
+
+
+\begin{tabular}{c}
+\begin{TAB}(e,2cm,2cm){|c|c|c|}{|c|c|c|}
+    & \textbf{Distinct Objects} & \textbf{Identical Object}    \\
+\textbf{Distinct Boxes} & Function & Weak/Strong Composites  \\
+\textbf{Identical Boxes} & Set Partition & Integer Partition    \\
+\end{TAB}
+\end{tabular}
+
+
+
+\subsection{Binomial Identities}
+
+
+\[\binom{n}{k} = \frac{n(n-1)(n-2) \ldots (n-k+1)}{k(k-1)(k-2) \ldots 1} \]
+
+\begin{equation}
+\binom{r}{k} = \frac{r(r-1)(r-2) \ldots (r-k+1)}{k(k-1) \ldots 1}, k \in \mathbb{Z} 
+\end{equation}
+such that $k \geq 0$; and $0, k \in \mathbb{Z} : k < 0$.
+
+
+\[\binom{n}{n} = 1 \Leftrightarrow n \geq 0, \text{ where } n \in \mathbb{Z}\]
+
+\begin{nt}
+When $n>0$ then $\binom{n}{n} = 1$ \\
+When $n < 0$ then $\binom{n}{n} = 0$
+\end{nt}
+
+\[\binom{n}{k} = \frac{n!}{k!(n-k)!}, n \geq k \geq 0 : n,k \in \mathbb{Z}\]
+
+\[\binom{n}{k} = \binom{n}{n-k}, n \geq 0 \text{ and } k \in \mathbb{Z}\]
+
+\begin{eqnarray}
+\binom{n}{k} = \frac{n!}{k!(n-k)!} \\
+= \frac{n!}{(n-(n-k))!(n-k)!} = \binom{n}{n-k}
+\end{eqnarray}
+
+\[\binom{r}{k} = \frac{r}{k}\binom{r-1}{k-1}, k \in \mathbb{Z} : k \neq 0\]
+
+\begin{eqnarray}
+r^{\underline{k}} = r(r-1)^{\underline{k-1}}  \\
+\text{ and } k! = k(k-1)! \text{ when } k > 0 \\ 
+\text{ both sides are zero when }  k < 0
+\end{eqnarray}
+
+\[k\binom{r}{k} = r\binom{r-1}{k-1}, k \in \mathbb{Z}\]
+
+\[(r-k)\binom{r}{k} = r\binom{r-1}{k}, k \in \mathbb{Z} \]
+
+\begin{eqnarray}
+(r-k)\binom{r}{k} = \\
+(r-k)\binom{r}{r-k} = \\
+r\binom{r-1}{r-k-1} = \\
+r\binom{r-1}{k}
+\end{eqnarray}
+
+\[\binom{r}{k} = \binom{r-1}{k} + \binom{r-1}{k-1}, k \in \mathbb{Z}\]
+
+\[(r-k)\binom{r}{k} + k\binom{r}{k} = r \binom{r-1}{k} + k \binom{r-1}{k-1}\]
+
+\bigskip
+
+\begin{eqnarray}
+\binom{r-1}{k} + \binom{r-1}{k-1} = \\
+ \frac{(r-1)^{\underline{k}}}{k!} + \frac{(r-1)^{\underline{k-1}} k}{k!} = \\
+ \frac{(r-1)^{\underline{k-1}} r}{k!} = \\
+ \frac{r^{\underline{k}}}{k!} = \binom{r}{k}
+\end{eqnarray}
+
+\begin{eqnarray}
+ \sum_{k \leq n} \binom{r+k}{k} = \\
+ \binom{r}{0} + \binom{r+1}{1} + \ldots + \binom{r+n}{n} = \\
+ \binom{r+n+1}{n}, n \in \mathbb{Z}, \\
+ \text{ all terms where } k <0 \text{ are zero.}
+\end{eqnarray}
+
+\begin{eqnarray}
+\text{For } 0 \leq k \leq m \\
+\binom{k}{m} = \binom{0}{m} + \binom{1}{m} + \ldots + \binom{n}{m} = \\
+\binom{n+1}{m+1}, \text{ for } m,n \in \mathbb{Z} \geq 0
+\end{eqnarray}
+
+\pagebreak
+
+\subsection{Factorials}
+
+\subsubsection{Rising and Falling Factorials}
+
+\begin{defn}
+Suppose that $n$ is a positive integer, and choose $\alpha$ to be the negative integer $(-n)$. 
+
+Then, 
+\begin{eqnarray}
+\binom{\alpha}{k} = \binom{-n}{k} = \\
+\frac{-n(-n-1) \ldots (-n-k+1)}{k!} = \\
+(-1)^{k} \frac{n(n+1) \ldots (n+k-1)}{k!} = \\ 
+(-1)^{k} \binom{n+k-1}{k}
+\end{eqnarray}
+
+Then, for $|z| < 1$, we have
+
+\[(1+z)^{-n} = \frac{1}{(1+z)^{n}} = \sum_{k=0}^{\infty} (-1)^{k} \binom{n+k-1}{k} z^{k}\]
+
+Replacing $z$ by $-z$ we get:
+
+\[(1-z)^{-n} = \frac{1}{(1-z)^{n}} = \sum_{k=0}^{\infty} \binom{n+k-1}{k} z^{k}\]
+
+If $n=1$, then \[\binom{n+k-1}{k} = \binom{k}{k} =1\] 
+and so \[\frac{1}{1+z} = \sum_{k=0}^{\infty} (-1)^{k}z^{k} \text{ whenever } |z| < 1,\] 
+and \[\frac{1}{1-z} = \sum_{k=0}^{\infty} z^{k} \text{ whenever } |z| <1.\]
+\end{defn}
+
+\medskip
+
+\begin{nota}
+    \[(x)_{n} = x(x-1)(x-2) \ldots (x-n+1)\]
+\end{nota}
+
+\medskip
+
+
+
+\begin{nota}{Falling Factorial} \\
+\[x_{(n)}={(-1)}^{n}{(-x)}_{n}\]
+\end{nota}
+
+
+
+\begin{nota}{Rising Factorial} \\
+ \[x^{(n)}={(x+n-1)}_{n}\]
+\end{nota}
+
+
+\pagebreak
+
+\clearpage
+
+\subsection{Fibonacci Sequence}
+
+
+\subsubsection{Numeric Sequence}
+
+\[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, \ldots \]
+
+\medskip
+
+\subsubsection{Definitions and Identities:}
+
+
+\begin{align}
+ 	F_{i} = F_{i-1} + F_{i-2}, \\
+	F_{0} = F_{1} = 1
+\end{align}
+
+\begin{align}
+ F_{-i} = (-1)^{i-1} F_{i}, \\
+F_{i} = \frac{1}{\sqrt{5}} \left(\phi^{i} - \hat{\phi}^{i}\right),
+\end{align}
+
+\subsubsection{Cassini's Identity: for $i > 0$:}
+
+\[F_{i+1} F_{i-1} - F^{2_{i}} = (-1)^{i}.\]
+
+\smallskip
+
+\subsubsection{Additive Rule:}
+
+
+
+
+
+\begin{align}
+F_{n+k} = F_{k} F_{n+1} + F_{k-1} F_{n}, \\
+F_{2n} = F_{n} F_{n+1} + F_{n-1} F_{n}
+\end{align}
+
+\smallskip
+
+\subsubsection{Calculation by Matrices:}
+
+\begin{align}
+\begin{pmatrix}
+F_{n-2} &F_{n-1} \cr
+F_{n-1} &F_{n} \cr
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 &1 \cr
+1 &1 \cr
+\end{pmatrix}^{n}
+\end{align}
+\medskip
+
+\subsubsection{Combine!}
+
+\begin{align}
+F_{i+1} F_{i-1} - F^{2_{i}} = (-1)^{i}, \text{for} i > 0,\\
+F_{n+k} &= F_{k} F_{n+1} + F_{k-1} F_{n}, \\
+F_{2n} &= F_{n} F_{n+1} + F_{n-1} F_{n}, \\
+\begin{pmatrix}
+F_{n-2} & F_{n-1} \\
+F_{n-1} & F_{n} \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 & 1 \\
+1 &1 
+\end{pmatrix}^{n}
+\end{align}
+
+
+\subsubsection{Representation}
+
+Every integer $n$ has a unique representation such that:
+\[ n = F_{k_1} + F_{k_2} + \cdots + F_{k_{m}},\]
+where $k_{i} \geq k_{i+1} + 2$ for $1 \leq i < m$ and $k_{m} \geq 2$.
+
+\subsection{Magic Square}
+
+\[\left [
+\begin{matrix}
+00	&47	&18	&76	&29	&93	&85      &34      &61      &52     \cr
+86	&11	&57	&28	&70	&39	&94      &45      &02      &63     \cr
+95	&80	&22	&67	&38	&71	&49      &56      &13      &04     \cr
+59	&96	&81	&33	&07	&48	&72      &60      &24      &15     \cr
+73	&69	&90	&82	&44	&17	&58      &01      &35      &26     \cr
+68	&74	&09	&91	&83	&55	&27      &12      &46      &30     \cr
+37	&08	&75	&19	&92	&84	&66      &23      &50      &41     \cr
+14	&25	&36	&40	&51	&62	&03      &77      &88      &99     \cr
+21	&32	&43	&54	&65	&06	&10      &89      &97      &78     \cr
+42	&53	&64	&05	&16	&20	&31      &98      &79      &87     \cr
+\end{matrix}
+\right ] \]
+
+
+\subsection{Theorems About Primes}
+
+
+\subsubsection{Chinese Remainder Theorem}
+
+
+Given $n_{1},n_{2}, \ldots, n_{k}$ are positive integers such that $(n_{i},n_{i+1})$ are relatively prime pairs. 
+
+Then, for any integer sequence $a_{1},a_{2}, \ldots, a_{k}$ we can find an integer $x$ which solves the following system of simultaneous congruences.
+$ {\begin{cases}x\equiv a_{1}&{\pmod {n_{1}}}\\\quad \cdots \\x\equiv a_{k}&{\pmod {n_{k}}}\end{cases}} $
+
+\smallskip
+
+Moreover, all $x$ found solutions the system are congruent modulo the product, $N = n_{1} \times n_{2} \times \ldots \times n_{k}$. 
+
+\smallskip
+
+Therefore, 
+\[x\equiv y{\pmod {n_{i}}},\quad 1\leq i\leq k\qquad \Longleftrightarrow \qquad x\equiv y{\pmod {N}}. \]
+
+\medskip
+
+Sometimes, the system will have a solution even if the $(n_{i},n_{i+1})$ pairs are not relatively prime. 
+
+We can find a solution $x$ if and only if:
+\[ a_{i}\equiv a_{j}{\pmod {\gcd(n_{i},n_{j})}}\qquad \forall i,j \]
+All $x$ found solutions will be congruent modulo the least common multiple of the $n_{i}$.
+
+
+
+\subsubsection{Euler's Function}
+
+Euler's function $\phi(x)$ is the number of positive integers less than $x$ relatively prime to $x$.
+
+\smallskip
+
+If $\prod_{i=1}^n p^{e_{i}}_{i}$ is the prime factorization of $x$ then
+\[\phi(x) = \prod_{i=1}^{n} p^{e_{i} - 1}_{i} (p_{i} - 1)\]
+
+\smallskip
+
+\subsubsection{Euler's theorem}
+
+If $gcg(a,b)=1$ where $a,b \in \mathbb{Z}$ then,
+\[ 1 \equiv a^{\phi(b)} \mod{b} \]
+
+\medskip
+
+\subsubsection{Fermat's Little Theorem}
+\[1 \equiv a^{p-1} \mod{p} \]
+
+\medskip
+
+\subsubsection{The Euclidean Algorithm}
+if $a > b$ and $a,b \in \mathbb{Z}$ where 
+\[gcd(a, b) = gcd(a \mod{b}, b).\]
+
+
+If $\prod_{i=1}^n p^{e_{i}}_i$ is the prime factorization for $x$ then we have
+\[S(x) = \sum_{d\vert x} d = \prod_{i=1}^{n} \frac{p^{e_{i}+1}_{i} - 1}{p_{i} - 1}.\]
+
+\subsubsection{Perfect Numbers}
+The number $x$ is an even perfect number if and only if $x = 2^{n-1}(2^{n} - 1)$ and $2^{n} - 1$ is prime.
+
+
+\subsubsection{Wilson's theorem}
+The integer $n$ is a prime if and only if:
+\[(n-1)! \equiv -1 \mod{n}\]
+
+\pagebreak
+
+\subsubsection{M\"obius inversion:}
+
+$\mu(i) = $
+\begin{case}
+$1$ if $i = 1$.
+\end{case}
+\smallskip
+\begin{case}
+$0$ if $i$ is not square-free.
+\end{case}
+\smallskip
+\begin{case}
+$(-1)^{r}$ if $i$ is the product of $r$ distinct primes.
+\end{case}
+
+
+\subsubsection{Sequences}
+Given arithmetic sequences $f$ and $g$
+\[g(a) = \sum_{d \vert a} f(d)\]
+then,
+
+\[f(a) = \sum_{d \vert a} \mu(d) g \bigg( \frac{a}{d} \bigg) \]
+
+
+\subsubsection{Prime numbers}
+
+\todo{something doesn't look right in here.}
+
+%\[p_{n}  = n \ln{n} + n \ln{\ln{n}} - n + n {\ln{\ln{n}} \over{\ln{n}} + O\bigg(n \over{\ln{n}} \bigg)\]
+
+%\[ p_(n) = {n \over{\ln{n}} + {n \over{\ln{n}^{2}} + {2! n \over{\ln{n}}^{3}} \\+ O\bigg({n \over{\ln{n}^{4}} \bigg)\]
+
+
+\subsection{Trees}
+
+\begin{thm}
+Every tree with $n$ vertices has $n-1$ edges.
+\end{thm}
+
+
+\medskip
+
+\begin{thm}{Kraft Inequality}
+If the depths of the leaves of a binary tree are $d_{1}
+\ldots d_{n}$. then 
+\[
+\sum_{i=1}^n 2^{- d_i} \leq 1,
+\]
+holds if and only if every internal node has 2 children.
+\end{thm}
+
+\pagebreak
+
+\hrule
+\section{Homework}
+\hrule
+\vfill
+\pagebreak
+
+\subsection{Homework 1}
+
+\subsubsection{Problem 1}
+
+\begin{prob}
+    How many different ways are there to pick a man and woman who are not married to each other from a group of n married couples? 
+\end{prob}  
+
+\medskip
+
+\begin{sol}
+    Someone $(n)$ and someone else's spouse $(n-1)$ can be picked from a group of $n$ married couples in $n(n-1)$ ways. 
+\end{sol}
+
+\subsubsection{Problem 2} 
+
+\begin{prob}
+    How many nonempty words can be formed from three As and five B’s?
+
+\textit{(not all letters must be used, any sequence of letters counts as a word)}
+\end{prob}
+ 
+ \medskip
+ 
+\begin{sol}
+    There are 7 letters available 3 are A's and 4 are B's.
+So we have $\frac{7!}{3!4!} = 35$ possible words with repetition. 
+\end{sol}
+ 
+\subsubsection{Problem 3} 
+ 
+\begin{prob}
+    How many ternary (0,1,2) sequences of length 10 are there without any two consecutive digits being the same?
+\end{prob}
+
+\medskip
+
+\begin{sol}
+    For the first slot there is $\dbinom{3}{1}$, the second slot has $\dbinom{2}{1}$, the third also has $\dbinom{2}{1}$ and so on. 
+So we get $3 \times 2^{9}$ different sequences possible. 
+\end{sol}
+
+\subsubsection{Problem 4}
+
+
+\begin{prob}
+    How many different outcomes are possible when a pair of dice, one red and one white are rolled two consecutive times?
+\end{prob}
+
+\medskip
+
+\begin{sol}
+    Each die has 6 sides so it has 6 possible outcomes each time it is rolled. Two dice are rolled so the sample space is $6 \times 6 = 36$.
+
+However, each die only has 6 possible outcomes $1, 2, 3, 4, 5, 6$ which is a probability of $\frac{1}{6}$ for any of these numbers to appear. 
+
+Since each number has the possibility of appearing twice and the dice are independent we multiply (\textit{each roll of the dice constitutes one stage in a multistage process}) to get \[ \frac{1}{6} \times \frac{1}{6} \times 6 = \frac{1}{6}.\]
+\end{sol} 
+
+\subsubsection{Problem 5} 
+
+\begin{prob}
+    Construct a perfect cover of an $(8 \times 8)$ chessboard with dominoes $(1 \times 2)$ having no fault-line.
+\end{prob}
+
+\medskip
+
+\begin{sol}
+    Let $(p \times q) = (8 \times 8)$ and let $(s \times t) = (1 \times 2)$.
+
+Assume $pq > st$ and $gcd(s,t)=1$.  
+
+The tiling will include a fault-line if and only if the following conditions hold: 
+\begin{itemize}
+    \item Both $a$ and $b$ divide $p$ or $q$. 
+    \item There exist non-zero integers $x,y$ such that $x,y$ can be expressed in at least two ways in the form: $xs+yt$. 
+    \item If $(s,t) = (1,2)$ then $(p,q) \neq (6,6)$.
+\end{itemize}
+
+
+The first condition is satisfied for both $s$ and $t$.
+The second condition can be obtained simply by inserting any integer values for $x$ and $y$ and then reversing them. 
+The third condition can be considered a cofactor of the $8 \times 8$ board obtained by removing two rows and two columns. 
+This means that for the given $1 \times 2$ domino, there does not exist any such tiling that will satisfy the last condition. Since the requirement is biconditional the board will always have a fault line if any condition fails.  
+\end{sol}
+
+\subsubsection{Problem 6}
+
+\begin{prob}
+    Show that there is no magic cube of dimension 2.
+\end{prob}
+
+\medskip
+
+\begin{sol}
+    Assume that a magic square of order three exists. 
+
+Then for the center cross section the square $k$ must have the value $k = \frac{S}{3}$, where $S$ is the constant sum. 
+
+
+Taking the sum of the two diagonals and center column we have: \[(a+k+c)+(d+k+f)+(g+k+h) = 3S = (a,d,g)+(c+f+h)+(3k) \]
+This means that $3k = S$. 
+
+But this is impossible only one center may have this value. 
+
+$\therefore$ Contradiction. 
+
+There cannot exist a magic cube of order 3 (\textit i.e. Of dimension 2).
+\end{sol}
+
+\pagebreak
+
+
+\subsection{Homework 2}
+
+\todo[inline]{Check all these. This might not be the revised version.} 
+
+\subsubsection{Problem 1}
+
+\begin{prob}
+A football team of 11 players is to be selected from a set of 15 players, 5 of whom can play only in the backfield, 8 of whom can play only on the line, and 2 of whom can play either in the backfield or on the line. Assuming a football team has 7 men on the line and 4 men in the backfield, determine the number of football teams possible.
+\end{prob}
+
+\medskip
+
+\begin{sol}
+Let ${O} = |O| = 8$ be the number of available online players. 
+Let ${B} = |B| = 5$ be the number of available backfield players. 
+Let ${A} = |A| = 2$ be the number of available adaptable players. 
+
+Also, 
+Let ${T} = |T| = 11$ be the team to be chosen. 
+Let ${O'} = |O'| = 7$ be the number of online players to be chosen. 
+Let ${B'} = |B'| = 4$ be the number of backfield players to be chosen. 
+
+Then we can define the following cases: 
+\end{sol}
+
+\medskip
+
+\begin{case}
+${A}$ is not in ${T}$.
+
+If ${T}$ contains no players from ${A}$ then we can only choose from ${B}$ and ${O}$. 
+This gives us: 
+\[\binom{8}{7} \binom{5}{4} = (8)(5) = 40\]
+\end{case}
+
+\medskip
+
+\begin{case}
+Exactly one player from ${A}$ is in ${T}$.
+	
+If exactly one player from ${A}$ is chosen for ${T}$ then either $a_{1} \in {O}$ or $a_{1} \in {B}$. 
+
+ If $a_{1} \in {O}$ then we have: 
+\[ (2) \binom{8}{6} \binom{5}{3} = \frac{8!}{6!(8-6)!} \times \frac{5!}{4!(5-4)!} = (2) \frac{54321}{4321(1)} \frac{87654321}{654321(21)} = (10)(28) = 280 \]
+
+ If $a_{1} \in {B}$ then we have: 
+\[ \binom{8}{6} (2) \binom{5}{3} = \frac{8!}{6!(8-6)!} \times \frac{5!}{4!(5-4)!} = \frac{87654321}{654321(1)} (2) \frac{54321}{321(21)} = (8)(20) = 160 \]
+
+
+So if $a_{1}$ is either in ${A}$ or in ${B}$ then we have $160+280 = 440$ ways to arrange the available team members into a team. 
+\end{case}
+
+\medskip
+
+\begin{case}
+Both members of ${A}$ are in ${T}$.
+
+
+Either both $a_{1}$ and $a_{2}$ are in ${B}$.
+Both $a_{1}$ and $a_{2}$ are in ${O}$.
+Either $a_{1} \in {B}$ and $a_{2} \in {O}$, or it is the other way around. It makes no difference. 
+
+If both $a_{1}$ and $a_{2}$ are in ${B}$ then we have: 
+\[ \binom{8}{7} \binom{5}{2} = \frac{8!}{7!(8-7)!} \times \frac{5!}{2!(5-2)!} = (8)(10) = 80. \]
+If both  $a_{1}$ and $a_{2}$ are in ${O}$ then we have: 
+\[ \binom{8}{5} \binom{5}{4} = \frac{8!}{5!(8-5)!} \times \frac{5!}{4!(5-4)!} = (56)(5) = 280. \]
+If $a_{1} \in {B}$ and $a_{2} \in {O}$ (or vice-versa) we have: 
+\[ \binom{5}{3} \binom{8}{5} = \frac{5!}{3!(5-3)!} \times \frac{5!}{3!(5-3)!} \frac{8!}{6!(8-6)!} = (56)(5) = 280. \]
+but there are two ways this last placement can be arranged so $2(280) = 560$. 
+\end{case}
+
+\medskip
+
+Finally the total number of ways to arrange all available players into a team of 11 players is the sum: 
+\[ 40 + 440 + 80 + 280 + 280 + 560 = 1680 \]
+
+
+\subsubsection{Problem 2}
+
+\begin{prob}
+A classroom has two rows of eight seats each. There are 14 students, 5 of whom always sit in the front row and 4 of whom always sit in the back row. In how many ways  can the students be seated?
+\end{prob}
+
+\medskip
+
+\begin{sol}
+5 ALWAYS sit in front $\binom{8}{5}$
+4 ALWAYS sit in the back $\binom{8}{4}$
+5 students left sit wherever they feel like it in $(16-9) = 7$ seats. So there are $\binom{7}{5}$ for those remaining students. 
+so we have that $56 \times 70 \times 21 = 82320$ ways they could sit.
+\end{sol}
+
+
+\subsubsection{Problem 3}
+
+\begin{prob}
+We are given eight rooks, five of which are red and three of which are blue.
+\end{prob}
+
+\medskip
+
+\begin{sol}
+ In how many ways can the eight rooks be placed on an 8-by-8 chessboard so that no two rooks can attack one another?
+ Choose the three blue rooks there are $\binom{8}{3}$ rows to place them. Once they are placed there are $8 \times 7$ choices for the chosen rows. 
+ So there are $\binom{8}{3} \times 8 \times 7 \times 6$ ways to place the two blue rooks. 
+ For the remaining 5 red rooks there is a placement with respect to the chosen place of each of the blue already placed. 
+ There are 5 rows remaining and 5 rooks so we have $\binom{5}{5}$ ways to place the rooks. 
+ To place them in each column there are 5 columns for the 3 rows this is $5 \times 4 \times 3 \times 2$ ways to choose these rows.
+ So there are $\binom{6}{4} \times 6 \times 5 \times 4 \times 3 \times 2$ ways to place the 5 red rooks on the board.
+ So we have \[ \bigg (\frac{(8 \times 7 \times 6)^{2}}{3!} \bigg )\bigg(\frac{(5 \times 4 \times 3 \times 2)^{2}}{5!}\bigg)\] 
+ways to place the rooks where they cant attack three other rooks.
+\end{sol}
+
+
+\subsubsection{Problem 4}
+
+\begin{prob}
+How many permutations are there of the letters of the word 'ADDRESSES'?
+\end{prob}
+
+\medskip
+
+\begin{sol}    
+There is 1 A, 2 D's, 1 R, 2 E's, and 3 S's.
+There are 9 total letters
+To make up for all that over counting we have: \[\frac{9!}{3!3!2!2!1!1!} = 2520\]
+\end{sol}
+
+\subsubsection{Problem 5}
+
+\begin{prob}
+A secretary works in a building located nine blocks east and eight block north of his home.
+Every day he walks 17 blocks to work. (See the map that follows.)
+
+
+How many different routes are possible for him?
+How many different routes are possible if the one block in the easterly direction, which begins four block east and three blocks north of his home,
+is under water (and he can't swim)? (Hint: use subtraction principle)
+\end{prob}
+
+\medskip
+
+\begin{sol}
+He walks 17 blocks in all so x blocks in one direction or y blocks in the other with south and west unavailable. So the total blocks is $x + y = 17$ 
+and so we can pick $\binom{17}{x}$ or $\binom{17}{y}$ but they are equal. So we have that $\mathcal{P}(x+y, x, y) = \mathcal{P}(17, x, y) = \mathcal{P}(17, 8, 9) = \mathcal{P}(17, 9, 8) = \frac{17!}{8!9!} = 24310.$
+\end{sol}
+
+
+\pagebreak
+
+
+\subsection{Homework 3}
+
+\todo[inline]{Where is the rest of this?}
+
+\subsubsection{Problem 1}
+
+\begin{prob}
+   How many sets of three integers between 1 and 20 are possible if no two consecutive integers are to be in a set?
+\end{prob}
+    
+\medskip    
+
+\begin{prot}  
+If three integers are consecutive they have the form: 
+\[a_{0}=1,a_{1}=2,a_{2}=3\] 
+\[a_{n},a+{n+1},a_{n+2}\] 
+\end{prot}
+
+\medskip
+
+\begin{prot} 
+Between any two even (or odd) numbers we will have two dividers:      
+\[1  2  3  4\]
+\[1  2 | 3 | 4 \]
+\end{prot}
+
+\medskip
+
+\begin{sol}    
+There are $\mathcal{P}(20,3) = 1140$ number of combinations of 3-element subsets of numbers from 1 to 20. 
+
+We want to form subsets that dont have two consecutive integers.
+          
+So choose $a_{n+1}$ to not be any of the subsets. 
+Then $a_{n}$ and $a_{n+2}$ are in one set, and $a_{n+1}$ is in the other. 
+         
+If we line up the 20 integers in increasing order we have that either both $a_{n}$ and $a_{n+2}$ will be odd, or both will be even, and $a_{n+1}$ will have opposite parity. 
+         
+So to get from some odd number $2i+1$ to the next odd number $2i+3$ we just subtract the even number between them. Likewise to get from one even number to the next we subtract the odd number between them. 
+               
+So if we want subsets of size $k$ There will be $k-1$ dividers, with two between each number so we have $2(k-1)$ dividers which can be placed in $k+1$ spaces between even (or odd) numbers. 
+         
+$20$ numbers in $k$ subsets and $2(k-1)$ dividers for $k+1$ spaces:
+\[20-k-2(k-1) = 20 - k -2k+2 = 20 - 3k + 2\]
+         
+Then $20-3k+2 + (k+1) - 1 = 20-2k+2$ when $k=3$ we have 16 $\binom{16}{3} = 560$
+\end{sol}
+    
+
+\subsubsection{Problem 2}
+
+\begin{prob}
+    There are $n\geq4$ knights seated around King Arthur's round table and three of them are selected to be sent off to slay a troublesome dragon. What is the probability that at least two of the three were seated next to each other?
+\end{prob}
+    
+\medskip    
+    
+\begin{sol}
+    Suppose that $n \geq 4$ and we select three at random to go kill some poor dragon, (who is probably just misunderstood maybe it ate some sheep or something dragon's probably don't have much of a concept of ownership and they undoubtedly have to eat). 
+ 
+\textbf{Count the Complement} \\
+ 
+Suppose we don't want the knights chosen to be knights which were seated next to each other.
+ 
+The total number of ways this can happen is $C = \binom{n-3}{3}$; to fix the overcounting due to rotations divide by $(n-3)$ to get $C/(n-3)$
+ 
+Let $T$ be the number of total ways to choose 3 from n this is $T = \binom{n}{3}$; adjust for the rotations again by dividing by n to get $T/n$.
+ 
+Now subtract $C/(n-3)$ from the adjusted total and divide by the adjusted total (because we want a probability) to get:
+\[\frac{\frac{\binom{n}{3}}{n} - \frac{\binom{n-3}{3}}{(n-3)}}{\frac{\binom{n}{3}}{n}}= \frac{6(n-3)}{(n-2)(n-1)}\]
+\end{sol}
+
+\medskip
+
+\begin{rem}
+    not to sure about how I simplified the right hand side.
+\end{rem}
+
+
+\subsubsection{Problem 3}
+
+\begin{prob}
+How many integral solutions of
+\[ x_1 + x_2 + x_3 + x_4 = 30 \]
+satisfy $x_1 \geq 2, x_2 \geq 0, x_3 \geq -5,$ and $x_4 \geq 8$?
+\emph{(Use substitution to get $ \geq 0$ for all variables.)}
+\end{prob}    
+    
+\medskip
+
+\begin{sol}
+    
+\end{sol}
+    
+
+\subsubsection{Problem 4}
+
+\begin{prob}
+    How many integral solutions of
+    $$ x_1 + x_2 + x_3  \leq 20 $$
+    satisfy $x_1 > 3, x_2 \geq 0$ and $x_3 > -2$?
+\end{prob}
+    
+\medskip
+    
+\begin{sol}  
+    
+\end{sol}
+
+
+\subsubsection{Problem 5}
+
+\begin{prob}
+    For each $n > 0$, prove that there is an integer comprised only of the digits 0 and 1 that is divisible by $n$.
+    (Hint: Pigeonhole principle)
+\end{prob}
+
+\medskip
+    
+\begin{sol}
+    
+\end{sol}
+    
+    
+\subsubsection{Problem 6}
+
+\begin{prob}
+    A student has 37 days to prepare for an examination. From past experience she knows that she will require no more than 60 hours of study. She also wishes to study at least 1 hour per day. Show that no matter how she schedules her study time (a whole number of hours per day, however), there is a succession of days during which she will have studied exactly 13 hours.
+\end{prob}
+
+\medskip
+
+\begin{sol}
+    
+\end{sol}
+    
+    
+\pagebreak
+    
+
+\subsection{Homework 4}
+
+\subsubsection{Problem 1}
+
+\begin{prob}
+Show that the Erdos-Szekeres Theorem is tight. That is, find a sequence of $n^2$ number (could be integers) that does not contain a monotone subsequence of length $n+1$.
+\end{prob}  
+
+\medskip
+
+\begin{sol}   
+In any sequence $a_{0},a_{1},\ldots ,a_{ml-1}$ of $ml-1$ distinct real numbers, there exists an increasing subsequence.
+\[a_{i_0} < a_{i_1} < \ldots < a_{i_m-1} \]
+  for $(i_{0} < i_{1} < \ldots < i_{m-1})$ of length $m-1$
+\[a_{j_0} < a_{j_1} < \ldots < a_{j_l-1}\]
+  for $(j_{0} < j_{1} < \ldots < j_{l-1})$ of length $n-1$ (or both).
+  
+Let $\{a_n\}$ be a finite sequence of real numbers such that the length of $\{a_n\}$ is $t_{n} = (m-1)(l-1)+1$, where $n = ml-1$
+\end{sol}
+
+\medskip
+   
+\begin{case}
+Suppose $\{a_{n}\}$ is a monotonically increasing sequence
+   
+Let $i \in I$ where $I$ is a finite indexing set of integers.
+   
+Likewise, let $j \in J$ be another finite indexing set of integers, where both $I$ and $J$ will be used as sub-subscripts for the elements in the subsequence. 
+   
+The sequence $a_{n}$ has only $(m-1)(l-1)$ possible labels for each $a_{i}$ and $(m-1)(l-1)+1$ total possible labels in all.
+   
+If the sequence is monotonically increasing then given some $a_{i} \in \{a_{ml-1}\}$ there is an ordered pair $t_{i} = (m_{i}, l_{i})$ such that the length of $|t_{i}|$ is at most $m-1$ and at least $m$.
+    
+So, whenever $i < j$ then we have that $a_{i} \leq a_{j}$, so $m_{i} < m_{j}$ for all $i \in I$ and all $j \in J$.
+   
+That is, if $m_{i}$ in $t_{n}$ is not in the range of $i$.
+   
+Then since the number of possible labels (length) of the subsequence is at most $m-1$ and only $(m-1)(l-1)$ for the original sequence. 
+   
+By pigeons the sequence must have length at least $m$ and so the subsequence must be increasing. 
+\end{case}  
+ 
+\medskip
+ 
+\begin{case}
+Suppose $\{a_{n}\}$ is a monotonically decreasing sequence
+   
+Let $i \in I$ where $I$ is a finite indexing set of integers.
+   
+Likewise, let $j \in J$ be another finite indexing set of integers. 
+   
+Where both $I$ and $J$ will be used as sub-subscripts for the elements in the subsequence. 
+   
+The sequence $a_{n}$ has only $(m-1)(l-1)$ possible labels for each $a_{i}$ and $(m-1)(l-1)+1$ total possible labels in all.
+  
+If the sequence is monotonically decreasing then given some $a_{i} \in \{a_{ml-1}\}$ there is an ordered pair $t_{i} = (m_{i}, l_{i})$ such that the length of $|t_{i}|$ is at most $l-1$ and at least $l$.
+    
+So, whenever $i < j$ then we have that $a_{i} \geq a_{j}$, so $l_{i} < l_{j}$ for all $i \in I$ and all $j \in J$.
+   
+That is, if $l_{i}$ in $t_{n}$ is not in the range of $j$.
+   
+Then since the number of possible labels (length) of the subsequence is at most $l-1$ and only $(m-1)(l-1)$ for the original sequence. 
+   
+By pigeons the sequence must have length at least $l$ and so the subsequence must be decreasing.
+\end{case}
+  
+
+
+\subsubsection{Problem 2}
+
+\begin{prob}
+Read and try to understand Chinese remainder theorem.
+Show by example that the conclusion of the Chinese remainder theorem
+(Application 6) need not hold when $m$ and $n$ are not relatively prime.
+\end{prob}
+
+\medskip
+
+\begin{sol}{Chinese Remainder Theorem}
+
+Let $n_{1},n_{2},\ldots,n_{m}$ be a sequence such that whenever $gcd(n_{i},n_{j}) =1$ where $i \neq j$ for some finite indexing sets of integers $I$ and $J$ the following congruence:
+     
+\[x \equiv  b_{1}\mod{n}_{1}\]
+\[x \equiv  b_{2}\mod{n}_{1}\]
+\[\vdots\]                       
+\[x \equiv  b_{m}\mod{n}_{m}\]
+    
+have the unique modulus $\prod_{i=1}^{m} m_{i}$ as a solution.
+
+Let $N = \prod_{i=1}^{m} m_{i}$ and $N_{k} = \frac{N}{n_{k}}$ where $m = {1,2, \ldots, k}$.
+\end{sol}
+
+\medskip
+
+\begin{case}     
+If $n_{i}$ is coprime to $n_{k}$ for $i \neq k$ is true.
+    
+Then for all $n_{k}$ and $N_{k}$ we have 
+\[gcd( n_{k},N_{k}) = (n_{1}n_{2} \ldots n_{k-1}n_{k+1} \ldots n_{m},n_{k})=1\]
+     
+The system of linear congruences has a unique solution modulo $n_{k}$
+    
+\[N_{k}x_{k}\mod{n_{k}} \equiv x_{k}\]
+\end{case}    
+    
+\medskip
+    
+\begin{case}
+Let $x_{k}$ be the solution we want.
+     
+To show that \[x_{0} = b_{1}N_{1}x_{1} + b_{2}N_{2}x_{2} + \ldots b_{m}N_{m}x_{m}\] will satisfy each congruence.
+     
+Evaluating $x_{0} \mod{n}_{k}$ for every $k = {1,2, \ldots, m}$ such that $i \neq k \Rightarrow n_{k}/N_{i} \equiv 0 \mod{n}_{k}.$
+     
+Then for every $k$ we have $x_{0} \equiv b_{k}N{k}x_{k}$ by equivalence with zero.
+    
+Since we could find an $x_{k}$ such that $N_{k}x_{k} \equiv 1\mod{n}$ we get the $x_{0}$ we wanted. 
+     
+To show this $x_{0}$ is unique suppose that $x'$ is also a solution to the system. 
+
+Then $x_{0} \equiv x' \equiv b_{k}\mod{n}_{k}$ for every $k$.
+
+    
+Then every $n_k$ will divide $x' - x_{0}$
+    
+However, this would mean $\prod_{i=1}^{m} n_{i}/(x'-x_{0})$,
+\[x’ \equiv x_{0} \mod{\prod_{i=1}^{m} n_{i}}\]
+     
+So they are the same solution and $x_{0}$ is unique.
+\end{case}
+
+\medskip
+
+\begin{case}    
+Suppose the $n_{i}$ are not relatively prime.
+    
+\[x \equiv 1\mod{2}\]
+    
+\[x \equiv 2\mod{4}\]
+     
+Then in order for the first equation to be true we would need $x \equiv 1 +2j$ 
+\[1 - 1 + 2j \equiv 2\mod{4 - 1} \]
+\[2j \equiv 1 \mod{4} \]
+     
+Then $x^{-1} \equiv 1$
+    
+We would have a greatest common factor of two and four is two
+    
+Checking to see if $2$ divides $1$ of course fails to give an integer value.
+    
+So we are done.
+\end{case}
+
+\subsubsection{Problem 3}
+
+\begin{prob}
+Prove that of any five points chosen within a equilateral triangle of side length 1, there are two whose distance apart is at most $\frac{1}{2}$.
+Determine an integer $m_n$ such that if $m_n$ points are chosen within an equilateral triangle of side length 1, there are two whose distance apart is at most $1/n$.
+\end{prob}
+
+\medskip
+
+\begin{sol}
+Split the triangle into four equal triangles by connecting the midpoints of all the sides.  Then the distance between any two points is the side of one of the smaller triangles which is one half. 
+     
+So if we have four triangles and five points by pigeons one of the triangles must have at least two of the points, and the distance between these two points is at most one half.
+    
+\medskip
+
+The solution is the same as that above by substitution.
+    
+Suppose we cut the triangle into $n^{2}$ triangles connect the midpoints of all sides. Then the distance between any two points is the length of the side of one of the smaller triangles. We have $n/n^{2} = 1/n$.
+\end{sol}  
+
+
+\subsubsection{Problem 4}
+
+\begin{prob}
+The line segments joining 9 points are arbitrarily colored read or blue. Prove that there must exist three points such that the three line segments joining them are all red, or four points such that the six line segments joining them are all blue (that is, $r(3,4) \leq 9$).
+\end{prob}
+
+\medskip
+
+\begin{sol}
+% This is Ramsey's theorem (Erdos Szekeres actually) I haven't been able to typeset it!!!
+
+\end{sol}
+
+
+\subsubsection{Problem 5}
+  
+\begin{prob}
+Let $x$ and $t$ be positive integers with $x \geq t$. 
+Determine the Ramsey number $r_t(t,t,x)$.
+
+\emph{(See page 82 for definition of $r_t$.)}
+\end{prob}
+
+\medskip
+
+\begin{sol}
+
+\end{sol}
+
+
+\subsubsection{Problem 6}
+
+\begin{prob}
+A collection of subsets of $\{1,2,\ldots,n\}$ has the property that each pair of subsets has at least one element in common. Prove that there are at most $2^{n-1}$ subsets in the collection.
+\end{prob}
+
+\medskip
+
+\begin{sol}
+% minimal integer function of (9-1/3) + 1
+%\[R(p,q) \leq binom{p+q-2}{p-1}\]
+%\[R(t_{1},t_{2}) = t_{1}, R(t_{2},t_{1}) = t_{2}, R(x, t_{1}) = x\]
+\end{sol}
+
+
+\subsection{Homework 5}
+
+\subsection{Homework 6}
+
+\subsection{Homework 7}
+
+\subsubsection{Problem 1}
+
+\begin{prob}
+Prove that the only antichain of $S=\{1,2,3,4\}$ of size 6 is the antichain of all 2-subsets of $S$. 
+\end{prob}
+
+\medskip
+
+\begin{sol}
+Let $S = \{ 1,2,3,4\} $ then we can make chains and antichains by taking some subset and adding to it: \\
+
+Let $R = \{1,2,3\}$  and $Q = \{2,3,4\}$ 
+
+There is a simpler answer $4! =24$ this is $S_{4}$ 
+A transposition is when one of the four elements switches places with another one so $(24)(42)$ they must be disjoint.  \\
+If $S_{4} = {1,2,3,4}$ then the set of transpositions can be represented as $\binom{4}{2} =6$ \\
+The transpositions are disjoint and are equivalent to the antichain of all 2-subsets of $S$.
+\end{sol}
+
+\subsubsection{Problem 2}
+\begin{prob}
+Let $n$ and $k$ be a positive integers. Give a combinatorial proof that:
+\[  \sum_{k=1}^nk\binom{n}{k}^2 = n \binom{2n-1}{n-1}.\]
+\end{prob}
+
+\medskip
+
+\begin{sol}
+The sum of k things gives us $\frac{n(n-1)}{2}$ arrangements. \\
+
+The sum of $\binom{n}{k} = 2^{n-1}$ if we square that we get \[\binom{n}{k}^{2} = (2^{n-1})^{2} = 2^{2n-2} = 4^{n-1}\] \textbf{\textcolor{red}{This expression is pretty useless right now. Meh...}} \\
+
+Choose k things from a set of n things, \textcolor{blue}{now do it again}. \\
+
+Since any element is in the set or out (hence base of 2) just pretend everything that was out the first time is in the second time. \\
+Then you've made two sets of size $n$, not to mention you’ve sorted $n$ elements twice so represent that as $2n$, \\
+ 
+We know that $\binom{n}{k}$ is the same as $\binom{n}{n-k}$ which is also the same as $\binom{n-1}{k-1} + \binom{n-1}{k}$. \\
+
+\textbf{Recall:} \\
+
+\[ \sum_{k=0}^{n} k = \binom{n}{2} \rightarrow \sum_{k=1}^{n} = \binom{n+1}{2} \]
+
+\[ \sum_{k=0}^{n} \binom{n}{k}^{2} = \binom{2n}{n} \rightarrow \sum_{k=1}^{n}\binom{n}{k}^{2} = \binom{2(n+1)}{n+1} = \binom{2n+2}{n+1}\]
+
+Then,
+
+\[ \binom{n+1}{2} \binom{2n+2}{n+1} = \binom{n+1}{2} \binom{2n+2 -2 -1}{2n+2 - 2-1} = \binom{n+1}{2} \binom{2n-1}{n-1} \]
+\end{sol}
+
+\subsubsection{Problem 3}
+
+\begin{prob}
+Let $n$ be a positive integer. Prove that
+\[ \sum_{k=0}^n(-1)^k\binom{n}{k}^2 =  \begin{cases}  0 & \text{ if } n \text{ is odd } \\ 
+(-1)^m\binom{2m}{m} & \text{ if } n=2m. \end{cases}  \]
+\emph{Hint: consider $(1-x^2)^n = (1+x)^n(1-x)^n$.}
+\end{prob}
+
+\medskip
+
+\begin{sol}
+Let $i,k \in \mathbb{Z}$ and recall the form for odd and even integers: \\
+
+An integer $k$ is even if $k = 2i$; \\
+and $k$ if $k = 2i + 1$.
+
+Then $(-1)^{k}$ depends on the parity of $k$: \\
+
+\[(-1)^{k} = (-1)^{2i + 1} = (-1)^{2i}(-1)^{1} = (1-1) = 0\]
+
+\[(-1)^{k} = (-1)^{2i} = 1\]
+
+This follows since any number multiplied by 2 which is not equal to zero is a multiple of 2 and therefore even. The top is easily seen, the bottom is seen by observing that you can factor a 1 out of anything and then multiplying $(-1)^{k}$ by the solution in problem 2.
+
+\todo{This isn't the solution you wrote out.}
+\end{sol}
+
+\subsubsection{Problem 4}
+
+\begin{prob}
+Evaluate the sum
+\[ 1 - \frac{1}{2}\binom{n}{1} + \frac{1}{3}\binom{n}{2} - \frac{1}{4}\binom{n}{3} + \cdots + (-1)^n \frac{1}{n+1}\binom{n}{n}.\]
+\end{prob}
+
+\medskip
+
+\begin{sol}
+
+\end{sol}
+
+\todo{Where am I?}
+
+
+\subsubsection{Problem 5}
+\begin{prob}
+Use \textbf{combinatorial} reasoning to prove the identity (in the given form)
+\[ \binom{n}{k} - \binom{n-3}{k} = \binom{n-1}{k-1} + \binom{n-2}{k-1} + \binom{n-3}{k-1} \]
+\end{prob}
+
+\medskip
+
+\begin{sol}
+Something isn’t right here.
+\end{sol}
+
+\subsubsection{Problem 6}
+
+\begin{prob}
+Use Newton's binomial theorem to approximate $\sqrt{80}$.\\
+\emph{(Hint: See page 148 and 149. First three digits after the decimal point is enough.)}
+\end{prob}
+
+\medskip
+
+\begin{sol}
+Let $r = \frac{1}{2}$, then 
+
+\[ 1 + rx + r\frac{x^{2}}{2!} + r \frac{x^{3}}{3!} + r \frac{x^{4}}{4!} + \cdots \]
+
+\begin{eqnarray}
+\sqrt{80} = \sqrt{16 \times 5} = 4 \sqrt{5} = 4 \sqrt{4+1} = 8 \sqrt{1 + \frac{1}{4}} \approxeq \\
+8 \bigg ( 1 + rx + r\frac{x^{2}}{2!} + r \frac{x^{3}}{3!} + r \frac{x^{4}}{4!} \bigg ) \approxeq \\
+8 \bigg ( 1 + (1/2)x + (1/2)\frac{x^{2}}{2!} + (1/2) \frac{x^{3}}{3!} + (1/2) \frac{x^{4}}{4!} \bigg ) \approxeq \\
+8 \bigg ( 1 + \frac{x}{2} + \frac{x^{2}}{4} + \frac{x^{3}}{12} + (1/2) \frac{x^{4}}{48} \bigg ) \approxeq  \\
+8 \bigg ( 1 + \frac{1}{2} \frac{1}{4} + \frac{-1}{8} \frac{1}{4}^{2} + \frac{1}{16} \frac{1}{4}^{3} + \frac-{1}{48} \frac{1}{4}^{4} \bigg ) \approxeq \\
+8 \bigg ( 1 + \frac{1}{8} + \frac{-1}{128} + \frac{1}{1024} + \frac{-1}{12288} \bigg) \approxeq \\
+8(1.118082682) \approxeq 8.944661458
+\end{eqnarray}
+\end{sol}
+
+\medskip
+
+\begin{rem} 
+For the love of all things not so tedious (and probably less overdone), just use binary.
+\end{rem}
+
+
+\subsection{Homework 8}
+
+\subsubsection{Problem 1}
+
+\begin{prob}
+If you pick an integer between 1 and 1000 (including 1 and 1000), what is the probability that it is either divisible by 7 or 5 or even (or two or all of these)?
+\end{prob}
+
+\medskip
+
+\begin{sol}
+Choose $n$ as an arbitrary integer of the closed interval $[1,1000]$. The probability of choosing any single element from this interval is $\frac{1}{1000}$. 
+
+Let $P \subset [1,1000] : P = \{2,5,7,(2,5),(2,7),(5,7),(2,5,7)\}$, then the size of $P$ (in subsets) is $|P| = 7$.
+We can easily compute the size of each subset (even the ones which are intersections) using the floor function. What we are going to do is use a sieve to find the size of union of the subsets after we've adjusted our over-adding and over-subtracting. 
+
+\smallskip
+
+\textit{It seems like it shouldn't work, it's ugly and it seems too much like a limit to work for a small quantity but it does and I'll get over it eventually...}
+
+\smallskip
+
+\begin{eqnarray}
+|A_{2} \cup A_{5} \cup A_{7}| = \\
+|A_{2}| + |A_{5}| + |A_{7}| - |A_{2} \cap A_{5}| - |A_{2} \cap A_{7}| - |A_{5} \cap A_{7}| + |A_{2} \cap A_{5} \cap A_{7}| = \\
+500+200+142+(-100)+(-71)+(-28)+14 = 657
+\end{eqnarray}
+\end{sol}
+
+\smallskip
+
+\begin{nt}
+The floors are on each subset. I am just being lazy because I don't want to write it out.
+\end{nt}
+
+
+\subsubsection{Problem 2}
+
+\begin{prob}
+How many multisets of 3 letters can be formed from letters M,I,S,S,I,S,S,I,P,P,I?
+\end{prob}
+
+\medskip
+
+\begin{sol}
+Indistinguishable permutations (assuming each letter has some marker that makes one $S \neq S' $, likewise for any other character appearing more than once). 
+Then the number of indistinguishable permutations is $11!$, not our answer and huge.
+
+\smallskip
+
+But this is of course not true unless we assign indices or markers so the number of distinguishable permutations of `MISSISSIPPI' is $\frac{11!}{4!4!2!} = 34650$, but this number is also not the answer since we want multisets of 3. 
+
+\smallskip
+
+\[ x+{M} + x_{S} + x_{I} + x_{P} = 3 \]
+\[ x+{M} + x_{S} + x_{I} + x_{P} - 3 = 0 \]
+\[ 0 \leq x_{M} \leq 1, 0 \leq x_{I} \leq 4, 0 \leq x_{S} \leq 4, 0 \leq x_{P} \leq 2 \]
+Note: The smallest value of any $x_{k}$ occurs for $M$ with a value of 1, and the largest occurs for both $I$ and $S$ with a value of 4. Add 1 to every inequality.
+\[ 1 \leq x_{M}+1 \leq 2 \]
+\[ 1 \leq x_{I} +1 \leq 5 \]
+\[ 1 \leq x_{S} +1 \leq 5 \]
+\[ 1 \leq x_{P} +1 \leq 3 \]
+Also Note: $2 \times 5 \times 5 \times 3 = 150$, and that $2 \times 5$ and $3 \times 5$ give us: 
+\[ 15 \times 10 =150 \] 
+Before we added 1 to everything the sum of the right hand side of all inequalities was 11, this implies we divide by 10 and not 15 since the total number of 3-multisets is definitely going to be less than or equal to 15 and greater than 10. 
+
+We get $ \frac{150}{10} = 15$ 
+
+But why should this make any sense? Well to start with we had at most $2 +3 + 5 +5 = 15$ for an upper bound and $1+2+4+4=11$ on the lower bound. Then we subtracted $3$; that made out new upper bound $12$ and our new lower bound $8$.
+
+If we multiply our original numbers we get $1 \times 2 \times 4 \times 4 = 2^{5} =32$ for our pool. 
+We get $32-12 = 20$, then we take $12 -8 = 4$, finally $8 - 7 =1$.
+
+Note that when we added 1 to everything the smallest value became 2, so if every $x$ was at least 2 (including the RHS) then $32$ would be a lower bound; $12$ was the upper bound after adding $1$ and subtracting $3$; $8$ was the lower bound after adding $1$ and subtracting $3$.
+However, the original bounds were lower on each side by $1$. \\
+So in each subtraction we are taking a lower bound from an upper bound; finally we sum these differences to get: 
+\[ 20 - 4 - 1 = 15 \] 
+\end{sol}
+
+\begin{nt}
+Yes it was more fun this way, and yes I do hate typing out floors; no there is no particular reason why they just irritate me. 
+\end{nt}
+
+
+\subsubsection{Problem 3}
+
+\begin{prob}
+Count the number of integer solutions of
+\[
+ x_1+x_2+x_3+x_4 = 28,
+\]
+where $0 \leq x_1 \leq 6$, $0 \leq x_2 \leq 10$, $0 \leq x_3 \leq 15$, $0 \leq x_4 \leq 21$.
+\end{prob}
+
+\medskip
+
+\begin{sol}
+
+\end{sol}
+
+\subsubsection{Problem 4}
+
+\begin{prob}
+How many ways are there to distribute $k$ distinct objects into five (distinct) boxes with at least
+one empty box?
+\end{prob}
+
+\medskip
+
+\begin{sol}
+
+\end{sol}
+
+
+\subsubsection{Problem 5}
+
+\begin{prob}
+Count the number of placements of 8 tokens on $4 \times 4$ board such that there
+exists a row or a column containing 4 tokens.
+\end{prob}
+
+\medskip
+
+\begin{sol}
+
+\end{sol}
+
+
+
+\subsubsection{Problem 6}
+
+\begin{prob}
+Prove that $D_n$ is an odd number if and only if $n$ is an even number.
+\end{prob}
+
+\medskip
+
+\begin{sol}
+
+\end{sol}
+
+
+\subsection{Homework 9}
+
+\subsection{Homework 10}
+
+\subsection{Homework 11}
+
+\subsection{Homework 12}
+
+\section{Exams}
+
+\subsection{Exam 1}
+
+\subsection{Exam 2}
+
+\subsection{Exam 3}
+
+
+\end{document}

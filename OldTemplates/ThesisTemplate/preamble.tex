@@ -1,0 +1,123 @@
+\documentclass[10pt]{article}
+
+
+
+%%--------------------
+%% Basic Packages
+\usepackage{fullpage}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage[parfill]{parskip}
+\usepackage{gloss}
+
+
+%Graphics Packs
+\usepackage{tikz}
+\usepackage{forest}
+
+
+% AMS Packs
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+
+% Symbols
+\usepackage{stmaryrd}
+
+%%--------------------
+
+
+
+%%--------------------
+% Document Information
+\author{K. M. Short}
+\title{Thesis Draft}
+\date{\today}    % YYYY-MM-DD
+%%--------------------
+
+
+
+%%--------------------
+%% MACROS
+%%--------------------
+
+%% VERSION
+\newcounter{run}
+\InputIfFileExists{\jobname.runs}{}{}
+\stepcounter{run}
+\usepackage{atveryend}
+\usepackage{newfile}
+\AtVeryEndDocument{%
+  \newoutputstream{runs}%
+\openoutputfile{\jobname.runs}{runs}%
+  \addtostream{runs}{\string\setcounter{run}{\number\value{run}}}%
+\closeoutputstream{runs}%
+}
+% VERSION
+
+
+
+%%---------------------
+%% End Macros
+%%---------------------
+
+
+
+
+%%---------------------
+%% Page Headers
+%%---------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{lastpage}
+\setlength{\headheight}{25.2pt}
+\setlength{\headsep}{0.4in}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textbf{DRAFT}}
+\lhead{\textbf{\author}}
+\rfoot{Page \thepage/\pageref{LastPage}}
+%%---------------------
+
+
+
+%%---------------------
+%% Envs
+%%---------------------
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{prop}{Proposition}
+\newtheorem{con}{Conjecture}
+\newtheorem{crit}{Criterion}
+\newtheorem{ass}{Assertion}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{exmp}{Example}
+\newtheorem{xca}[exmp]{Exercise}
+\newtheorem{cond}{Condition}
+\newtheorem{prob}{Problem}
+\newtheorem*{sol}{Solution}
+\newtheorem*{asl}{Alternate Solution}
+\newtheorem{algo}{Algorithm}
+\newtheorem{que}{Question}
+\newtheorem{ans}{Answer}
+\newtheorem{axi}{Axiom}
+\newtheorem{prot}{Property}
+\newtheorem{asu}{Assumption}
+\newtheorem{hyp}{Hypothesis}
+
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newtheorem*{nt}{Note}
+\newtheorem*{nota}{Notation}
+\newtheorem{cla}{Claim}
+\newtheorem{summ}{Summary}
+\newtheorem{case}{Case}
+\newtheorem{cln}{Conclusion}
+
+%%--------------------

@@ -1,0 +1,29 @@
+documentclass[10pt]{article}
+
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{color}
+
+\newcommand{\addref}[1]{\todo[color=red!40,backgroundcolor=red!50,linecolor=red,size=\tiny]{\textbf{Add Reference:} #1}}
+
+\newcommand{\rewrite}[1]{\todo[color=green!40,size=\tiny]{\textbf{Rewrite:} #1}}
+
+\newcommand{\todo}[1]{\todo[color=red!70,backgroundcolor=red!50,linecolor=red!50!black!70,size=\tiny]{\textbf{TODO:} #1}}
+
+\newcommand{\fixme}[1]{\todo[color=orange!70,backgroundcolor=orange!50,linecolor=orange!50!black!70,size=\tiny]{\textbf{FIXME:} #1}}
+
+\newcommand{\ckey}[1]{\todo[color=green!70,backgroundcolor=green!50,linecolor=green!50!black!70,size=\tiny]{\textbf{Cite Key:} \texttt{#1}}}
+
+\newcommand{\lookup}[1]{\todo[color=purple!70,backgroundcolor=purple!50,linecolor=purple!50!black!70,size=\tiny]{\textbf{LookUp:} #1}}
+
+\newcommand{\verify}[1]{\todo[color=teal!70,backgroundcolor=teal!50,linecolor=teal!50!black!70,size=\tiny]{\textbf{Verify:} #1}}
+
+\newcommand{\addglo}[1]{\todo[color=lime!70,backgroundcolor=lime!50,linecolor=lime!50!black!70,size=\tiny]{\textbf{Add Gloss Entry:} #1}}
+
+\newcommand{\important}[1]{\todo[color=white,backgroundcolor=black!50,linecolor=black,size=\tiny]{\textbf{Important:} #1}}
+
+\begin{document}
+
+\rewrite{me}
+\addref{test}
+
+\end{document}

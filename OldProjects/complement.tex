@@ -1,0 +1,42 @@
+\documentclass{article}
+%\title{Untitled}
+%\author{emi notebooks}
+%\date{2016-1-14}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+
+\theoremstyle{theorem}
+\newtheorem*{thm}{Theorem}
+\newtheorem*{pf}{Proof}
+
+\begin{document}
+%\maketitle
+
+\textit{Note: Complement is not just an observation.}
+
+\bigskip
+
+\begin{thm}{Relative Complement}
+
+The relative complement of the empty set is itself.
+\[ \emptyset^{c_{s}} = S \] 
+\end{thm}
+
+\begin{pf}
+\[ \emptyset^{c_{s}} = S/\ \emptyset \]
+By definition of set complement.
+
+\[ =S \]
+By set difference with empty set is itself.
+$\blacksquare$
+\end{pf}
+
+\bigskip
+
+It then follows from uniqueness of the empty set the set complement is unique.
+
+\end{document}
+

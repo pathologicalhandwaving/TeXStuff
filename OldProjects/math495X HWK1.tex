@@ -8,26 +8,26 @@
 % Basic Packages
 \usepackage{fullpage}
 \usepackage{hyperref}
-\usepackage{float}
+
 
 \usepackage[parfill]{parskip}
 \usepackage{tikz}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amssymb}
-\usepackage{stmaryrd}
+
 
 % A "fancy" package
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \usepackage{lastpage}
-\setlength{\headheight}{25.2pt}
-\setlength{\headsep}{0.4in}
-\pagestyle{fancy}
-\fancyhf{}
-\rhead{\textbf{Class Name}}
-\lhead{\textbf{\author}}
-\rfoot{Page \thepage/\pageref{LastPage}}
+\lfoot{}
+\rfoot{page \thepage/\pageref{LastPage}}
+\cfoot{$\mathbf{\because}$}
+\chead{}
+\lhead{}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
 
 % Envs made up in theorem, definition, and remark style (most not usually used)
 \theoremstyle{plain}
@@ -44,7 +44,7 @@
 \newtheorem{exmp}{Example}
 \newtheorem{xca}[exmp]{Exercise}
 \newtheorem{cond}{Condition}
-\newtheorem{prob}{Problem}
+\newtheorem*{prob}{Problem}
 \newtheorem*{sol}{Solution}
 \newtheorem*{asl}{Alternate Solution}
 \newtheorem{algo}{Algorithm}
@@ -127,9 +127,12 @@
 \medskip
 
 % Proof
-\begin{proof}
+\begin{pf}
 
-\end{proof}
+
+\newline
+$\blacksquare$ \\
+\end{pf}
 
 \pagebreak
 
@@ -145,7 +148,7 @@
 
 \medskip
 
-\begin{figure}[H]   %use h for place here if possible, use H for place here no matter what
+\begin{figure}[h]
 \begin{center}
 \includegraphics[scale=0.50]{ REPLACE WITH PATH} 
 \end{center}

@@ -1,0 +1,50 @@
+\documentclass{article}
+\pagestyle{empty}
+\usepackage[parfill]{parskip}
+\usepackage{minipage}
+\usepackage{framed}
+\usepackage{geometry}
+%\geometry{
+%paperheight=68mm,
+%paperwidth=91mm,
+%total={91mm,68mm},
+%left=2mm,
+%right=2mm,
+%top=2mm,
+%bottom=2mm,
+%}
+
+\usepackage{minipage}
+\usepackage{framed}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+\newtheorem{pf}{Proof}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+
+\theoremstyle{remark}\begin{document}
+\hfill
+\fbox{%
+\begin{minipage}[c][6,35cm][c]{7.62cm}
+\fbox{%
+\begin{minipage}[c][6.1cm][c]{7.35cm}
+For $112$:
+
+\[ 112 \leq 2^6 \rightarrow 112 \leq 64 \rightarrow 112 - 64 = 48 \]
+\[ 48 \leq 2^5 \rightarrow 48 \leq 32 \rightarrow 48 - 32 = 16 \]
+\[ 16 \leq 2^4 \rightarrow 16 = 16 \rightarrow 16 - 16 = 0 \]
+
+\medskip
+
+So we have the decomposition of $112$ is $64, 32, 16$.  
+
+\end{minipage}
+}
+\end{minipage}
+}
+\end{document}
