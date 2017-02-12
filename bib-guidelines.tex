@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage{times}
+
+% Puts more text on each page
+\addtolength{\topmargin}{-.75in}
+\addtolength{\textheight}{1.5in}
+\addtolength{\oddsidemargin}{-.5in}
+\addtolength{\textwidth}{1.0in}
+
+\title{BibTex and Annotated Bibliographies}
+\author{Marie desJardins}
+
+\begin{document}
+
+\maketitle
+
+\section{BibTeX}
+
+BibTeX is a program that works in conjunction with LaTeX to produce
+inline citations and references.  To use BibTeX, you need to
+create a ``.bib'' file that contains your bibliographic entries in 
+BibTeX format.  You use {\tt cite} (and variations thereof) to create
+inline citations and
+\begin{verbatim}
+\bibliographystyle{STYLE}
+\bibliography{BIBFILE}
+\end{verbatim}
+to produce the references section, where {\tt STYLE} is the name of a BibTeX
+style file (i.e., STYLE.bst exists in your LaTeX search path), and
+{\tt BIBFILE.bib} is your BibTeX file.
+
+To produce a formatted LaTeX output file that includes citations and
+references, you must run {\tt pdflatex}, then {\tt bibtex}, then {\tt
+  pdflatex} {\em twice} to update all of the symbol table references.
+For example,
+\begin{verbatim}
+% pdflatex sample-bib                         ;; processes sample-bib.tex
+% pdfbibtex sample-bib                        ;; processes sample-bib.bib
+                                              ;; produces sample-bib.bbl
+% pdflatex sample-bib
+% pdflatex sample-bib
+\end{verbatim}
+You now have a ``.pdf'' output file that contains your
+document and formatted references.
+
+We'll go over the specifics of BibTeX in class.
+
+The best online sources for BibTeX I've found are:
+\begin{verbatim}
+"Getting to Grips with LaTex: Bibliographics with BibTeX,"
+by Andrew Roberts,
+http://www.andy-roberts.net/writing/latex/bibliographies
+
+"BibTeX and Bibliography Styles,"
+http://amath.colorado.edu/documentation/LaTeX/reference/faq/bibstyles.html
+\end{verbatim}
+
+There are some nice back-end tools for managing a database
+of bibtex entries, and exporting individual bibtex entries
+when needed.  Some of my students use BibDesk or EndNote
+for this purpose.  I haven't yet taken the plunge to choose
+and learn one of these tools, so can't give you any advice
+about them, but you might want to explore on your own.
+
+\section{Annotated Bibliographies}
+
+Your annotated bibliography is due on Monday, February 27.  In order to use
+BibTeX to produce this document, you should download the following files
+from the course website:
+\begin{verbatim}
+plain-annote.bst -- annotated bibliography style file or BibTeX 
+   (written and distributed online by Harvey J. Greenberg)
+unsrt-annote.bst -- an unsorted version
+bib-guidelines.tex -- the latex source for this handout
+bib-guidelines.bib -- the associated bibtex file
+\end{verbatim}
+
+The command
+\begin{verbatim}
+\nocite{*}
+\end{verbatim}
+will include all of the references in your BibTeX file.  Using
+\begin{verbatim}
+\bibliographystyle{plain-annote}
+\bibliography{BIBFILE}
+\end{verbatim}
+will produce a references section in annotated-bibliography format,
+using the {\tt annote} field in the BibTeX entries for the
+annotations.  (The references section in this handout were produced in
+this way.)
+
+I haven't been able to find a BibTeX style file that will let you
+group references together and include section headers (as in Zobel's
+annotated bibliography on pp.~164--170).  To get the section headers
+that you see in the annotated bibliography here, I explicitly listed
+all of the papers I wanted to use, in the order I wanted them to
+appear.
+\begin{verbatim}
+\nocite{boutilier97,boutilier01,bacchus96,cohen01}
+\end{verbatim}
+I used the
+{unsrt-annote.bst} BibTeX style file, then edited the {\tt
+bib-guidelines.bbl} file (which BibTeX produces) manually, {\em after}
+running BibTeX.  Each section header is produced by the line
+\begin{verbatim}
+\subsection*{SECTION HEADER}
+\end{verbatim}
+just before the first {\tt \\bibitem} entry for that section.
+This isn't a very pretty solution, because every time you change your
+BibTeX database and re-run BibTeX, you have to edit the {\tt .bbl}
+file again.  But it works.  (Obviously, your section headers should be
+more semantically meaningful than mine...)
+
+
+\nocite{boutilier97,boutilier01,bacchus96,cohen01}
+
+\bibliographystyle{unsrt-annote}
+\bibliography{bib-guidelines}
+
+\end{document}
