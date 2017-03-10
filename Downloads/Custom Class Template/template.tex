@@ -1,0 +1,43 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Custom Class
+% LaTeX Template
+% Version 1.0 (28/2/15)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT SPECIFICATIONS
+%----------------------------------------------------------------------------------------
+
+% Class options are specified in the square brackets before the class name
+% The example class has two custom options: OPONE or OPTWO; one of these MUST be used or the compilation fails
+\documentclass[OPONE]{example}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT CONTENT
+%----------------------------------------------------------------------------------------
+
+\ifthenelse{\equal{\classtoggle}{OPONE}}
+{The OPONE class option has been used! Margins are now smaller.}
+{The OPONE class option has not been used.}
+
+\ifthenelse{\equal{\classtoggle}{OPTWO}}
+{The OPTWO class option has been used! Margins are now larger.}
+{The OPTWO class option has not been used.}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

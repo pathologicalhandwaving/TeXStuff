@@ -1,0 +1,220 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage,mathpazo,amsfonts,nicefrac}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\begin{document}
+\section*{Math 104: Homework 1 solutions}
+\begin{enumerate}
+  \item The basis for induction, $P_1$, is true, since $1^3=1^2$. Now consider
+    the induction step, assuming $P_n$ is true and examining $P_{n+1}$. By
+    making use of the result $(1+2+\ldots+n) = n(n+1)/2$ that is given as an
+    example result in Section~1, we see that
+    \begin{eqnarray*}
+      1^3 + 2^3 + \ldots n^3 + (n+1)^3 &=& (1^3 + 2^3 + \ldots n^3) + (n+1)^3 \\
+      &=& (1+2+ \ldots + n)^2 + (n+1)^3 \\
+      &=& \left(\frac{n(n+1)}{2}\right)^2 + (n+1)^3 \\
+      &=& \frac{n^2(n+1)^2}{4} + (n+1)^3 \\
+      &=& \frac{(n+1)^2}{4} \left( n^2 + 4n+4 \right) \\
+      &=& \frac{(n+1)^2(n+2)^2}{4} \\
+      &=& (1+2+\ldots + n + (n+1))^2,
+    \end{eqnarray*}
+    and thus $P_{n+1}$ is satisfied. Hence, by the principle of mathematical
+    induction, $P_n$ is true for all $n\in \N$.
+  \item
+    \begin{enumerate}
+      \item For this exercise, $P_2$ is treated as the basis for induction. We
+	see that $2^2 = 4 > 2+1=3$, so $P_2$ is true. Now consider the
+	induction step, assuming $P_n$ is true and examining $P_{n+1}$:
+	\[
+	(n+1)^2 = n^2+2n+1 >(n+1)+ 2n+1 > (n+1) +1.
+	\]
+	Hence if $P_n$ holds then $P_{n+1}$ holds. By the principle of
+	mathematical induction, $P_n$ is true for all $n\in \N$ with $n \ge 2$.
+      \item Here, $P_4$ is treated as the basis for induction. We see that $4!
+	= 24 > 4^2=16$ so $P_4$ is true. Now consider the induction step,
+	assuming $P_n$ is true and examining $P_{n+1}$:
+	\[
+	(n+1)! = n! (n+1) > n^2 (n+1).
+	\]
+	Now, apply the result from (a), which is true for $n>2$ and thus valid
+	for all cases under consideration:
+	\[
+	(n+1)! = n^2 (n+1) > (n+1)(n+1) = (n+1)^2.
+	\]
+	Hence if $P_n$ holds then $P_{n+1}$ holds. By the principle of
+	mathematical induction, $P_n$ is true for all $n\in \N$ with $n \ge 4$.
+    \end{enumerate}
+  \item 
+    \begin{enumerate}
+      \item The golden ratio satisfies the relation 
+	\[
+	\varphi^2 = \frac{(1+\sqrt{5})^2}{4} = \frac{6+2\sqrt{5}}{4} = 1 + \frac{1+\sqrt{5}}{2} = 1 + \varphi.
+	\]
+      \item First consider the induction hypothesis $H_1$:
+	\[
+	f(0)= \frac{\varphi^0 - (1-\varphi)^0}{\sqrt{5}} = 0, \qquad f(1) = \frac{\varphi- (1-\varphi)}{\sqrt{5}} = \frac{2\varphi-1}{\sqrt{5}} = 1,
+	\]
+	and hence $H_1$ is true. Now consider the induction step. Suppose $H_n$
+	is true, and consider $H_{n+1}$. Then $F_n=f(n)$ and
+	\begin{eqnarray*}
+	  F_{n+1} &=& F_n+F_{n-1} \\
+	  &=& \frac{\varphi^n - (1-\varphi)^n + \varphi^{n-1} - (1-\varphi)^{n-1}}{\sqrt{5}} \\
+	  &=& \frac{\varphi^{n-1}(1+\varphi) - (1-\varphi)^{n-1} ( 1+ (1-\varphi))}{\sqrt{5}} \\
+	  &=& \frac{\varphi^{n-1}(\varphi^2) - (1-\varphi)^{n-1} ( 2-\varphi))}{\sqrt{5}}.
+	\end{eqnarray*}
+	Since $(1-\varphi)^2 = 1-2\varphi+\varphi^2 = 1-2\varphi+(1+\varphi) = 2-\varphi$, it follows
+	that
+	\begin{eqnarray*}
+	  F_{n+1} &=&  \frac{\varphi^{n-1}\varphi^2 - (1-\varphi)^{n-1}(1-\varphi)^2}{\sqrt{5}} \\
+	  &=& \frac{\varphi^{n+1} - (1-\varphi)^{n+1}}{\sqrt{5}} \\
+	  &=& f(n+1)
+	\end{eqnarray*}
+	so $H_{n+1}$ is true. Hence by mathematical induction $H_n$ is true for
+	all $n$, so $F_n=f(n)$ for all $n \in \N \cup \{0\}$.
+    \end{enumerate}
+  \item To begin, search for a polynomial that is satisfied by
+    $x=(5-\sqrt{3})^{1/3}$:
+    \begin{eqnarray*}
+      x^3 &=& 5-\sqrt{3} \\
+      x^3 - 5 &=& -\sqrt{3} \\
+      (x^3-5)^2 &=& 3 \\
+      x^6 - 10x^3 + 22 &=& 0.
+    \end{eqnarray*}
+    Now suppose that $x$ is rational, so that it can be written as $x=p/q$
+    where $p,q \in \Z$ and $q \ne 0$ with $p$ and $q$ coprime. Then by the
+    rational zeroes theorem, $p$ divides $22$ and $q$ divides $1$. Hence the
+    only possible solutions are $\pm 1$, $\pm 2$, $\pm 11$, and $\pm 22$.
+    The table below shows that none of these values satisfy the equation.
+    \begin{center}
+      \begin{tabular}{c|c|c|c|c}
+	$x$ & 1 & 2 & 11 & 22 \\
+	\hline
+	$x^6-10x^3+22$ & 13 & 6 & 1,758,273 & 113,273,446 \\
+	$(-x)^6-10(-x)^3+22$ & 33 & 166 & 1,784,893 & 113,486,406 \\
+      \end{tabular}
+    \end{center}
+  \item To begin, we find a polynomial that is satisfied by $x=\sqrt{2} +
+    \sqrt{3}$:
+    \begin{eqnarray*}
+      x^2 &=& (\sqrt{2}+\sqrt{3})^2 \\
+      x^2 &=& 5+ 2\sqrt{2}\sqrt{3} \\
+      (x^2-5) &=& 2\sqrt{2}\sqrt{3} \\
+      (x^2-5)^2 &=& 24 \\
+      x^4-10x^2 + 25 &=& 24 \\
+      x^4-10x^2 + 1 &=& 0.
+    \end{eqnarray*}
+    By the application of the rational zeroes theorem, if $x=p/q$ with $p$ and
+    $q$ coprime, then $p$ divides 1 and $q$ divides 1. Hence the only possible
+    rational solutions to this polynomial are $\pm 1$. However
+    \begin{eqnarray*}
+      (1)^4 - 10(1)^2 + 1 &=& -8 \ne 0 \\
+      (-1)^4 - 10 (-1)^2 +1 &=& -8 \ne 0
+    \end{eqnarray*}
+    and since neither possibility satisfies the equation, $\sqrt{2} + \sqrt{3}$
+    is irrational.
+  \item
+    \begin{enumerate}
+      \item For $a,b,c\in \N$, associativity (A1) and commutativity (A2) hold,
+	so that $(a+b)+c = a+(b+c)$, and $a+b=b+a$. A3 is violated, since
+	$\N$ does not contain the additive identity element $0$. A4 is violated,
+	since for all $a\in \N$, $-a\notin \N$. Multiplication is also associative
+	and commutative so M1 and M2 hold. The multiplicative inverse $1$ is in $\N$
+	so M3 holds. M4 does not hold since all elements other than 1 do not
+	have multiplicative inverses.
+
+	The DL property is satisfied. Likewise, since $\N$ is a subset of $\R$,
+	all of the ordering axioms O1--O5 are immediately satisfied.
+      \item Many of the same arguments can be made for $\Z$. The only change is
+	that the set contains the additive identity and the additive inverses,
+	so that A3 and A4 are satisfied. M4 still remains invalid.
+    \end{enumerate}
+  \item We start by considering the statement $0<1$. Suppose that this was untrue,
+    so that $1 \le 0$. Then by applying axiom O4, we know that
+    \begin{eqnarray*}
+      1 + (-1) &\le& 0 + (-1) \\
+      0 &\le& -1
+    \end{eqnarray*}
+    Now, apply axiom O5, using $a=0$, $b=-1$, and $c=-1$ to show that $0 \le
+    (-1)\cdot(-1)$. Then by making use of Theorem~3.1(iv), we know that
+    \[
+      0 \le 1 \cdot 1 = 1
+    \]
+    But now $0 \le 1$ and $0 \ge 1$, so by axiom O2, $0=1$. Since zero and one
+    are distinct elements, this is a contradiction, and thus $0<1$.
+   
+    Why is $0 \ne 1$? In the textbook's treatment, the rational numbers $\Q$
+    are assumed to exist and then the axioms A1--A4, M1--M4, and DL are
+    subsequently introduced to create the field structure. If the numbers $0$
+    and $1$ are constructed {\it a~priori} as elements of $\Q$ then it is safe
+    to assume that they are distinct objects. In other presentations of the
+    field axioms, which describe them in the abstract and not in relation to an
+    already given set, it is assumed that the additive and multiplicative
+    inverses are unique, which would immediately disallow $0=1$. Regardless, it
+    is clear that $0=1$ leads to catastrophic problems: using Theorem~3.1(i),
+    we would see that for any element $a$,
+    \[
+      a = a\cdot 1 = a\cdot 0 = 0
+    \]
+    implying that all elements are zero.
+
+    We now wish to show that for all non-zero $a,b\in \R$, $0<a<b$ implies
+    $0<b^{-1} < a^{-1}$. By the transitivity axiom O3, we know that $0\le a$
+    and $a \le b$ implies that $0\le b$, and since $b$ is non-zero, $0<b$. Thus
+    by Theorem 3.2(vi), $0<b^{-1}$.
+    
+    Now suppose that $b^{-1} \ge a^{-1}$. Since $b>0$, axiom O5 can be applied
+    to show that
+    \begin{eqnarray*}
+      b \cdot b^{-1} &\ge& b \cdot a^{-1} \\
+      1 &\ge& b \cdot a^{-1},
+    \end{eqnarray*}
+    and since $a>0$, axiom O5 can be applied to show that
+    \begin{eqnarray*}
+      a \cdot 1 &\ge& a \cdot b \cdot a^{-1} \\
+      a &\ge& b.
+    \end{eqnarray*}
+    This is a contradiction, and hence $b^{-1} < a^{-1}$. Thus
+    $0<b^{-1}<a^{-1}$.
+  \item
+    \begin{enumerate}
+      \item First suppose that $-a\le b \le a$. Then either $|b|=b$ in which case
+	$|b|\le a$, or $|b|=-b$ in which case $-|b| \ge -a$ and thus $|b| \le a$.
+	Thus, $|b| \le a$ in all cases.
+
+	Now suppose that $|b| \le a$. Since $|b|\ge 0$ for all $b$, it follows
+	that $a\ge 0$ by transitivity. If $b \ge 0$, then $|b| = b$ and hence
+	$b\le a$. In addition $b \ge 0 \ge -a$, and hence $-a \le b \le a$. If
+	$b \le 0$, then $|b| = -b$, and hence $-b \le a$, so $-a \le b$. In
+	addition, $b \le 0 \le a$, and thus $b \le a$ also. Thus $-a \le b
+	\le a$ in all cases.
+      \item The triangle inequality states that for all $c,d\in \R$,
+	\[
+	  |c| + |d| \le |c+d|.
+	\]
+	For any two numbers $a,b\in \R$, substituting $c=a-b$ and $d=b$ into the
+	triangle inequality gives
+	\begin{eqnarray*}
+	  |a-b| + |b| &\ge& | a - b + b| \\
+	  |a-b| &\ge& |a| - |b|.
+	\end{eqnarray*}
+	Similarly, a substitution of $c=a$ and $d=b-a$ gives
+	\begin{eqnarray*}
+	  |a| + |b-a| &\ge& | a + b -a | \\
+	  |b-a| &\ge& |b| - |a|.
+	\end{eqnarray*}
+	Applying Theorem~3.2(i) to this expression gives $-|b-a| \le |a| - |b|$.
+	Also, $|b-a| = |a-b|$, and hence
+	\begin{equation}
+	  -|a-b| \le |a| - |b| \le |a-b|. \label{eq:tmod}
+	\end{equation}
+	By using the result from part (a), it follows that
+	\[
+	\left| |a| - |b| \right| \le |a-b|.
+	\]
+    \end{enumerate}
+\end{enumerate}
+\end{document}

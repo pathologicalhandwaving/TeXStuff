@@ -1,0 +1,12 @@
+\documentclass {scrartcl}
+\usepackage {fontspec} %% this loads luaotfload as well
+\setmainfont {Antykwa Poltawskiego}
+\input beegradients.tex
+
+\definegradientgroup [red-green-blue][255*0*0, 0*255*0, 0*0*255]
+
+\begin {document}
+  \startbeegradients [red-green-blue]
+    \input knuth
+  \stopbeegradients
+\end {document}

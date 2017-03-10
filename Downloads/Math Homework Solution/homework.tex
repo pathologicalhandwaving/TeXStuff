@@ -1,0 +1,46 @@
+\documentclass[12pt]{article}
+\usepackage{fullpage,amsfonts,mathpazo}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+
+\pagestyle{empty}
+
+\begin{document}
+\section*{Math 104: Homework 1 (due January 27)}
+\begin{enumerate}
+  \item Ross exercise 1.3
+  \item Ross exercise 1.8
+  \item The Fibonacci numbers are defined by $F_0=0$ and $F_1=1$,
+    and
+    \[
+    F_{n+1} = F_n+F_{n-1}
+    \]
+    for $n\in \N$. Let the golden ratio be defined as
+    $\varphi=\frac{1+\sqrt{5}}{2}$.
+    \begin{enumerate}
+      \item Show that $\varphi^2=1+\varphi$.
+      \item Let
+	\[
+	f(n)=\frac{\varphi^n-(1-\varphi)^n}{\sqrt{5}}.
+	\]
+	For $n\in \N$, define $H_n$ to be the hypothesis that ``both
+	$F_n=f(n)$ and $F_{n-1}=f(n-1)$''. Apply mathematical induction to
+	prove that $H_n$ is true for all $n \in \N$, and deduce that
+	$F_n=f(n)$ for all $n \in \N \cup \{0\}$.
+	{\it [Hint: it is simpler to carry out the algebra in terms of
+	$\varphi$ and use the identity in (a), as opposed to calculating
+	explicitly in terms of $(1+\sqrt{5})/2$.]}
+    \end{enumerate}
+  \item Ross exercise 2.4
+  \item Prove that $\sqrt{2}+\sqrt{3}$ is irrational.
+  \item Ross exercise 3.1
+  \item Ross exercise 3.4
+  \item Ross exercise 3.5
+\end{enumerate}
+
+
+
+\end{document}

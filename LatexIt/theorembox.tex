@@ -1,0 +1,17 @@
+\documentclass[10pt]{article}
+\usepackage{amssymb} %maths
+\usepackage{amsmath} %maths
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\tcbuselibrary{skins}
+
+\newtcbtheorem[number within=section]{coloredtheorem}{Theorem}{colback=white,arc=0pt,outer arc=0pt}{th}
+
+\begin{document}
+\begin{coloredtheorem}{Pigs}{pig}
+Pigs are pink.
+\end{coloredtheorem}
+
+\end{document}

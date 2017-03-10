@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{notes2bib}
+
+\title{notes2bib - Integrating notes into the bibliography}
+\author{ShareLaTeX Templates}
+\date{March 2014}
+
+\begin{document}
+
+\maketitle
+
+This is a very basic example of using \texttt{notes2bib} package in order to put notes together with bibliography. 
+Let us begin from citation of \LaTeX\ related references \cite{latexcompanion,knuthwebsite}. Next, is a very simple example of a bibliography note \bibnote{Note for the first example}. Afterward we can referee to famous Einstein's paper \cite{einstein}. Finally, there is next note \bibnote{Note for the second example} inside text. 
+
+
+\bibliographystyle{unsrt}
+\bibliography{sample}
+
+\end{document}

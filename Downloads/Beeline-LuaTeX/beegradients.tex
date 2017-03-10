@@ -1,0 +1,31 @@
+\RequireLuaModule {beegradients}
+
+\def \pkgcmd #1{\directlua {packagedata.#1}}
+
+%% defining a sequence of gradients; order matters
+
+\def \definegradientgroup [#1][#2]{%% groupid, settings
+  \pkgcmd {beegradients.define ([[#1]], [[\detokenize {#2}]])}%
+}
+
+%% node processor handling
+
+\chardef \oldatcatcode = \catcode `\@
+\catcode `\@ = 11
+
+\def \startbeegradients{%% groupid
+  \lltxb@ifnextchar[\startbeegradientsindeed
+                    {\startbeegradientsindeed[]}%
+}
+
+\catcode `\@ = \oldatcatcode
+
+\def \startbeegradientsindeed [#1]{%% groupid
+  \pkgcmd {beegradients.enable [[#1]]}%
+}
+
+\def \stopbeegradients {%
+  \endgraf %% post_linebreak_filter is paragraph-based
+  \pkgcmd {beegradients.disable ()}%
+}
+

@@ -1,2 +1,2 @@
-# TeXStuff
-Misc LaTeX things
+# PHWiki
+Dokuwiki gitbacked wiki

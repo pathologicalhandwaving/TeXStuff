@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{tcolorbox}
+\tcbuselibrary{most,documentation}
+
+
+\newtcolorbox{flashbx}[2][]{colback=white,colbacktitle=white, colframe=black, fonttitle={\large\bfseries},title={#2}, halign=flush left, valign=top, width=12.7cm,height=7.62cm,before=, after=\hfill , sharp corners, after title={\hfill\footnotesize\colorbox{black}{Deck Name}}, #1}
+
+
+\begin{document}
+
+\begin{flashbx}{Title}
+Some text
+\end{flashbx}
+
+\end{document}
