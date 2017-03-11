@@ -34,8 +34,8 @@
 %\setlength{\headsep}{0.4in}
 \lhead{}
 \chead{\textbf{\textsl{Substitute Report}}}
-\lhead{\textbf{Date:} \date }
-\rhead{\textbf{Instructor:} \textit{}}
+\lhead{\textbf{Date:} \today }
+\rhead{\textbf{Instructor:} \textit{B. Hough}}
 \rfoot{\textit{K. M. Short}}
 \rfoot{Page \thepage/\pageref{LastPage}}
 
@@ -94,7 +94,7 @@
 \end{center}
 
 \faEnvelope{ kmshort@protonmail.com} \\
-\faPhone{  (707) 590 - 4843} \\
+\faPhone{  (707) 590 -- 4843} \\
 \faGithub{  pathologicalhandwaving} 
 \begin{center}
 \faQuestionCircleO{ \textbf{Questions or Comments?}}
@@ -113,67 +113,78 @@
 \faInstitution{ \textbf{School:} Columbia High School } \\
 \faUser{ \textbf{Instructor:} B. Hough} \\
 \faEmpire{ \textbf{Subject:} Geometry} \\
-\faSortNumericDesc{ \textbf{Grade:} 9 - 12} \\
+\faSortNumericDesc{ \textbf{Grade:} 9 -- 12} \\
 \faBell{ \textbf{Time:} 12:00 PM - 3:30 PM } 
 \end{framed}
 
+\vspace{0.2in}
 
 \section*{Lesson Plan Notes}
-
+\begin{framed}
 %\begin{multicols}{2}
 
-\subsection*{Lesson Plan Provided}
+\subsubsection*{Lesson Plan Provided}
 
 \begin{todolist}
     \item Yes
     \item No
 \end{todolist}
 
-\subsection*{Lesson Plan Missing}
-
+\subsubsection*{Lesson Plan Missing}
 \begin{description}
-    \item[Material Presented] \uline{\hfill\null}
+    \item[\small{Material Presented}] \uline{\hfill\null}
     \item \uline{\hfill\null}
     \item \uline{\hfill\null}
 \end{description}
 
-\subsection*{Lesson Plan Provided}
 
-\begin{description}
-    \item \uline{\hfill\null}
-    \item \uline{\hfill\null}
-    \item \uline{\hfill\null}
-\end{description}
-
-\subsection*{Additional Material Covered}
-
+\subsubsection*{Lesson Plan Provided}
 \begin{description}
     \item \uline{\hfill\null}
     \item \uline{\hfill\null}
     \item \uline{\hfill\null}
 \end{description}
 
-\subsection*{Student Difficulties with Material}
 
+\subsubsection*{Additional Material Covered}
+\begin{description}
+    \item \uline{\hfill\null}
+    \item \uline{\hfill\null}
+\end{description}
+
+\vspace{0.2in}
+
+\subsubsection*{Student Difficulties with Material}
 \begin{description}
     \item \uline{\hfill\null}
     \item \uline{\hfill\null}
     \item \uline{\hfill\null}
 \end{description}
 
-\section*{Student Behavior Notes}
+\subsubsection*{Student Acceptance of Material}
+\begin{description}
+    \item \uline{\hfill\null}
+    \item \uline{\hfill\null}
+    \item \uline{\hfill\null}
+\end{description}
+\vspace{0.2in}
 
-\subsection*{Attendance Statistics}
+\end{framed}
+
+\vspace{0.2in}
+
+\section*{Student Behavior \& Attendance Notes}
+\begin{framed}
+\subsubsection*{Attendance Statistics}
 
 \begin{description}
-    \item[Number of Absentees] \uline{\hfill\null}
-    \item[Students Absent] \uline{\hfill\null}
+    \item[\small{Number of Absentees}] \uline{\hfill\null}
+    \item[\small{Students Absent}] \uline{\hfill\null}
     \item \uline{\hfill\null}
-    \item[Ratio \scriptsize{($absent/present$})] \uline{\hfill\null}
+    \item[\small{Ratio} \scriptsize{($absent/present$})] \uline{\hfill\null}
 \end{description}
 
-\subsection*{Overall Student Behavior}
-
+\subsubsection*{Overall Student Behavior}
 \begin{todolist}
     \item Perfect
     \item Good
@@ -181,16 +192,33 @@
     \item Not That Bad
     \item Not Good
     \item Teenagers
-    \item Called Out
+    \item Called Office
 \end{todolist}
 
-\subsection*{Homework}
+\subsubsection*{Behavior Notes}
+\begin{description}
+    \item \uline{\hfill\null}
+    \item \uline{\hfill\null}
+\end{description}
 
+\vspace{0.2in}
+\end{framed}
+
+%\pagebreak
+
+\section*{Homework}
+\begin{framed}
 \subsubsection*{Assigned}
 \begin{todolist}
     \item Yes
     \item No
 \end{todolist}
+
+\subsubsection*{Lesson Assigned}
+\begin{description}
+    \item \uline{\hfill\null}
+    \item \uline{\hfill\null}
+\end{description}
 
 \subsubsection*{Collected}
 \begin{todolist}
@@ -198,17 +226,43 @@
     \item No
 \end{todolist}
 
+\subsubsection*{Lesson Collected}
 \begin{description}
-    \item[Location of Collected Work] \uline{\hfill\null}
-    \item[Number Collected] \uline{\hfill\null}
-    \item[Number Requesting Delay] \uline{\hfill\null}
-    \item[Delay Response] \textit{I am not at liberty to allow a delay on homework turn ins; you need to discuss that with your usual instructor when they return.}
-    \item[Ratio \scriptsize{($absent/present$})] \uline{\hfill\null}
+    \item \uline{\hfill\null}
+    \item \uline{\hfill\null}
 \end{description}
 
 
+\subsubsection*{Collection Notes}
+\begin{description}
+    \item[\small{Location of Collected Work}] \uline{\hfill\null}
+    \item[\small{Number Collected}] \uline{\hfill\null}
+    \item[\small{Number Requesting Delay}] \uline{\hfill\null}
+    \item[\small{Ratio} \scriptsize{($absent/present$})] \uline{\hfill\null}
+\end{description}
+\vspace{0.2in}
+\small{\textbf{Standard Request Response}} \\
+\textit{\footnotesize{I am not at liberty to allow a delay on homework turn ins; you need to discuss that with your usual instructor when they return.}}
 
+\vspace{0.2in}
 
+\end{framed}
+
+\vspace{0.25in}
+
+\subsection*{Summary Notes}
+\begin{framed}
+\begin{description}
+    \item \uline{\hfill\null}
+    \item \uline{\hfill\null}
+    \item \uline{\hfill\null}
+\end{description}
+\vspace{0.2in}
+\end{framed}
+\vspace{0.2in}
+
+\faPencil{ \textbf{Signature}} \uline{\hfill\null} \\
+\faClockO{ \textbf{DateTime}} \uline{\hfill\null}
 %\end{multicols}
 
 

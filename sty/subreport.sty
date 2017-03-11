@@ -1,0 +1,51 @@
+\ProvidesPackage{subreport}
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[none]{hyphenat}
+
+\RequirePackage{enumitem}
+\setlist{nosep}
+\RequirePackage[parskip]{parfill}
+
+
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage{tikz}
+\RequirePackage{stmaryrd}
+
+
+
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{fullpage}
+\RequirePackage{framed}
+
+
+%%% HEADER
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{lastpage}
+\setlength{\headheight}{25.2pt}
+\setlength{\headsep}{0.4in}
+\fancyhead{}
+\chead{\title}
+\lhead{\author}
+\rhead{\date}
+\fancyfoot{}
+\rfoot{Page \thepage/\pageref{LastPage}}
+\lfoot{\versioninfo}
+
+%%% ENDHEADER
+
+
+\usepackage{metadata} 	% Combined glossary and index
+
+\usepackage{endmatter}
+
+
+
+
+
+
