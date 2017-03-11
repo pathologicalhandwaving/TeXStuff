@@ -1,0 +1,45 @@
+% This is an example document accompanying "LaTeX for Administrative Work"
+% See www.dickimaw-books.com/latex/admin/ for the book details,
+% including licence.
+%
+% arara: pdflatex
+\documentclass[a4paper]{article}
+
+% fonts and encodings
+%\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[cutmark]{ticket}
+\usepackage[margin=5mm]{geometry}
+\usepackage{graphicx}
+\usepackage{datatool}
+
+\DTLloaddb{people}{people.csv}
+
+\setlength{\unitlength}{1mm}
+\ticketNumbers{2}{3}
+\ticketSize{98}{90}
+\ticketDistance{4}{4}
+
+\renewcommand*{\ticketdefault}{%
+ \put (80,82) {\includegraphics[width=12mm]{dummy-logo}}%
+ \put (5,85) {\large\bfseries Secret Lab of Experimental Stuff}
+ \put (5,75) {\large\scshape University of Somewhere}
+ \put (45,30) {\makebox(0,0){\Large\itshape Culinary Experimental Research}}
+}
+
+\newcommand*{\myticket}[1]{%
+  \ticket
+  {
+    \put (45,50) {\makebox(0,0) {\Large\bfseries #1}}
+  }%
+}
+
+\begin{document}
+
+\DTLforeach*{people}% database name
+ {\Forename=forenames,\Surname=surname}% assignment
+ {\myticket{\Forename\ \Surname}}% loop body 
+
+\end{document}

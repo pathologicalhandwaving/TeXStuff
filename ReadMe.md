@@ -3,6 +3,7 @@
 .
 ├── Archive
 ├── Class-Files
+├── Commands
 ├── Documentation
 ├── Downloads
 ├── Examples
@@ -11,12 +12,17 @@
 ├── Macros
 ├── MyDocumentation
 ├── Notes
+├── ReadMe.md
 ├── Style-Files
 ├── TeXMaker
 └── Templates
 
+***
+
+
 * Archive: Old files and templates unsorted
 * Class-Files
+* Commands: Usage commands and options
 * Documentation
 * Downloads: Downloaded templates
 * Examples: Example usage
