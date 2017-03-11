@@ -1,2 +1,0 @@
-# PHWiki
-Dokuwiki gitbacked wiki
