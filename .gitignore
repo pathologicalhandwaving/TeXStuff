@@ -1,4 +1,5 @@
 *.tex.bak
+*.sty.bak
 *.dvi
 *.log
 *.out
