@@ -1,0 +1,49 @@
+%adapted from a friend's version of one of the card templates here:
+%https://schneider.ncifcrf.gov/latex.html
+%via help from kaste in #latex on freenode
+%compile with (used texmaker)
+%xelatex -synctex=1 -interaction=nonstopmode %.tex|evince %.pdf
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage[mmddyy]{datetime}
+\usepackage[top=0.0in, bottom=0.0in, left=0.0in, right=0.0in]{geometry}
+\usepackage{fontspec}
+\usepackage{fontawesome}
+
+\pagestyle{empty} % removes page numbers
+\setlength{\unitlength}{1in}
+\newcommand{\bcard}[1]{
+\begin{picture}(8.5,11)(0.0,0.0) % revised for 5 vertical per page
+
+  % vertical cut marks for paper shear
+  \multiput(0.75,0)(3.5,0){3}{
+	\put (0, 0.15){\line(0,1){0.25}}
+	\put (0, 0.15){\line(0,1){10.25}} %comment out for production
+	\put (0, 10.6){\line(0,1){0.25}}
+  }
+  % horizontal cut marks for paper shear
+  \multiput(0,0.5)(0,2){6}{
+	\put (0.25, 0){\line(1,0){0.25}}
+	\put (8, 0){\line(1,0){0.25}}
+  }
+
+  % horizontal (x) motion
+  \multiput(0.75,0)(3.5,0.0){2}{
+     % vertical (y) motion
+     \multiput(0,0)(0.0,2.00){5}{% no whitespace here or the boxes shift right
+        \makebox(3.5,3.00){
+           \shortstack[l]{%
+             \fbox{#1} %remove \fbox{} for production
+           } % end shortstack
+        } % end makebox
+     } % end multiput
+  } % end multiput
+\end{picture}
+}
+\begin{document}
+\noindent
+\bcard{\input{guts.tex}}
+\pagebreak
+\noindent
+\bcard{\input{guts2.tex}}%necessary to prevent new page
+\end{document}

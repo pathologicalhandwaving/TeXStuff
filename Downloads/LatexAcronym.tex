@@ -1,0 +1,33 @@
+% Na pasta onde ficam os arquivos do Modelo TCC do Eduardo, encontre
+% o arquivo ifc.sty e logo abaixo dos '\usepackages' acrescente os seguinte códigos.
+
+\let\su@ExpandTwoArgs\relax 
+\let\IfSubStringInString\relax 
+\let\su@IfSubStringInString\relax 
+
+\usepackage[nomain,acronym,xindy,toc]{glossaries}
+
+% No mesmo diretório abra o arquivo TCC-IFC.tex abaixo da linha onde 
+% encontra-se o '\data{2015}' acrescente os seguintes códigos
+
+\makeglossaries
+
+\newacronym{RBC}{RBC}{Raciocínio Baseado em Casos} % exemplo de sigla
+\newacronym{IA}{IA}{Inteligência Artifial}         % exemplo e sigla
+
+% Feito isso, dentro do bloco '\begin{document}' abaixo do comando '\listoftables' acrescente
+\printglossary[title=Lista de Siglas, type=\acronymtype]
+
+% Para usar a sigla no trabalho, analise as seguintes opções, sendo que
+% abaixo está representado da sequinte forma \comando => saída
+\acrfull{RBC} => Racícionio Baseado em Casos (RBC)  
+\acrshort{RBC} => RBC
+\acrlong{RBC} => Racíocinio Baseado em Casos
+
+% Depois disso, no terminal, entre na pasta do Modelo TCC do Eduardo
+% e execute o seguinte comando
+latex TCC-IFC.tex
+makeglossaries TCC-IFC.acn
+latex TCC-IFC.tex
+
+% E para finalizar vá até a sua IDE favorita (no meu caso TexMaker) e compile o projeto.
