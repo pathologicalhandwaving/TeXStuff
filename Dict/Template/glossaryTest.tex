@@ -1,0 +1,49 @@
+\documentclass{article}
+
+% Usually hyperref must be loaded last
+% But hyperref must be loaded BEFORE glossaries
+\usepackage[colorlinks]{hyperref}
+%\usepackage{glossaries}
+\usepackage{glossaries-extra}
+% No need to load glossaries if using glossaries-extra
+% But glossaries must be installed to use extra
+% By default glossaries uses makeindex
+% By default glossaries-extra loads in the toc
+% If you don't want that use option toc=false
+% glossary objects should be loaded in the preamble but this is not a good place to put things
+% load them from a separate file by using \loadglsentries{filename}
+\loadglsentries{glossentries}
+
+
+\usepackage{glossaries-extra}
+
+\begin{document}
+
+\section*{Glossary}
+
+% \entryname is defined to be the word "Notation"
+% if you run and it shows up everything is installed correctly
+\entryname
+
+First character lowercase gls \\
+\gls{algebra}
+
+First character uppercase Gls \\
+\Gls{algebra}
+
+All caps GLS \\
+\GLS{algebra}
+
+Plural form glspl \\
+\glspl{algebra}
+
+Uppercase first character plural form Glspl \\
+\Glspl{algebra}
+
+All caps plural form GLSpl \\
+\GLSpl{algebra}
+
+
+\gls{gerunds}
+\end{document}
+

@@ -1,0 +1,136 @@
+\documentclass[10pt]{article}
+%\usepackage[landscape,showframe]{geometry}
+%\usepackage{pdflscape}
+
+\usepackage[none]{hyphenat}
+\usepackage{enumitem}
+\setlist{nosep}
+
+\setlength{\voffset}{-0.75in}
+\setlength{\headsep}{0pt}
+
+%-----------------------------
+\usepackage{multicol}
+\setlength{\columnseprule}{0.25pt}\def\columnseprulecolor{\color{black}}
+
+\usepackage{fullpage}
+\usepackage[parfill]{parskip}
+\usepackage{framed}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\usepackage{enumerate}
+\usepackage{verbatim}
+
+
+\usepackage[colorinlistoftodos]{todonotes}
+\newcommand{\addref}[1]{\todo[color=red,backgroundcolor=red!50,linecolor=red,size=\tiny]{\textbf{Add Reference:} #1}}
+\newcommand{\term}[1]{\todo[color=blue,backgroundcolor=blue!50,linecolor=blue,size=\tiny]{\textbf{Concept:} #1}}
+
+
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{lastpage}
+\setlength{\headsep}{25.2pt}
+\setlength{\headsep}{0.4in}
+\lhead{\textbf{CiteKey:} \texttt{Susskind2008}}
+\chead{\textbf{\textsc{Book Notes}}}
+\rhead{\textbf{Date:} \textit{20170227}}
+\lfoot{\textit{K. M. Short}}
+\rfoot{Page \thepage/\pageref{LastPage}}
+
+
+
+%% Article Information
+%
+%% Article Title
+\newcommand{\atitle}[1]{\renewcommand{\atitle}{#1}}
+%% Article Citation Key
+\newcommand{\acitation}[1]{\renewcommand{\acitation}{#1}}
+%
+%% DocumentTitle Format (Not Used)
+\newcommand{\doctitle}{\acitation\ --- ``\atitle''}
+%
+%% Date You Started Analysis
+\newcommand{\datenotesstarted}[1]{\renewcommand{\datenotesstarted}{#1}}
+%% Store the date
+\newcommand{\docdate}[1]{\renewcommand{\docdate}{#1}}
+%
+%% Store Author of Article
+\newcommand{\docauthor}[1]{\renewcommand{\docauthor}{#1}}
+%
+% Store AMS Info
+%
+%% AMS Class
+\newcommand{\amsclass}[1]{\renewcommand{\amsclass}{#1}}
+%% AMS Review
+\newcommand{\amsreview}[1]{\renewcommand{\amsreview}{#1}}
+%%% NOTE ADD:
+%\url{the web address of the review}
+%
+%% Keywords
+\newcommand{\keywords}[1]{\renewcommand{\keywords}{#1}}
+
+
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    anchorcolor=black,
+    citecolor=green,
+    linktocpage=true,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Book Notes},
+    pdfauthor={K. M. Short},
+    bookmarks=true,
+    pdfpagemode=FullScreen,
+    }
+
+
+
+\begin{document}
+
+\section*{Article Information}
+\atitle{The Black Hole War}
+\acitation{Susskind2008}
+
+	\begin{framed}
+		\begin{verbatim}
+            @book{Susskind2008,
+                title = {The Black Hole War},
+                author = {Leonard Susskind},
+                month = {July},
+                year = {2008},
+                edition = {1st},
+                isbn = {978-0-316-01640-7},
+                callnumber = {QC174.12.S896 2008},
+                key = {Susskind2008},
+                keywords = {quantum theory, general relativity, physics, 
+                black holes, astronomy, space and time},
+                publisher = {Little Brown Company and Hachette Book Group},
+                address = {237 Park Avenue, New York, NY 10017},
+            }
+		\end{verbatim}
+	\end{framed}
+
+
+\begin{multicols}{2}
+
+\section*{Notes}
+
+
+%% BIBLIOGRAPHY
+\bibliographystyle{alpha}
+\nocite{*}
+\bibliography{/Users/Em/BibTeX/BibTeX-Files/Susskind2008}
+
+\end{multicols}
+
+
+\end{document}
