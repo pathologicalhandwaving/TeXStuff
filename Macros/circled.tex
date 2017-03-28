@@ -1,0 +1,24 @@
+
+\documentclass{article}
+
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\usepackage{enumitem}
+
+\begin{document}
+
+
+Numbers aligned with the text:  \circled{1} \circled{2} \circled{3} end.
+
+
+\begin{enumerate}[label=\protect\circled{\arabic*}]
+\item First item
+\item Second item
+\item Third item
+\item Fourth item
+\end{enumerate}
+
+
+\end{document}
+
