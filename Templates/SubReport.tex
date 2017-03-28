@@ -4,8 +4,11 @@
 %\usepackage{pdflscape}
 
 \usepackage[none]{hyphenat}
-\usepackage{enumitem}
-\setlist{nosep}
+%\usepackage{enumitem}
+%\setlist{nosep}
+%\setlist[enumerate]{itemsep=3pt,topsep=3pt}
+%\setlist[enumerate,1]{label=(\roman*)}
+
 
 \setlength{\voffset}{-0.75in}
 \setlength{\headsep}{0pt}
@@ -22,6 +25,18 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes}
+
+% For Boxed Strings
+\newcommand{\boxword}[1]{%
+  \tikz[baseline=(char.base)]\node[anchor=south west, draw,rectangle, rounded corners, inner sep=2pt, minimum size=7mm,text height=2mm](char){\ensuremath{#1}} ;}
+
+% For Circled Numbers
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=1pt,] (char) {#1};}}
+
+
 \usepackage{enumerate}
 \usepackage{verbatim}
 
@@ -30,19 +45,20 @@
 \setlength{\headheight}{26pt} 
 \pagestyle{fancy}
 \usepackage{lastpage}
-\setlength{\headsep}{24.0pt}
-%\setlength{\headsep}{0.4in}
-\lhead{}
-\chead{\textbf{\textsl{Substitute Report}}}
-\lhead{\textbf{Date:} March 10, 2017 }
-\rhead{\textbf{Instructor:} \textit{B. Hough}}
-\rfoot{\textit{K. M. Short}}
-\rfoot{Page \thepage/\pageref{LastPage}}
+%\setlength{\headsep}{24.0pt}
+\setlength{\headsep}{0.4in}
+%\lhead{\textbf{Date:} }
+\chead{\textbf{Substitute Report}}
+\lfoot{ \textit{K. M. Short}}
+%\rhead{}
+%\lfoot{}
+\cfoot{Page \thepage/\pageref{LastPage}}
 
 
+
+\usepackage{enumitem}
 
 % Check List Spec
-\usepackage{enumitem}
 \newlist{todolist}{itemize}{2}
 \setlist[todolist]{label=$\square$}
 
@@ -70,7 +86,7 @@
 
 \usepackage{url}
 \usepackage{hyperref}
-\hypersetup{
+\hypersetup{%
     colorlinks=true,
     linkcolor=blue,
     anchorcolor=black,
@@ -82,7 +98,9 @@
 }
 
 % Blank Underline of Adjustible length
-%$\rule{1cm}{0.15mm}$
+\newcommand{\aruler}{$\rule{1cm}{0.15mm}$}
+%Blank Lines to Margin
+\newcommand{\rulers}{\uline{\hfill\null }}
 
 \begin{document}
 
@@ -93,9 +111,11 @@
 \large{\textit{\textbf{Kristi M. Short}}}
 \end{center}
 
-\faEnvelope{ kmshort@protonmail.com} \\
-\faPhone{  (707) 590 -- 4843} \\
-\faGithub{  pathologicalhandwaving} 
+\faEnvelope{ kmshort@protonmail.com } \\
+\faPhone{ (707) 590 -- 4843 } \\
+\faGithub{ pathologicalhandwaving } \\
+\faGe{ \url{pathologicalhandwaving.github.io} } \\
+
 \begin{center}
 \faQuestionCircleO{ \textbf{Questions or Comments?}}
 \end{center}
@@ -110,18 +130,20 @@
 
 
 \begin{framed}
-\faInstitution{ \textbf{School:} Columbia High School } \\
-\faUser{ \textbf{Instructor:} B. Hough} \\
-\faEmpire{ \textbf{Subject:} Geometry} \\
-\faSortNumericDesc{ \textbf{Grade:} 9 -- 12} \\
-\faBell{ \textbf{Time:} 12:00 PM - 3:30 PM } 
+\faInstitution{ \textbf{School:} \rulers } \\
+\faUser{ \textbf{Instructor:} \rulers } \\
+\faEmpire{ \textbf{Subject:} \rulers } \\ 
+\faBell{ \textbf{Time:} \rulers } 
+
+
+\vspace{2mm}
+\faSortNumericDesc{ \textbf{Grades:}} \circled{\footnotesize{P}} \circled{\footnotesize{K}} \circled{1} \circled{2} \circled{3} \circled{4} \circled{5} \circled{6} \circled{7} \circled{8} \circled{9} \circled{\footnotesize{10}} \circled{\footnotesize{11}} \circled{\footnotesize{12}}
 \end{framed}
 
 \vspace{0.2in}
 
 \section*{Lesson Plan Notes}
 \begin{framed}
-%\begin{multicols}{2}
 
 \subsubsection*{Lesson Plan Provided}
 
@@ -130,119 +152,147 @@
     \item No
 \end{todolist}
 
-\subsubsection*{Lesson Plan Missing}
+\subsubsection*{Instructions Received }
 \begin{description}
-    \item[\small{Material Presented}] \uline{\hfill\null}
-    \item \uline{\hfill\null}
-    \item \uline{\hfill\null}
+    \item \rulers 
+    \item \rulers 
+    \item \rulers
+    \item \rulers
+    \item \rulers
 \end{description}
+\vspace{.25in}
 
+\end{framed}
 
-\subsubsection*{Lesson Plan Provided}
+\pagebreak
+
+\begin{framed}
+\subsubsection*{Implementation Notes}
 \begin{description}
-    \item \uline{\hfill\null}
-    \item \uline{\hfill\null}
-    \item \uline{\hfill\null}
-\end{description}
-
-
-\subsubsection*{Additional Material Covered}
-\begin{description}
-    \item \uline{\hfill\null}
-    \item \uline{\hfill\null}
+    \item \rulers
+    \item \rulers
+    \item \rulers
 \end{description}
 
 \vspace{0.2in}
 
-\subsubsection*{Student Difficulties with Material}
+\subsubsection*{Student Interactions with Material}
 \begin{description}
-    \item \uline{\hfill\null}
-    \item \uline{\hfill\null}
-    \item \uline{\hfill\null}
-\end{description}
-
-\subsubsection*{Student Acceptance of Material}
-\begin{description}
-    \item \uline{\hfill\null}
-    \item \uline{\hfill\null}
-    \item \uline{\hfill\null}
+    \item \rulers
+    \item \rulers
+    \item \rulers
 \end{description}
 \vspace{0.2in}
 
 \end{framed}
 
-\vspace{0.2in}
+\vspace{0.1in}
 
-\section*{Student Behavior \& Attendance Notes}
+\section*{Attendance Statistics}
+
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+\rule[-1ex]{0pt}{4.5ex} Period & No. Absent & Early Dismissal & Tardy & Early Dismissal & Total on Roll \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 1 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 2 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 3 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 4 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 5 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 6 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 7 &  &  &  &  &  \\ 
+\hline 
+\end{tabular} 
+
+\vspace{.1in}
+\subsection*{Absentees}
 \begin{framed}
-\subsubsection*{Attendance Statistics}
-
 \begin{description}
-    \item[\small{Number of Absentees}] \uline{\hfill\null}
-    \item[\small{Students Absent}] \uline{\hfill\null}
-    \item \uline{\hfill\null}
-    \item[\small{Ratio} \scriptsize{($absent/present$})] \uline{\hfill\null}
+    \item[\small{P1}] \rulers
+    \item[\small{P2}] \rulers
+    \item[\small{P3}] \rulers
+    \item[\small{P4}] \rulers
+    \item[\small{P5}] \rulers
+    \item[\small{P6}] \rulers
+    \item[\small{P7}] \rulers
 \end{description}
+\vspace{.1in}
+\end{framed}
 
-\subsubsection*{Overall Student Behavior}
-\begin{todolist}
-    \item Perfect
-    \item Good
-    \item Not Bad
-    \item Not That Bad
-    \item Not Good
-    \item Teenagers
-    \item Called Office
-\end{todolist}
+\section*{Student Behavior}
 
+\subsection*{Overall Student Behavior}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+\rule[-1ex]{0pt}{4.5ex} Period & Perfect & Good & Not Bad & Teenagers & Intervention \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 1 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 2 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 3 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 4 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 5 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 6 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 7 &  &  &  &  &  \\ 
+\hline 
+\end{tabular} 
+\vspace{.25in}
+
+\begin{framed}
 \subsubsection*{Behavior Notes}
 \begin{description}
-    \item \uline{\hfill\null}
-    \item \uline{\hfill\null}
+    \item \rulers
+    \item \rulers
+    \item \rulers
+    \item \rulers
 \end{description}
-
 \vspace{0.2in}
 \end{framed}
-
 %\pagebreak
 
 \section*{Homework}
 \begin{framed}
-\subsubsection*{Assigned}
+
+\section*{Work Assigned}
 \begin{todolist}
     \item Yes
     \item No
 \end{todolist}
 
-\subsubsection*{Lesson Assigned}
+\subsection*{Assigned}
 \begin{description}
-    \item \uline{\hfill\null}
-    \item \uline{\hfill\null}
+    \item \rulers
+    \item \rulers 
 \end{description}
+\vspace{.2in}
 
-\subsubsection*{Collected}
+\subsection*{Collected}
 \begin{todolist}
     \item Yes
     \item No
 \end{todolist}
 
-\subsubsection*{Lesson Collected}
-\begin{description}
-    \item \uline{\hfill\null}
-    \item \uline{\hfill\null}
-\end{description}
 
-
-\subsubsection*{Collection Notes}
+\subsection*{Collection Notes}
 \begin{description}
-    \item[\small{Location of Collected Work}] \uline{\hfill\null}
-    \item[\small{Number Collected}] \uline{\hfill\null}
-    \item[\small{Number Requesting Delay}] \uline{\hfill\null}
-    \item[\small{Ratio} \scriptsize{($absent/present$})] \uline{\hfill\null}
+    \item \rulers
+    \item \rulers
+    \item[\small{Location of Collected Work}] \rulers
 \end{description}
 \vspace{0.2in}
 \small{\textbf{Standard Request Response}} \\
-\textit{\footnotesize{I am not at liberty to allow a delay on homework turn ins; you need to discuss that with your usual instructor when they return.}}
+\textit{\footnotesize{I am not at liberty to allow a delay on homework turn ins; you need to discuss that with your instructor when they return.}}
 
 \vspace{0.2in}
 
@@ -250,20 +300,28 @@
 
 \vspace{0.25in}
 
-\subsection*{Summary Notes}
+\section*{Summary Notes}
 \begin{framed}
+\vspace{0.25in}
+
 \begin{description}
-    \item \uline{\hfill\null}
-    \item \uline{\hfill\null}
-    \item \uline{\hfill\null}
+    \item \rulers
+    \item \rulers
+    \item \rulers
+    \item \rulers
+    \item \rulers
 \end{description}
-\vspace{0.2in}
+\vspace{0.25in}
+
 \end{framed}
+
 \vspace{0.2in}
 
-\faPencil{ \textbf{Signature}} \uline{\hfill\null} \\
-\faClockO{ \textbf{DateTime}} \uline{\hfill\null}
-%\end{multicols}
+\faPencil{ \textbf{Signature}} \rulers
+
+\medskip
+
+\faClockO{ \textbf{DateTime}} \rulers
 
 
 \end{document}
