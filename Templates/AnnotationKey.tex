@@ -1,0 +1,42 @@
+\documentclass[10pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{protosem}
+\usepackage{framed}
+
+
+\usepackage{fullpage}
+\usepackage[parfill]{parskip}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\begin{document}
+\section*{Annotation Key}
+\begin{tabular}{|c|c|}
+\hline 
+\textbf{Symbol} & \textbf{Meaning} \\ 
+\hline 
+$\rule{1cm}{0.15mm}$ & Word to Look Up \\
+\hline
+\large{$\star$} & Important \\
+\hline
+\circled{?} & Question \\ 
+\hline 
+\circled{F} & Fact \\ 
+\hline 
+\circled{Q} & Quote \\ 
+\hline 
+\circled{Def} & Definition \\ 
+\hline 
+\circled{Ex} & Example \\ 
+\hline 
+\circled{F} & Fact \\
+\hline
+\textproto{\AAhe} & Important Person \\
+\hline
+\end{tabular} 
+
+
+\end{document}

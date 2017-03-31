@@ -25,23 +25,30 @@
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 
-\usepackage{palatino} % Use the Palatino font
+%\usepackage{palatino} % Use the Palatino font
 
 \usepackage{microtype} % Improves spacing
-
+\usepackage[parfill]{parskip}
+\usepackage[none]{hyphenat}
 \usepackage{multicol} % Required for splitting text into multiple columns
-
+\usepackage{fullpage}
 \usepackage[bf,sf,center]{titlesec} % Required for modifying section titles - bold, sans-serif, centered
 
 \usepackage{fancyhdr} % Required for modifying headers and footers
+\pagestyle{fancy} % Use the custom headers and footers throughout the document
+\fancyhf{}
+\setlength{\headsep}{0pt}
+\setlength{\voffset}{-0.75in}
+\setlength{\headheight}{12pt}
+\renewcommand{\headrulewidth}{1.4pt} % Rule under the header
 \fancyhead[L]{\textsf{\rightmark}} % Top left header
 \fancyhead[R]{\textsf{\leftmark}} % Top right header
-\renewcommand{\headrulewidth}{1.4pt} % Rule under the header
-\fancyfoot[C]{\textbf{\textsf{\thepage}}} % Bottom center footer
-\renewcommand{\footrulewidth}{1.4pt} % Rule under the footer
-\pagestyle{fancy} % Use the custom headers and footers throughout the document
+\fancyhead[C]{\textsf{}} % Top right header
 
-\newcommand{\entry}[4]{\markboth{#1}{#1}\textbf{#1}\ {(#2)}\ \textit{#3}\ $\bullet$\ {#4}}  % Defines the command to print each word on the page, \markboth{}{} prints the first word on the page in the top left header and the last word in the top right
+\renewcommand{\footrulewidth}{1.4pt} % Rule under the footer
+\fancyfoot[C]{\textbf{\textsf{\thepage}}} % Bottom center footer
+
+\newcommand{\entry}[4]{\markboth{#1}{#1}\textbf{#1}\ {(#2)}\ \textit{#3}\ $\bullet$\ \newline {#4}}  % Defines the command to print each word on the page, \markboth{}{} prints the first word on the page in the top left header and the last word in the top right
 
 %----------------------------------------------------------------------------------------
 
