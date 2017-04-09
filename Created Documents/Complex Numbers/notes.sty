@@ -1,0 +1,136 @@
+\ProvidesPackage{notes}
+
+\RequirePackage{enumitem}
+\setlist{nosep}
+
+\RequirePackage[none]{hyphenat}
+\RequirePackage[parfill]{parskip}
+\RequirePackage{fullpage}
+
+\RequirePackage{concrete}
+
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage{stmaryrd}
+
+\RequirePackage{tikz}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{float}
+\RequirePackage{caption}
+\RequirePackage{framed}
+
+
+
+
+
+%VERSION
+\newcounter{versionNumber}
+\makeatletter
+
+\AtEndDocument{%
+	\immediate\write\@auxout{%
+		\string\setcounter{versionNumber}{\number\value{versionNumber}}%
+	}%
+}
+
+\makeatother
+\AtBeginDocument{%
+	\stepcounter{versionNumber}
+}
+%ENDVERSION
+
+
+
+%HEADER
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\RequirePackage{lastpage}
+
+\setlength{\headheight}{15.2pt}
+\setlength{\headsep}{0.4in}
+\fancyhead{}
+\chead{\textbf{Notes:} \textsc{•} }
+\lhead{\textit{K. M. Short}}
+\rhead{\textbf{Date:} \textit{\today} }
+\fancyfoot{}
+\rfoot{Page \thepage/\pageref{LastPage}}
+\lfoot{\textbf{Version:} \theversionNumber}
+%ENDHEADER
+
+
+
+%AMSTHRM MACROS
+\theoremstyle{definition}
+\newtheorem*{defn}{Definition}
+\newtheorem*{exmp}{Example}
+\newtheorem*{cond}{Condition}
+\newtheorem*{prob}{Problem}
+\newtheorem*{exer}{Exercise}
+\newtheorem*{que}{Question}
+\newtheorem*{axi}{Axiom}
+\newtheorem*{prop}{Property}
+\newtheorem*{asu}{Assumption}
+\newtheorem*{hypo}{Hypothesis}
+
+\theoremstyle{plain}
+\newtheorem*{thm}{Theorem}
+\newtheorem*{lem}{Lemma}
+\newtheorem*{cor}{Corollary}
+\newtheorem*{pro}{Proposition}
+\newtheorem*{conj}{Conjecture}
+\newtheorem*{crit}{Criterion}
+\newtheorem*{ass}{Assertion}
+\newtheorem*{fct}{Fact}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{nota}{Notation}
+\newtheorem*{cla}{Claim}
+\newtheorem*{suu}{Summmary}
+\newtheorem*{ack}{Acknowledgement}
+\newtheorem*{case}{Case}
+\newtheorem*{con}{Conclusion}
+%% END AMSTHRM MACROS
+
+
+% FONT MACROS
+\newcommand{\mb}[1]{\mathbb{#1}}
+\newcommand{\cb}[1]{\mathcal{#1}}
+\newcommand{\fr}[1]{\mathfrak{#1}}
+\newcommand{\rb}[1]{\mathrm{#1}}
+\newcommand{\ib}[1]{\mathit{#1}}
+\newcommand{\fb}[1]{\mathbf{#1}}
+\newcommand{\se}[1]{\mathsf{#1}}
+\newcommand{\tb}[1]{\mathtt{#1}}
+%END FONT MACROS
+
+%% MATH MACROS
+
+% Integral
+\newcommand{\intx}[2][x]{\int#2, \text{d}#1}
+
+% Vector
+\newcommand{\xvec}[2]{x_{#1},\ldots, x_{#2}}
+
+% Hats
+\newcommand{\conjugate}[1]{\bar{#1}}
+\newcommand{\mean}[1]{\bar{#1}}
+
+% HYPERREF
+\RequirePackage{url}
+\RequirePackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    anchorcolor=black,
+    citecolor=green,
+    linktocpage=true,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Notes: • },
+    pdfauthor={K. M. Short},
+}
+
