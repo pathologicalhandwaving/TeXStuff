@@ -1,18 +1,32 @@
 \documentclass[10pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{tcolorbox}
-\tcbuselibrary{most,documentation}
+\usepackage{amssymb} %maths
+\usepackage{amsmath} %maths
+\usepackage{amsthm}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{concrete}
+
+\newcommand{\rb}{\mathbb{R}e(z)}
+\newcommand{\ib}{\mathbb{I}m(z)}
 
 
-\newtcolorbox{flashbx}[2][]{colback=white, colbacktitle=white, colframe=black, coltitle=black, fonttitle={\large\bfseries},title={#2}, halign=flush left, valign=top, width=12.7cm,height=7.62cm,before=, after=\hfill , sharp corners, after title={\hfill\footnotesize\colorbox{black!30!white}{Deck Name}}, #1}
-\begin{document}
-\begin{flashbx}{Flashcard Example}
-This is a flash card made with the tcolorbox package
+\usepackage[utf8]{inputenc}\begin{document}
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}
+\draw [->] (0,0) -- (0,4) node[left]{$ \ib $};
+\draw [<-] (0,-4) -- (0,0);
+\draw [<-] (-4,0) -- (0,0);
+\draw [->] (0,0) -- (4,0) node[below]{$ \rb $};
+\draw [blue!80,thick,->] (0,0) -- (1,2) node[left,midway]{$ w $};
+\draw [blue!80,thick,->] (0,0) -- (-1,-2) node[left,midway]{$ w' $};
+\draw [purple!50,thick,->] (0,0) -- (1,-1) node[right]{$ u = z - w $};
+\draw [red!80,thick,->] (0,0) --(2,1) node[below,midway]{$ z $};
+\draw [purple!50,thick] (-1,-2) -- (1,-1);
+\draw [purple!50,thick] (2,1) -- (1,-1);
+\end{tikzpicture}
+\caption{Subtraction over Complex Numbers}
+\end{center}
+\end{figure}
 
-
-Not really satisfied with this result at all
-
-
-meh ...
-\end{flashbx}
 \end{document}

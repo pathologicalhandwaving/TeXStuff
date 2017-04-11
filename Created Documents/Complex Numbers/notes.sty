@@ -13,10 +13,12 @@
 
 \RequirePackage{amsmath}
 \RequirePackage{amsthm}
-\RequirePackage{amssymb}
+\RequirePackage{amssymb}\usepackage{pgfplots}
+
 \RequirePackage{stmaryrd}
 
 \RequirePackage{tikz}
+
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
 \RequirePackage{float}
@@ -53,12 +55,13 @@
 \setlength{\headheight}{15.2pt}
 \setlength{\headsep}{0.4in}
 \fancyhead{}
-\chead{\textbf{Notes:} \textsc{Trigonometry with Complex Numbers} }
+\chead{\textsc{Trigonometry with Complex Numbers} }
 \lhead{\textit{K. M. Short}}
 \rhead{\textbf{Date:} \textit{\today} }
 \fancyfoot{}
 \rfoot{Page \thepage/\pageref{LastPage}}
 \lfoot{\textbf{Version:} \theversionNumber}
+\cfoot{\textsc{Notes}}
 %ENDHEADER
 
 
@@ -99,16 +102,19 @@
 
 
 % FONT MACROS
+
 \newcommand{\mb}[1]{\mathbb{#1}}
-\newcommand{\cb}[1]{\mathcal{#1}}
-\newcommand{\fr}[1]{\mathfrak{#1}}
-\newcommand{\rb}[1]{\mathrm{#1}}
-\newcommand{\ib}[1]{\mathit{#1}}
-\newcommand{\fb}[1]{\mathbf{#1}}
-\newcommand{\se}[1]{\mathsf{#1}}
-\newcommand{\tb}[1]{\mathtt{#1}}
+%\newcommand{\cb}[1]{\mathcal{#1}}
+%\newcommand{\fr}[1]{\mathfrak{#1}}
+%\newcommand{\rr}[1]{\mathrm{#1}}
+%\newcommand{\ii}[1]{\mathit{#1}}
+%\newcommand{\fb}[1]{\mathbf{#1}}
+%\newcommand{\se}[1]{\mathsf{#1}}
+%\newcommand{\tb}[1]{\mathtt{#1}}
 %END FONT MACROS
 
+%COLOR MACROS
+\newcommand{\redit}[1]{\textcolor{red}{\textit{#1}}}
 %% MATH MACROS
 
 % Integral
@@ -121,6 +127,10 @@
 \newcommand{\conjugate}[1]{\bar{#1}}
 \newcommand{\mean}[1]{\bar{#1}}
 
+% Im Re
+\newcommand{\rb}{\mathbb{R}e(z)}
+\newcommand{\ib}{\mathbb{I}m(z)}
+
 % HYPERREF
 \RequirePackage{url}
 \RequirePackage{hyperref}
@@ -132,7 +142,7 @@
     linktocpage=true,
     filecolor=magenta,      
     urlcolor=cyan,
-    pdftitle={Notes: Trigonometry with Complex Numbers},
+    pdftitle={Trigonometry with Complex Numbers},
     pdfauthor={K. M. Short},
 }
 

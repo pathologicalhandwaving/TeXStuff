@@ -1,12 +1,11 @@
-\documentclass[10pt]{article}
-
-\usepackage{notes}
-
-
-\begin{document}
-
-\section*{Topics Covered}
-\begin{outline}
+\documentclass[10pt]<<1>>article<<1>>
+\begin<<14>>tex2html_deferred<<14>>\par\end<<15>>tex2html_deferred<<15>>
+\usepackage<<2>>notes<<2>>
+\begin<<16>>tex2html_deferred<<16>>\par\end<<17>>tex2html_deferred<<17>>
+\begin<<3>>document<<3>>
+\begin<<18>>tex2html_deferred<<18>>\par\end<<19>>tex2html_deferred<<19>>
+\section*<<4>>Topics Covered<<4>>
+\begin<<5>>outline<<5>>
     \1 Algebraic Operations
     \1 Vectors
         \2 Vector Spaces
@@ -19,7 +18,7 @@
             \3 Norm Axioms
         \2 Complex Vector Spaces and Normed Vector Spaces
     \1 Complex Number Definition
-    \1 Complex Number Operations \\ Geometric and Algebraic Interpretations
+    \1 Complex Number Operations \\  Geometric and Algebraic Interpretations
         \2 Addition
         \2 Subtraction
         \2 Scalar Multiplication
@@ -31,13 +30,13 @@
         \2 Polar
         \2 Euler
     \1 Proof Simplifications
-        \2 $\cos{(\alpha, \beta)}$
-        \2 $\sin{(\alpha, \beta)}$
+        \2 \begin<<10>>tex2html_wrap_inline<<10>>$\cos<<6>>(\alpha, \beta)<<6>>$\end<<11>>tex2html_wrap_inline<<11>>
+        \2 \begin<<12>>tex2html_wrap_inline<<12>>$\sin<<7>>(\alpha, \beta)<<7>>$\end<<13>>tex2html_wrap_inline<<13>>
     \1 Solutions
         \2 What does a solution for a function containing imaginary roots mean?
             \3 What would it look like?
         \2 Cubic Solutions
     \1 Rotations
-\end{outline}
-
-\end{document}
+\end<<8>>outline<<8>>
+\begin<<20>>tex2html_deferred<<20>>\par\end<<21>>tex2html_deferred<<21>>
+\end<<9>>document<<9>>
