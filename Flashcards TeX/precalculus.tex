@@ -1,0 +1,148 @@
+\documentclass[fronts,frame,grid,avery5388]{flashcards}
+
+\usepackage{concmath}
+\usepackage[T1]{fontenc}
+
+\cardfrontstyle[\scshape]{plain}
+\cardfrontheadstyle[\small\scshape]{center}
+%\cardfronthead{Precalculus}
+%\cardbackstyle{empty}
+\cardfrontfootstyle[\small\bfseries]{right}
+\cardfrontfoot{Precalculus}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{datetime}
+
+\begin{document}
+
+
+\begin{flashcard}[Formula]{quadratic formula}
+\vspace*{\stretch{1}}
+The solutions or roots of the quadratic equation \\
+$ax^2 + bx + c = 0$ are given by
+\begin{equation*}
+x = \dfrac{-b\pm \sqrt{b^2-4ac}}{2a}
+\end{equation*}
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+\begin{flashcard}[Definition]{absolute value}
+\vspace*{\stretch{1}}
+\begin{equation*}
+|x| = \left\{ \begin{array}{ll}
+x & \: x \geq 0 \\
+-x & \: x < 0
+\end{array} \right.
+\end{equation*}
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+\begin{flashcard}[Theorem]{properties of absolute values}
+\vspace*{\stretch{1}}
+\begin{enumerate}
+\item $|ab| = |a||b|$
+\item $\left| \dfrac{a}{b} \right| = \dfrac{|a|}{|b|}$
+\item $|a+b| \leq |a| + |b|$
+\item $|a-b| \geq ||a| - |b||$
+\end{enumerate}
+
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+
+\begin{flashcard}[Definition]{equation of a line in various forms}
+\vspace*{\stretch{1}}
+\begin{tabular}{cc}
+Form & Equation\\ \hline
+\\
+point--slope &  $y - y_{1} = m(x - x_{1})$\\
+\\ 
+slope--intercept &  $y = mx + b$\\
+\\
+two point &  $y - y_{1} = \dfrac{y_{2} - y_{1}}{x_{2}- x_{1}}(x - x_{1})$\\ 
+\\
+standard &  $Ax + By + C = 0$\\ 
+\end{tabular} 
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+\begin{flashcard}[Definition]{equation of a circle}
+\vspace*{\stretch{1}}
+The equation of a circle centered at $(h,k)$
+with radius $r$ is:
+\begin{equation*}
+(x-h)^{2} + (y-k)^{2} = r^{2}
+\end{equation*}
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+\begin{flashcard}[Definition]{$\sin, \cos, \tan$}
+\vspace*{\stretch{1}}
+\setlength{\unitlength}{0.5cm}
+\begin{picture}(6,3)
+\thicklines
+% draw 3-4-5 triangle
+\put(2,0){\line(1,0){4}}
+\put(6,0){\line(0,1){3}}
+\put(2,0){\line(4,3){4}}
+% draw box in lower right-hand corner
+\put(5.6,0){\line(0,1){0.4}}
+\put(6,0.4){\line(-1,0){0.4}}
+% label sides of triangle
+\put(6.2,1.3){opp}
+\put(3.7,-0.7){adj}
+\put(3.2,1.9){hyp}
+\put(2.8,.1){$\theta$}
+% explanatory text
+\put(9,3.5){$\sin \theta = \dfrac{\text{opp}}{\text{hyp}}$}
+\put(9,1.5){$\cos \theta = \dfrac{\text{adj}}{\text{hyp}}$}
+\put(9,-0.5){$\tan \theta = \dfrac{\text{opp}}{\text{adj}}$}
+\end{picture}
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+\begin{flashcard}[Definition]{$\sec, \csc, \tan, \cot$}
+\vspace*{\stretch{1}}
+\begin{center}
+\begin{tabular}{cc}
+$\sec \theta = \dfrac{1}{\cos \theta}$ &
+$\csc \theta = \dfrac{1}{\sin \theta}$\\
+ & \\
+ & \\
+$\tan \theta = \dfrac{\sin \theta}{\cos \theta}$ &
+$\cot \theta = \dfrac{\cos \theta}{\sin \theta}$\\
+\end{tabular} 
+\end{center}
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+\begin{flashcard}[Definition]{midpoint formula}
+\vspace*{\stretch{1}}
+If $P(x_{1}, y_{1})$ and $Q(x_{2}, y_{2})$ are two points, then 
+the midpoint of the line segment that joins these two points
+is given by:
+\begin{equation*}
+\left( \dfrac{x_{1}+x_{2}}{2}, \dfrac{y_{1}+y_{2}}{2}\right) 
+\end{equation*}
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+\begin{flashcard}[Definition]{function}
+\vspace*{\stretch{1}}
+A \textbf{function} is a mapping that associates with each object $x$ in one
+set, which we call the \textbf{domain}, a single value $f(x)$ from a second set
+which we call the \textbf{range}.
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+\begin{flashcard}[Definition]{even and odd functions}
+\vspace*{\stretch{1}}
+\begin{tabular}{ccc}
+\textbf{even} & $f(-x) = f(x) \quad \text{ for all } x$ & e.g. $x^{2}, \cos(x)$\\
+\\
+\textbf{odd} & $f(-x) =  -f(x) \quad \text{ for all } x$ & e.g. $x, \sin(x)$\\
+\end{tabular} 
+\vspace*{\stretch{1}}
+\end{flashcard}
+
+\end{document}
