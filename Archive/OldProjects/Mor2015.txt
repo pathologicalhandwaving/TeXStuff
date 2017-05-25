@@ -1,9 +1,0 @@
-@incollection{Mor2015,
-  title={Topology-Hiding Computation},
-  author={Moran, Tal and Orlov, Ilan and Richelson, Silas},
-  booktitle={Theory of Cryptography},
-  pages={159--181},
-  year={2015},
-  publisher={Springer}
-  abstract={Secure Multi-party Computation (MPC) is one of the foundational achievements of modern cryptography, allowing multiple, distrusting, parties to jointly compute a function of their inputs, while revealing nothing but the output of the function. Following the seminal works of Yao and Goldreich, Micali and Wigderson and Ben-Or, Goldwasser and Wigderson, the study of MPC has expanded to consider a wide variety of questions, including variants in the attack model, underlying assumptions, complexity and composability of the resulting protocols.One question that appears to have received very little attention, however, is that of MPC over an underlying communication network whose structure is, in itself, sensitive information. This question, in addition to being of pure theoretical interest, arises naturally in many contexts: designing privacy-preserving social-networks, private peer-to-peer computations, vehicle-to-vehicle networks and the “internet of things” are some of the examples.In this paper, we initiate the study of “topology-hiding computation” in the computational setting. We give formal definitions in both simulation-based and indistinguishability-based flavors. We show that, even for fail-stop adversaries, there are some strong impossibility results. Despite this, we show that protocols for topology-hiding computation can be constructed in the semi-honest and fail-stop models, if we somewhat restrict the set of nodes the adversary may corrupt.}
-}

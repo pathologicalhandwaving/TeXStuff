@@ -1,7 +1,0 @@
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{subfiles}[2002/06/08 Federico Garcia]
-\DeclareOption*{\PackageWarning{\CurrentOption ignored}}
-\ProcessOptions
-\RequiresPackage{verbatim}
-\newcommand{\skip@preamble}{\let\document\relax\let\enddocument\relax\newenvironment{document}{}{}\renewcommand\subfile[1]{\begingroup\skip@preamble\input{#1}\endgroup}
-\endinput
