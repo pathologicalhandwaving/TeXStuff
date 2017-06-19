@@ -1,2 +1,0 @@
-# latexrefcard
-Latex RefCard class
