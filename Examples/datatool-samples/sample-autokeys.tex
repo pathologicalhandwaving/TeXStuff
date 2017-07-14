@@ -1,0 +1,12 @@
+\documentclass{article}
+
+\usepackage{color}
+\usepackage{datatool}
+
+\begin{document}
+\DTLloadrawdb[autokeys]{data}{sample-autokeys-data.csv}
+
+\DTLdisplaydb{data}
+
+
+\end{document}
