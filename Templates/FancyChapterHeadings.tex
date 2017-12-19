@@ -1,0 +1,68 @@
+%%% FANCY CHAPTER HEADINGS 
+
+
+\documentclass[svgnames]{report}
+
+
+\usepackage{tikz}
+
+\usepackage{verbatim}
+
+
+
+
+\usepackage{kpfonts}
+
+\usepackage[explicit]{titlesec}
+
+
+%%% CHAPTER LABEL COMMAND
+\newcommand*\chapterlabel{}
+\titleformat{\chapter}
+  {\gdef\chapterlabel{}
+   \normalfont\sffamily\Huge\bfseries\scshape}
+  {\gdef\chapterlabel{\thechapter\ }}{0pt}
+  {\begin{tikzpicture}[remember picture,overlay]
+    \node[yshift=-3cm] at (current page.north west)
+      {\begin{tikzpicture}[remember picture, overlay]
+        \draw[fill=LightSkyBlue] (0,0) rectangle
+          (\paperwidth,3cm);
+        \node[anchor=east,xshift=.9\paperwidth,rectangle,
+              rounded corners=20pt,inner sep=11pt,
+              fill=MidnightBlue]
+              {\color{white}\chapterlabel#1};
+       \end{tikzpicture}
+      };
+   \end{tikzpicture}
+  }
+%%% END NEW COMMAND
+
+\titlespacing*{\chapter}{0pt}{50pt}{-60pt}
+
+
+%%% BEGIN DOCUMENT
+\begin{document}
+
+
+%%% TOC
+\tableofcontents
+
+
+\chapter{Introduction}
+
+Text
+
+\chapter{Main}
+
+\section{Section}
+
+Text
+
+\begin{thebibliography}{99}
+
+\bibitem{Test} test reference
+
+\end{thebibliography}
+
+
+\end{document}

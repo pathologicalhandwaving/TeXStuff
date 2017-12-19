@@ -1,0 +1,74 @@
+\documentclass[10pt]{article}
+
+\usepackage{outlines}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[parfill]{parskip}
+\usepackage{enumitem}
+\setlist{nosep}
+
+\usepackage[none]{hyphenat}
+
+%VERSION
+\newcounter{versionNumber}
+\makeatletter
+
+\AtEndDocument{%
+	\immediate\write\@auxout{%
+		\string\setcounter{versionNumber}{\number\value{versionNumber}}%
+	}%
+}
+
+\makeatother
+\AtBeginDocument{%
+	\stepcounter{versionNumber}
+}
+%ENDVERSION
+
+%HEADER
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{lastpage}
+\setlength{\headheight}{25.2pt}
+\setlength{\headsep}{0.4in}
+\fancyhead{}
+\chead{\textbf{Outline:} }
+\lhead{K. M. Short}
+\rhead{\textbf{\date} }
+\fancyfoot{}
+\cfoot{Page \thepage/\pageref{LastPage}}
+\lfoot{\textbf{Version:} \theversionNumber}
+%ENDHEADER
+
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    anchorcolor=black,
+    citecolor=green,
+    linktocpage=true,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Homework},
+    pdfauthor={K. M. Short},
+    bookmarks=true,
+    pdfpagemode=FullScreen,
+    }
+
+
+%\1 level 1
+	%\2 level 2
+		%\level 3
+			%\ level 4
+%\0 normal paragraph
+
+
+\begin{document}
+
+\begin{outline}
+
+\end{outline}
+
+\end{document}

@@ -1,0 +1,77 @@
+\documentclass[10pt]{article}
+
+\usepackage[paperheight=136mm,paperwidth=68mm,top=1mm,bottom=4mm,left=4mm,right=4mm]{geometry}
+
+\usepackage[normalem]{ulem}
+\usepackage[default]{comfortaa}
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames]{xcolor}
+
+
+%%% COLOR PALETTE: ClockworkOrange
+\definecolor{1}{HTML}{FFB300} 
+\definecolor{2}{HTML}{FF6136} 
+\definecolor{3}{HTML}{CC0052} 
+\definecolor{4}{HTML}{452C57} 
+\definecolor{5}{HTML}{006E96}
+
+
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\usepackage{enumitem}
+\setlist[description]{leftmargin=4mm}
+
+
+
+\usepackage{fontawesome}
+\DeclareFontFamily{U}{fontawesomeOne}{}
+\DeclareFontShape{U}{fontawesomeOne}{m}{n}{<-> FontAwesome--fontawesomeone}{}
+
+\DeclareRobustCommand\FAone{\fontencoding{U}\fontfamily{fontawesomeOne}\selectfont} 
+
+%\setlength{\arrayrulewidth}{0.2mm}
+%\setlength{\tabcolsep}{17pt}
+%\renewcommand{\arraystretch}{2}
+
+
+\pagestyle{empty}
+\begin{document}
+
+\vspace*{1mm}
+
+\begin{center}
+\Large\textcolor{3}{Today's List \faCheckCircle}
+\end{center}
+
+%\smallskip
+
+\begin{description}
+\item[\textcolor{1}{\faSquareO}]\textcolor{1}{\uline{\hfill\null}}
+\item[\textcolor{2}{\faSquareO}]\textcolor{2}{\uline{\hfill\null}}
+\item[\textcolor{3}{\faSquareO}]\textcolor{3}{\uline{\hfill\null}}
+\item[\textcolor{4}{\faSquareO}]\textcolor{4}{\uline{\hfill\null}}
+\item[\textcolor{5}{\faSquareO}] \textcolor{5}{\uline{\hfill\null}}
+\item[\textcolor{1}{\faSquareO}]\textcolor{1}{\uline{\hfill\null}}
+\item[\textcolor{2}{\faSquareO}]\textcolor{2}{\uline{\hfill\null}}
+\item[\textcolor{3}{\faSquareO}] \textcolor{3}{\uline{\hfill\null}}
+\item[\textcolor{4}{\faSquareO}] \textcolor{4}{\uline{\hfill\null}}
+\item[\textcolor{5}{\faSquareO}] \textcolor{5}{\uline{\hfill\null}}
+\item[\textcolor{1}{\faSquareO}] \textcolor{1}{\uline{\hfill\null}}
+\item[\textcolor{2}{\faSquareO}] \textcolor{2}{\uline{\hfill\null}}
+\item[\textcolor{3}{\faSquareO}] \textcolor{3}{\uline{\hfill\null}}
+\item[\textcolor{4}{\faSquareO}] \textcolor{4}{\uline{\hfill\null}}
+\item[\textcolor{5}{\faSquareO}] \textcolor{5}{\uline{\hfill\null}}
+\end{description}
+
+
+\begin{tikzpicture}[remember picture,overlay,shift={(current page.south west)},line cap=rect]
+
+\draw[3] (2mm,2mm) -- (66mm,2mm) -- (66mm,132mm) -- (2mm,132mm) -- cycle;
+
+\end{tikzpicture}
+
+\end{document}
+

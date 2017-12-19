@@ -1,0 +1,327 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[landscape,showframe]{geometry}
+%\usepackage{pdflscape}
+
+\usepackage[none]{hyphenat}
+%\usepackage{enumitem}
+%\setlist{nosep}
+%\setlist[enumerate]{itemsep=3pt,topsep=3pt}
+%\setlist[enumerate,1]{label=(\roman*)}
+
+
+\setlength{\voffset}{-0.75in}
+\setlength{\headsep}{0pt}
+
+%-----------------------------
+\usepackage{multicol}
+%\setlength{\columnseprule}{0.25pt}\def\columnseprulecolor{\color{black}}
+
+\usepackage{fullpage}
+\usepackage[parfill]{parskip}
+\usepackage{framed}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{shapes}
+
+% For Boxed Strings
+\newcommand{\boxword}[1]{%
+  \tikz[baseline=(char.base)]\node[anchor=south west, draw,rectangle, rounded corners, inner sep=2pt, minimum size=7mm,text height=2mm](char){\ensuremath{#1}} ;}
+
+% For Circled Numbers
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=1pt,] (char) {#1};}}
+
+
+\usepackage{enumerate}
+\usepackage{verbatim}
+
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{26pt} 
+\pagestyle{fancy}
+\usepackage{lastpage}
+%\setlength{\headsep}{24.0pt}
+\setlength{\headsep}{0.4in}
+%\lhead{\textbf{Date:} }
+\chead{\textbf{Substitute Report}}
+\lfoot{ \textit{K. M. Short}}
+%\rhead{}
+%\lfoot{}
+\cfoot{Page \thepage/\pageref{LastPage}}
+
+
+
+\usepackage{enumitem}
+
+% Check List Spec
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+
+%\begin{description}
+%
+%  \item Immediate plan of action.
+%
+%  \begin{todolist}
+%    \item List item 1 goes here.
+%    \item List item 2 goes here.
+%    \begin{todolist}
+%      \item Sublist item 1 goes here.
+%      \item Sublist item 2 goes here.
+%    \end{todolist}
+%    \item List item 3 goes here
+%    \item List item 4 goes here.
+%  \end{todolist}
+%
+%\end{description}
+
+\usepackage{fontawesome}
+
+\usepackage[normalem]{ulem}
+
+
+\usepackage{url}
+\usepackage{hyperref}
+\hypersetup{%
+    colorlinks=true,
+    linkcolor=blue,
+    anchorcolor=black,
+    citecolor=green,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Substitute Report},
+    pdfauthor={K. M. Short}
+}
+
+% Blank Underline of Adjustible length
+\newcommand{\aruler}{$\rule{1cm}{0.15mm}$}
+%Blank Lines to Margin
+\newcommand{\rulers}{\uline{\hfill\null }}
+
+\begin{document}
+
+\section*{Contact Information}
+
+\begin{framed}
+\begin{center}
+\large{\textit{\textbf{Kristi M. Short}}}
+\end{center}
+
+\faEnvelope{ kmshort@protonmail.com } \\
+\faPhone{ (707) 590 -- 4843 } \\
+\faGithub{ pathologicalhandwaving } \\
+\faGe{ \url{pathologicalhandwaving.github.io} } \\
+
+\begin{center}
+\faQuestionCircleO{ \textbf{Questions or Comments?}}
+\end{center}
+
+\textit{Feel free to contact me if you have any questions about your report, preferred (and effective) contact method is by email due to reception difficulties in the north Florida area. I hope your time away was all you hoped it would be. Thank you, and have a great day!}
+
+\end{framed}
+
+
+
+\section*{Class \& Instructor Information}
+
+
+\begin{framed}
+\faInstitution{ \textbf{School:} \rulers } \\
+\faUser{ \textbf{Instructor:} \rulers } \\
+\faEmpire{ \textbf{Subject:} \rulers } \\ 
+\faBell{ \textbf{Time:} \rulers } 
+
+
+\vspace{2mm}
+\faSortNumericDesc{ \textbf{Grades:}} \circled{\footnotesize{P}} \circled{\footnotesize{K}} \circled{1} \circled{2} \circled{3} \circled{4} \circled{5} \circled{6} \circled{7} \circled{8} \circled{9} \circled{\footnotesize{10}} \circled{\footnotesize{11}} \circled{\footnotesize{12}}
+\end{framed}
+
+\vspace{0.2in}
+
+\section*{Lesson Plan Notes}
+\begin{framed}
+
+\subsubsection*{Lesson Plan Provided}
+
+\begin{todolist}
+    \item Yes
+    \item No
+\end{todolist}
+
+\subsubsection*{Instructions Received }
+\begin{description}
+    \item \rulers 
+    \item \rulers 
+    \item \rulers
+    \item \rulers
+    \item \rulers
+\end{description}
+\vspace{.25in}
+
+\end{framed}
+
+\pagebreak
+
+\begin{framed}
+\subsubsection*{Implementation Notes}
+\begin{description}
+    \item \rulers
+    \item \rulers
+    \item \rulers
+\end{description}
+
+\vspace{0.2in}
+
+\subsubsection*{Student Interactions with Material}
+\begin{description}
+    \item \rulers
+    \item \rulers
+    \item \rulers
+\end{description}
+\vspace{0.2in}
+
+\end{framed}
+
+\vspace{0.1in}
+
+\section*{Attendance Statistics}
+
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+\rule[-1ex]{0pt}{4.5ex} Period & No. Absent & Early Dismissal & Tardy & Early Dismissal & Total on Roll \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 1 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 2 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 3 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 4 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 5 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 6 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 7 &  &  &  &  &  \\ 
+\hline 
+\end{tabular} 
+
+\vspace{.1in}
+\subsection*{Absentees}
+\begin{framed}
+\begin{description}
+    \item[\small{P1}] \rulers
+    \item[\small{P2}] \rulers
+    \item[\small{P3}] \rulers
+    \item[\small{P4}] \rulers
+    \item[\small{P5}] \rulers
+    \item[\small{P6}] \rulers
+    \item[\small{P7}] \rulers
+\end{description}
+\vspace{.1in}
+\end{framed}
+
+\section*{Student Behavior}
+
+\subsection*{Overall Student Behavior}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+\rule[-1ex]{0pt}{4.5ex} Period & Perfect & Good & Not Bad & Teenagers & Intervention \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 1 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 2 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 3 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 4 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 5 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 6 &  &  &  &  &  \\ 
+\hline 
+\rule[-1ex]{0pt}{4.5ex} 7 &  &  &  &  &  \\ 
+\hline 
+\end{tabular} 
+\vspace{.25in}
+
+\begin{framed}
+\subsubsection*{Behavior Notes}
+\begin{description}
+    \item \rulers
+    \item \rulers
+    \item \rulers
+    \item \rulers
+\end{description}
+\vspace{0.2in}
+\end{framed}
+%\pagebreak
+
+\section*{Homework}
+\begin{framed}
+
+\section*{Work Assigned}
+\begin{todolist}
+    \item Yes
+    \item No
+\end{todolist}
+
+\subsection*{Assigned}
+\begin{description}
+    \item \rulers
+    \item \rulers 
+\end{description}
+\vspace{.2in}
+
+\subsection*{Collected}
+\begin{todolist}
+    \item Yes
+    \item No
+\end{todolist}
+
+
+\subsection*{Collection Notes}
+\begin{description}
+    \item \rulers
+    \item \rulers
+    \item[\small{Location of Collected Work}] \rulers
+\end{description}
+\vspace{0.2in}
+\small{\textbf{Standard Request Response}} \\
+\textit{\footnotesize{I am not at liberty to allow a delay on homework turn ins; you need to discuss that with your instructor when they return.}}
+
+\vspace{0.2in}
+
+\end{framed}
+
+\vspace{0.25in}
+
+\section*{Summary Notes}
+\begin{framed}
+\vspace{0.25in}
+
+\begin{description}
+    \item \rulers
+    \item \rulers
+    \item \rulers
+    \item \rulers
+    \item \rulers
+\end{description}
+\vspace{0.25in}
+
+\end{framed}
+
+\vspace{0.2in}
+
+\faPencil{ \textbf{Signature}} \rulers
+
+\medskip
+
+\faClockO{ \textbf{DateTime}} \rulers
+
+
+\end{document}
