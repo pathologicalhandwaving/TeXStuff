@@ -1,0 +1,197 @@
+\documentclass{article}
+
+\usepackage[divpsnames,table]{xcolor}
+\definecolor{sgray}{HTML}{B2BEB5}
+\usepackage{wrapfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage[parfill]{parskip}
+
+\usepackage[paperheight=11in,paperwidth=8.5in,left=.25in,right=.25in,bottom=.10in,top=.10in]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault]{overlock}
+\usepackage{multicol}
+
+
+\newcommand{\sv}[1]{\ensuremath{\mathit{#1}}}
+\newcommand{\bv}[1]{\ensuremath{\bm{#1}}}
+
+\begin{document}
+
+
+\begin{center}
+\Huge \textbf{Propositional (Sentence) Logic} \\
+\vspace{7pt}
+\hrule
+\vspace{15pt}
+\end{center}
+
+%\begin{multicols}{3}
+\newcolumntype{g}{>{\columncolor{sgray}}c}
+
+\section*{True}
+
+When we say a statement \sv{p} is \textbf{True} we mean that no matter what the input value of \sv{p} is, the output is \textbf{Always True}.
+
+\subsection*{Example}
+Statement \sv{p} is true. \\
+
+\begin{table}[ht]
+\begin{tabular}{|g|c|}
+\hline
+\rowcolor{sgray}
+$\bm{p}$ & \textbf{Output} \\
+\hline \hline
+T & T \\ 
+\hline
+F & T \\
+\hline
+\end{tabular}
+\end{table}
+
+\bigskip
+
+\section*{False}
+
+When we say a statement \sv{p} is \textbf{False} we mean that no matter what the input value of \sv{p} is, the output value is \textbf{Always False}.
+
+\subsection*{Example}
+Statement \sv{p} is false. \\
+
+\begin{table}[ht]
+\begin{tabular}{|g|c|}
+\hline
+\rowcolor{sgray}
+$\bm{p}$ & \textbf{Output} \\
+\hline \hline
+T & F \\ 
+\hline
+F & F \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\section*{Logical Connectives}
+
+When we make simple statements like $\mathit{p} = $ \textit{I am Jeremie}, there is only one value. Either the person who made the statement \textit{is} Jeremie ($\mathit{p} = $ \textbf{True}), or the person is not Jeremie ($\mathit{p} = $ \textbf{False}).
+
+When we speak we don't usually talk about one thing at a time. 
+
+\subsection*{Example}
+
+You might say: \\
+\textit{Brendan and I like video games.} \\
+
+\bigskip
+The word \textbf{AND} is called a \textbf{logical connective}. Connectives are words which let you make single more complex sentences with more than one subject, instead of simple sentences with only one subject. 
+
+\medskip
+\textit{I like video games.} \\
+\textit{Brendan likes video games.} \\
+
+You could also say: \\
+\textit{I would like to eat a cheeseburger or a hamburger.} \\
+
+The connectives above are \textbf{AND} and \textbf{OR}.
+
+
+\section*{AND}
+In order to use AND you must have two subjects \\
+\textit{This AND that}. \\
+
+We will call the first subject (or statement) \sv{p} and the second statement \sv{q}. 
+
+Instead of writing AND we can just use $\wedge$. 
+
+When we connect \sv{p} and \sv{q} using AND we can only get $p \wedge q = TRUE$ if BOTH \sv{p} and \sv{q} are TRUE. 
+
+
+If either \sv{p} or \sv{q} are FALSE then $p \wedge q = FALSE$. 
+
+
+If $\bm{p} = TRUE$ \\
+AND \\ 
+$\bm{q} = TRUE$ 
+THEN \\
+$\bm{p} \wedge \bm{q} = TRUE$.
+
+\begin{table}[ht]
+\begin{tabular}{|g|c|c|}
+\hline
+\rowcolor{sgray}
+$\bm{p}$ & $\bm{q}$ & $\bm{p \wedge q}$ \\
+\hline \hline
+T & T & T \\ 
+\hline
+T & F & F \\
+\hline
+F & T & F\\
+\hline
+F & F & F \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+\section*{OR}
+
+\textit{This OR that.}
+
+We can write $\vee$ instead of OR. \\
+
+
+When we have an OR statement then only \sv{p} or \sv{q} have to be TRUE for $p \vee q = TRUE$. 
+
+
+
+\begin{table}[ht]
+\begin{tabular}{|g|c|c|}
+\hline
+\rowcolor{sgray}
+$\bm{p}$ & $\bm{q}$ & $\bm{p \wedge q}$ \\
+\hline \hline
+T & T & T \\ 
+\hline
+T & F & T \\
+\hline
+F & T & T\\
+\hline
+F & F & F \\
+\hline
+\end{tabular}
+\end{table}
+
+So if either statement is true, then the whole sentence is true. Its only when both statements are false that the whole sentence will be false when we use OR.
+
+
+
+\section*{IMPLIES (THEN)}
+
+
+IMPLIES is just a fancy word for IF THEN statements.
+
+
+
+
+
+\section*{Why Do I Need to Know This? OR Why should I Care? OR Why This is Not Scary OR Why This is Really Sweet}
+
+It might seem like you know all of this already or its obvious so you will just skim over it and consider all this trivial and so you are done. 
+
+But this topic shouldn't be skimmed. Yes it seems obvious, but when something seems obvious that is exactly the moment when you need to be careful. \\
+
+In math, ideas that seem simple are usually the most important and complex ideas. In a lot of cases in math you don't need to know the ideas behind what you are doing. But logic is not one of those topics. Logic is math in disguise, its math you use everyday from the second you wake up in the morning until you start snoring at night. Its math you do without even trying or knowing you are doing it and because its so sneaky its important to understand the basic underlying ideas. 
+
+Logic can be useful and really fun too. If for no other reason than it can frequently be used to help you win arguments with people you don't like so much or just disagree with. It can help you make decisions about silly and important things, in fact when you have ever tried to make up your mind about anything logic is what you were using even if you didn't know it. 
+
+Logic can keep you from getting scammed or cheated. It can let you know when someone is using a lot of words to impress you but not really saying anything at all, especially anything you should be impressed by! It can keep you from looking like an idiot or thinking you can actually buy the Brooklyn Bridge if someone tries to sell it to you\footnote{Fact: George C. Parker was a con-artist in the early 1900's, he was famous for selling property he did not own, or have any right to sell. He not only sold the Brooklyn Bridge to several people, he sold Grant's tomb, the Statue of Liberty, Madison Square Garden, and the Metropolitan Museum of Art. More than once police removed people who claimed to own the Brooklyn Bridge while they were trying to erect toll booths. Parker is where we get the phrase \textit{``... and if you believe that I've got a bridge to sell you.''}} It might not seem like it even the most basic parts of math you are familiar with such as adding and subtracting couldn't exist without Logic and especially logical connectives. For example, the addition operation is just another way of saying AND. \textit{two AND two is four.} In fact all of mathematics relies on the logical operations: OR, AND, NOT, IMPLIES (then), EQUALITY, and NAND. When you break down a computer program even a very large one those operators are what make everything up. Binary digits $0$ and $1$ to your computer are the values TRUE and FALSE, where $0 = FALSE$ and $1 = TRUE$. Which is a great example of how things that seem really complicated like Madden 18 are really just a bunch of simple TRUE or FALSE statements. 
+ 
+
+
+%\end{multicols}
+\end{document}
+
